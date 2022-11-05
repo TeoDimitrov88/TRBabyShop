@@ -7,16 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 using TRBabyShop.Infrastructure.Data.Models;
 
-namespace TRBabyShop.Infrastructure.Data
+namespace TRBabyShop.Infrastructure.Data.Configuration
 {
     internal class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            throw new NotImplementedException();
+            builder.HasData(CreateCategories());
         }
 
-        private List<Category> Categories()
+        private List<Category> CreateCategories()
         {
             List<Category> categories = new List<Category>()
             {
@@ -62,9 +62,9 @@ namespace TRBabyShop.Infrastructure.Data
                 Name="Bottle feeding"
             },
 
-             };
+            };
 
             return categories;
+        }
     }
-}
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TRBabyShop.Infrastructure.Data.Configuration;
 using TRBabyShop.Infrastructure.Data.Models;
 
 namespace TRBabyShop.Infrastructure.Data
@@ -25,6 +26,8 @@ namespace TRBabyShop.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ApplyConfiguration(new CategoryConfiguration());
+
             builder.Entity<UserProduct>()
                 .HasKey(u => new { u.UserId, u.ProductId });
             builder.Entity<Review>()

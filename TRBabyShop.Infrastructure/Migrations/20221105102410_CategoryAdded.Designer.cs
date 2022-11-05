@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TRBabyShop.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using TRBabyShop.Infrastructure.Data;
 namespace TRBabyShop.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221105102410_CategoryAdded")]
+    partial class CategoryAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,43 +241,6 @@ namespace TRBabyShop.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Books"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Car seats"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Bath toys"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Car Seats"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Baby cameras"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Sleep bag"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Bottle feeding"
-                        });
                 });
 
             modelBuilder.Entity("TRBabyShop.Infrastructure.Data.Models.Order", b =>

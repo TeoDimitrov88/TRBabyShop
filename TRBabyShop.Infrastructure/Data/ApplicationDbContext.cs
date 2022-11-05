@@ -27,6 +27,7 @@ namespace TRBabyShop.Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new CategoryConfiguration());
+            builder.ApplyConfiguration(new UserConfiguration());
 
             builder.Entity<UserProduct>()
                 .HasKey(u => new { u.UserId, u.ProductId });

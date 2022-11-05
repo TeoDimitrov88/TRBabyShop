@@ -14,7 +14,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
-            throw new NotImplementedException();
+            builder.HasData(CreateUsers());
         }
 
         private List<AppUser> CreateUsers()

@@ -1,0 +1,36 @@
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using TRBabyShop.Infrastructure.Data.Models;
+
+namespace TRBabyShop.Infrastructure.Data
+{
+    public class ApplicationDbContext : IdentityDbContext<AppUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Product> Products { get; set; } = null!;
+
+        public DbSet<Order> Orders { get; set; } = null!;
+
+        public DbSet<OrderDetail> OrderDetails { get; set; } = null!;
+        public DbSet<Category> Categories { get; set; } = null!;
+
+        public DbSet<Review> Reviews { get; set; } = null!;
+
+        public DbSet<UserProduct> UserProducts { get; set; } = null!;
+
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<UserProduct>()
+                .HasKey(u => new { u.UserId, u.ProductId });
+            builder.Entity<Review>()
+                .HasKey(u => new { u.UserId, u.ProductId });
+
+            base.OnModelCreating(builder);
+        }
+    }
+}

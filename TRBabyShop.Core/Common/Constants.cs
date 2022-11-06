@@ -1,9 +1,13 @@
-﻿namespace TRBabyShop.Common
+﻿namespace TRBabyShop.Core.Common
 {
     public class Constants
     {
         public const int MaxCategoryNameLength = 30;
 
         public const int MinCategoryNameLength = 4;
+
+        public const int MaxProductNameLength = 150;
+
+        public const int MinProductNameLength = 4;
     }
 }

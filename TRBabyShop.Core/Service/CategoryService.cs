@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TRBabyShop.Contracts;
+using TRBabyShop.Core.Contracts;
+using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
-using TRBabyShop.Infrastructure.Data.Models;
-using TRBabyShop.Models;
 
-namespace TRBabyShop.Service
+
+namespace TRBabyShop.Core.Service
 {
     public class CategoryService : ICategoryService
     {

@@ -14,10 +14,10 @@ namespace TRBabyShop.Infrastructure.Data.Models
         public int Id { get; set; }
 
         [Required]
-        public string CustomerId { get; set; } = null!;
+        public string UserId { get; set; } = null!;
         [Required]
-        [ForeignKey(nameof(CustomerId))]
-        public AppUser Customer { get; set; } = null!;
+        [ForeignKey(nameof(UserId))]
+        public AppUser User { get; set; } = null!;
 
         [Required]
         public DateTime OrderDate { get; set; }

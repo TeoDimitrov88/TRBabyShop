@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TRBabyShop.Contracts;
+using TRBabyShop.Core.Contracts;
 
 namespace TRBabyShop.Controllers
 {

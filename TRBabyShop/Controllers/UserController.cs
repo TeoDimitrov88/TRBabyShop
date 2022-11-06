@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data.Models;
 using TRBabyShop.Models;
 

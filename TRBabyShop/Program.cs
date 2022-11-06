@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Identity;
+
 using Microsoft.EntityFrameworkCore;
-using TRBabyShop.Contracts;
+using TRBabyShop.Core.Contracts;
+using TRBabyShop.Core.Service;
 using TRBabyShop.Infrastructure.Data;
 using TRBabyShop.Infrastructure.Data.Models;
-using TRBabyShop.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +14,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-
+builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddDefaultIdentity<AppUser>(options =>
 {

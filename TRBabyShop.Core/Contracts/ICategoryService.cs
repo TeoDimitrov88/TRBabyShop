@@ -1,7 +1,7 @@
-﻿using TRBabyShop.Infrastructure.Data.Models;
-using TRBabyShop.Models;
+﻿using TRBabyShop.Core.Models;
 
-namespace TRBabyShop.Contracts
+
+namespace TRBabyShop.Core.Contracts
 {
     public interface ICategoryService
     {

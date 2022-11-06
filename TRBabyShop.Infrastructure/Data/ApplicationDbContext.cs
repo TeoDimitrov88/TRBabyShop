@@ -23,6 +23,7 @@ namespace TRBabyShop.Infrastructure.Data
 
         public DbSet<UserProduct> UserProducts { get; set; } = null!;
 
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

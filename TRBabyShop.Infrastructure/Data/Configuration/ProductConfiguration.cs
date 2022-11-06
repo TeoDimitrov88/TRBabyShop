@@ -94,7 +94,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                     Name="Babymoov Turbo Pure Steriliser and Bottle Dryer - Blue",
                     Description="Steriliser, dryer and bottle storage in a purified environment",
                     Price= 89.99M,
-                    Image="https://cdn.shopify.com/s/files/1/0414/6023/6453/products/sassy-sassy-light-up-rainbow-reel-spinning-developmental-tray-toy-6-months-32104676753573_1024x1024@2x.jpg?v=1638282346",
+                    Image="https://cdn.shopify.com/s/files/1/0414/6023/6453/products/babymoov-babymoov-turbo-pure-steriliser-and-bottle-dryer-blue-33002899701925_1024x1024@2x.jpg?v=1656496367",
                     CategoryId=4,
                 },
 

@@ -31,5 +31,21 @@ namespace TRBabyShop.Core.Service
 
                 });
         }
+
+        public async Task<IEnumerable<ProductViewModel>> GetProductsByCategoryAsync(int categoryId)
+        {
+            var products = await dbContext.Products.ToListAsync();
+
+            return products
+                 .Where(p => p.CategoryId == categoryId)
+                 .Select(p => new ProductViewModel()
+                 {
+                     Name = p.Name,
+                     Price = p.Price,
+                     Image = p.Image,
+                     Id=p.CategoryId
+                 });
+
+        }
     }
 }

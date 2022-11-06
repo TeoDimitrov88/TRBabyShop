@@ -2,7 +2,7 @@
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
-
+using TRBabyShop.Infrastructure.Data.Models;
 
 namespace TRBabyShop.Core.Service
 {
@@ -23,9 +23,12 @@ namespace TRBabyShop.Core.Service
             return categories
                 .Select(c => new CategoryViewModel()
                 {
+                    Id= c.Id,
                     Name = c.Name
 
                 });
         }
+
+       
     }
 }

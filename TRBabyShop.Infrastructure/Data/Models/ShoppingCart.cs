@@ -21,9 +21,9 @@ namespace TRBabyShop.Infrastructure.Data.Models
         [Required]
         public int Quantity { get; set; }
 
-        public string UserId { get; set; }
+        public string UserId { get; set; } = null!;
 
         [ForeignKey(nameof(UserId))]
-        public AppUser User { get; set; }
+        public AppUser User { get; set; } = null!;
     }
 }

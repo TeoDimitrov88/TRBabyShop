@@ -15,5 +15,12 @@ namespace TRBabyShop.Controllers
             var model = await productService.GetProductAsync();
             return View(model);
         }
+
+        public async Task<IActionResult> ProductsByCategory(int categoryId)
+        {
+            var model=await productService.GetProductsByCategoryAsync(categoryId);
+
+            return View(model);
+        }
     }
 }

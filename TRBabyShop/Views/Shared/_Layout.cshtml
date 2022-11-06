@@ -21,30 +21,30 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
                     <ul class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" text-muted>Categories</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" asp-controller="Category" asp-action="All">All Categories</a>
-                            @*<a class="dropdown-item" asp-controller="Menu" asp-action="Settings">Setting</a>*@
+                            <a class="dropdown-item" asp-controller="Category" asp-action="All">All</a>@*
+                            <a class="dropdown-item" asp-controller="Category" asp-action="@cat.Name">Setting</a>*@
                         </div>
+                        <ul class="navbar-nav flex-grow-1">
+                            @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="All">Categories</a>
+                            </li>*@
+                        </ul>
                     </ul>
-                     <div>
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TR Baby Baby</a>
-                </div>
-                    </ul>
-                    @*<ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="All">Categories</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="All">Products</a>
-                    </li>
-                    </ul>*@
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="All">Products</a>
+                   
+                    <div>
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TR Baby Baby</a>
+                    </div>
+                    
                     <partial name="_LoginPartial" />
                 </div>
-               
+
             </div>
 
 

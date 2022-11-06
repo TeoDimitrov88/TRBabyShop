@@ -14,7 +14,7 @@ namespace TRBabyShop.Infrastructure.Data.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(150)]
         public string Name { get; set; } = null!;
 
         [Required]
@@ -22,6 +22,7 @@ namespace TRBabyShop.Infrastructure.Data.Models
         public string Description { get; set; } = null!;
 
         [Required]
+        
         public decimal Price { get; set; }
 
         [Required]

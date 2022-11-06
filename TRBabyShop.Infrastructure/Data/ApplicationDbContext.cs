@@ -28,6 +28,7 @@ namespace TRBabyShop.Infrastructure.Data
         {
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new ProductConfiguration());
 
             builder.Entity<UserProduct>()
                 .HasKey(u => new { u.UserId, u.ProductId });

@@ -41,7 +41,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
             new Category()
             {
                 Id=4,
-                Name="Car Seats"
+                Name="Bottle sterilizer"
             },
 
             new Category()

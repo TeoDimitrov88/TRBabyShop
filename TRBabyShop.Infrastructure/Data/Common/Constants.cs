@@ -17,5 +17,7 @@ namespace TRBabyShop.Infrastructure.Data.Common
 
         public const int MinEmailLength = 10;
         public const int MaxEmailLength = 60;
+
+       
     }
 }

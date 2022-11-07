@@ -23,12 +23,10 @@ namespace TRBabyShop.Core.Service
             return categories
                 .Select(c => new CategoryViewModel()
                 {
-                    Id= c.Id,
+                    Id = c.Id,
                     Name = c.Name
 
                 });
         }
-
-       
     }
 }

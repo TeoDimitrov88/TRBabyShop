@@ -2,6 +2,7 @@
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
+using TRBabyShop.Infrastructure.Data.Models;
 
 namespace TRBabyShop.Core.Service
 {
@@ -32,6 +33,24 @@ namespace TRBabyShop.Core.Service
                 });
         }
 
+        public async Task<IEnumerable<Category>> GetCategoriesAsync()
+        {
+            return await dbContext.Categories.ToListAsync();
+        }
+        //public async Task<IEnumerable<ProductViewModel>> GetCategoriesAsync()
+        //{
+        //    var categories = await dbContext.Products
+        //        .ToListAsync();
+
+        //    return categories
+        //        .Select(c => new ProductViewModel()
+        //        {
+        //            CategoryId =c.CategoryId,
+        //            Category = c.Category
+
+        //        });
+        //}
+
         public async Task<IEnumerable<ProductViewModel>> GetProductsByCategoryAsync(int categoryId)
         {
             var products = await dbContext.Products.ToListAsync();
@@ -46,6 +65,21 @@ namespace TRBabyShop.Core.Service
                      Id=p.CategoryId
                  });
 
+        }
+
+        public async Task AddProductAsync(AddProductViewModel model)
+        {
+            var newProduct = new Product()
+            {
+                Name= model.Name,
+                Price=model.Price,
+                Description=model.Description,
+                Image=model.Image,
+                CategoryId=model.CategoryId
+            };
+
+            await dbContext.Products.AddAsync(newProduct);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

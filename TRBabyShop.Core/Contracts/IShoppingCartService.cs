@@ -8,5 +8,6 @@ namespace TRBabyShop.Core.Contracts
 {
     public interface IShoppingCartService
     {
+
     }
 }

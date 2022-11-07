@@ -1,5 +1,5 @@
 ﻿using TRBabyShop.Core.Models;
-
+using TRBabyShop.Infrastructure.Data.Models;
 
 namespace TRBabyShop.Core.Contracts
 {

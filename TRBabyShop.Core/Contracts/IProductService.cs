@@ -11,5 +11,11 @@ namespace TRBabyShop.Core.Contracts
         Task AddProductAsync(AddProductViewModel model);
 
         Task<IEnumerable<Category>> GetCategoriesAsync();
+
+        Task UpdateProduct(int productId, ProductViewModel model);
+
+        Task DeleteProduct(int productId);
+
+        Task<IEnumerable<ProductViewModel>> GetProductById(int productId);
     }
 }

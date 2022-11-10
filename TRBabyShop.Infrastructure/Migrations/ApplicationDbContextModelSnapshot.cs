@@ -228,15 +228,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "04ba4719-a5ce-478d-b36d-169ffe19e118",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "69943664-8df7-49e1-abf6-75cf73f6f145",
+                            ConcurrencyStamp = "a60c22d0-9229-4cf9-86c8-67c30cf0745a",
                             Email = "teo88@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "teo88@abv.bg",
                             NormalizedUserName = "teodor88",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEf7ey6JECe60dmQVTpSyRotjtX1vmOinr5hGggwH0ErFHa8xM/Fhfu1NYDslSyzMw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJrCIF8gIMLYFDlC5lk+vcjtCiUQ0GoJwjVdB+ds2J0DtlPE4hySWQXVXR090686pw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "75761ebb-ce7c-4edf-89e0-3a527b6685e9",
+                            SecurityStamp = "ec5027d9-b450-40c3-aba7-2dfabf5293fd",
                             TwoFactorEnabled = false,
                             UserName = "teodor88"
                         },
@@ -244,14 +244,14 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "d381c77f-aabf-46bd-80e3-cf9ee84a668b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8da4b53c-4ecd-4d82-9aee-4cee0c11fe61",
+                            ConcurrencyStamp = "d5342be8-a61e-47a8-9712-2b0f18ee134d",
                             Email = "ivan89@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ivan89@abv.bg",
                             NormalizedUserName = "ivan89",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a5d59512-5dd5-4dba-95e2-c44f973ad081",
+                            SecurityStamp = "dbccd70b-81a5-4368-bd1b-c966a59ea041",
                             TwoFactorEnabled = false,
                             UserName = "ivan89"
                         },
@@ -259,14 +259,14 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "cd0f2b40-9353-405c-ae22-c1097419f287",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "190ddd01-a37d-4cc1-9365-579dcbf4c638",
+                            ConcurrencyStamp = "c87b1bca-22a6-475f-b33b-93d500303490",
                             Email = "hristo80@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "hristo80@abv.bg",
                             NormalizedUserName = "hristo80",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "46da525a-ba3f-4b45-b500-7ee435b6b918",
+                            SecurityStamp = "b82716e2-8f61-4e42-89e4-4077463322c0",
                             TwoFactorEnabled = false,
                             UserName = "hristo80"
                         },
@@ -274,14 +274,14 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "c225f1de-8898-473c-8b8d-484a5034beea",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8146c9a9-3064-4447-9c8a-ca6b6916980a",
+                            ConcurrencyStamp = "4be30fe4-fcbb-4300-9f49-402dabfbc6b5",
                             Email = "tina93@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "tina93@abv.bg",
                             NormalizedUserName = "tina93",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4a8a41fb-8c10-44cc-b8cb-74862460213d",
+                            SecurityStamp = "0b5990cd-bbee-4aa2-a0c1-f5a952f05aed",
                             TwoFactorEnabled = false,
                             UserName = "tina93"
                         });
@@ -569,23 +569,32 @@ namespace TRBabyShop.Infrastructure.Migrations
 
             modelBuilder.Entity("TRBabyShop.Infrastructure.Data.Models.Review", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasMaxLength(3000)
-                        .HasColumnType("nvarchar(3000)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
-                    b.HasKey("UserId", "ProductId");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
                 });

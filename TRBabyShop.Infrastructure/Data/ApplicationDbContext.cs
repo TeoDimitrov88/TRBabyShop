@@ -33,8 +33,6 @@ namespace TRBabyShop.Infrastructure.Data
 
             builder.Entity<UserProduct>()
                 .HasKey(u => new { u.UserId, u.ProductId });
-            builder.Entity<Review>()
-                .HasKey(u => new { u.UserId, u.ProductId });
 
             base.OnModelCreating(builder);
         }

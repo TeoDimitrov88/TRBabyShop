@@ -10,6 +10,9 @@ namespace TRBabyShop.Infrastructure.Data.Models
 {
     public class Review
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         public string UserId { get; set; } = null!;
 
@@ -19,7 +22,7 @@ namespace TRBabyShop.Infrastructure.Data.Models
 
 
         [Required]
-        [StringLength(3000)]
+        [StringLength(500)]
         public string Text { get; set; } = null!;
 
 

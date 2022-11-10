@@ -28,5 +28,7 @@ namespace TRBabyShop.Core.Service
 
                 });
         }
+
+       
     }
 }

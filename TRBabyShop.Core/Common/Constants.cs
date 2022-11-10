@@ -9,5 +9,9 @@
         public const int MaxProductNameLength = 150;
 
         public const int MinProductNameLength = 4;
+
+        public const int MaxReviewTextLength = 500;
+
+        public const int MinReviewTextLength = 4;
     }
 }

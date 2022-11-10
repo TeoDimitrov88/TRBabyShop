@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AllReviewsViewModel>
+
+@{
+    ViewBag.Title = "All Reviews";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+
+<div class="text-center row">
+    @if (!Model.Any())
+    {
+        <div class="mt-4 p-5 bg-transparent">
+            <h1 class="display-4 text-dark">Welcome to the post section! At this point the game stil dont have posts!</h1>
+            <p class="lead text-dark">
+                Go back and be the furst person who will make post!
+            </p>
+            <p class="lead">
+                <a asp-controller="Review" asp-action="All" class="btn btn-outline-info">All Reviews</a>
+            </p>
+            <hr class="my-4">
+        </div>
+    }
+</div>

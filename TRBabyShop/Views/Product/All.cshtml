@@ -7,24 +7,38 @@
 
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
-
 <div class="text-center row">
     @foreach (var prod in Model)
     {
-        <div class="card col-3" style="width: 15rem; ">
-            <img class="card-img-top" style="width: 14rem;"
-             src="@prod.Image" @*alt="Product Name"*@>
+
+        @*  <img src="@prod.Image" alt="Product" width="400" height="400" />*@
+        <div class="card border-primary  mb-4 " style="width: 20rem; ">
+            <a asp-controller="Product" asp-action="GetById" method="get">
+                <img class="card-img-top" style="width: 18rem;"
+                 src="@prod.Image">
+            </a>
             <div class="card-body">
 
                 <h5 class="card-title mt-3">@prod.Name</h5>
-                <p class="mb-2">Price: @prod.Price</p>
-                <p class="mb-2">Reviews: @prod.Reviews</p>
-               @* <p>Description: @prod.Description</p>*@
+                <h5 class="mb-2">Price: @prod.Price</h5>
+                <a asp-controller="Review" asp-action="All" method="get">
+                    <p class="mb-2">Reviews: @prod.Reviews</p>
+                </a>
             </div>
 
             <form class="input-group-sm" asp-controller="Product" asp-action="All" asp-route-productId="@prod.Id">
-                <input type="submit" value="Add to Cart" class="fs-6 btn btn-success mb-3 p-2" />
+                <input type="button" value="Add to Cart" class="fs-6 btn btn-info mb-3 p-2" />
             </form>
+            <form class="input-group-sm" asp-controller="Product" asp-action="Add">
+                <input type="submit" value="Add Product" class="fs-6 btn btn-success mb-3 p-2" />
+            </form>
+            <form class="nav-link" asp-controller="Product" asp-action="Delete" asp-route-productId="@prod.Id">
+                <input type="button" value="Delete Product" class="fs-6 btn btn-danger mb-2 p-1" />
+            </form>
+
+
         </div>
+
     }
+
 </div>

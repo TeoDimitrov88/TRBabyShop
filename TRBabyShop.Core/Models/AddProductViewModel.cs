@@ -11,6 +11,9 @@ namespace TRBabyShop.Core.Models
 {
     public class AddProductViewModel
     {
+        [Key]
+
+        public int Id { get; set; }
         [Required]
         [StringLength(Common.Constants.MaxProductNameLength, MinimumLength = Common.Constants.MinProductNameLength)]
         public string Name { get; set; } = null!;

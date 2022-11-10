@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
+using TRBabyShop.Models;
 
 namespace TRBabyShop.Controllers
 {
     public class ProductController : Controller
     {
         private readonly IProductService productService;
+        
         public ProductController(IProductService _productService)
         {
             productService = _productService;
         }
+        [HttpGet]
         public async Task<IActionResult> All()
         {
             var model = await productService.GetProductAsync();
@@ -55,6 +58,48 @@ namespace TRBabyShop.Controllers
 
                 return View(model);
             }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(int productId)
+        {
+            await productService.DeleteProduct(productId);
+
+            return RedirectToAction(nameof(All));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Update(int productId)
+        {
+            var product = await productService.GetProductById(productId);
+
+            return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(int productId, ProductViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                await productService.UpdateProduct(productId, model);
+
+                return RedirectToAction(nameof(All));
+            }
+            catch (Exception e)
+            {
+                var error = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", error);
+            }
+        }
+
+        public async Task<IActionResult> GetById(int productId)
+        {
+            var model = await productService.GetProductById(productId);
+            return View(model);
         }
     }
 }

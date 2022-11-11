@@ -9,6 +9,10 @@ namespace TRBabyShop.Core.Contracts
 {
     public interface IReviewService
     {
-        Task<IEnumerable<AllReviewsViewModel>> GetProductReviews(int productId);
+        Task<IEnumerable<ReviewViewModel>> GetProductReviews(int productId);
+
+        Task AddReview(ReviewViewModel model, string userId);
+
+        Task DeleteReview(int reviewId);
     }
 }

@@ -228,15 +228,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "04ba4719-a5ce-478d-b36d-169ffe19e118",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a60c22d0-9229-4cf9-86c8-67c30cf0745a",
+                            ConcurrencyStamp = "dbbbff1c-3571-4a74-a495-5b807a8f53c7",
                             Email = "teo88@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "teo88@abv.bg",
                             NormalizedUserName = "teodor88",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJrCIF8gIMLYFDlC5lk+vcjtCiUQ0GoJwjVdB+ds2J0DtlPE4hySWQXVXR090686pw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENXb3reQRI5z+3GH2YVtCnRsCVM2QQKq8vWdDJwDciGjUUVHYK0zpHQcP+BISM4e2g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ec5027d9-b450-40c3-aba7-2dfabf5293fd",
+                            SecurityStamp = "d30c68bd-cdb2-498c-9e89-81629c55da67",
                             TwoFactorEnabled = false,
                             UserName = "teodor88"
                         },
@@ -244,14 +244,14 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "d381c77f-aabf-46bd-80e3-cf9ee84a668b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d5342be8-a61e-47a8-9712-2b0f18ee134d",
+                            ConcurrencyStamp = "e1a3dd96-6b71-4fc3-9d3b-d88d4c63d031",
                             Email = "ivan89@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ivan89@abv.bg",
                             NormalizedUserName = "ivan89",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dbccd70b-81a5-4368-bd1b-c966a59ea041",
+                            SecurityStamp = "f3e1f735-2bd8-4c37-b54b-b29d54ecd51c",
                             TwoFactorEnabled = false,
                             UserName = "ivan89"
                         },
@@ -259,14 +259,14 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "cd0f2b40-9353-405c-ae22-c1097419f287",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c87b1bca-22a6-475f-b33b-93d500303490",
+                            ConcurrencyStamp = "48e6f68f-0c6b-4a5e-8607-2f70f3dfa076",
                             Email = "hristo80@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "hristo80@abv.bg",
                             NormalizedUserName = "hristo80",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b82716e2-8f61-4e42-89e4-4077463322c0",
+                            SecurityStamp = "e3c3e4b1-461a-49b6-8f6d-116fdc1de570",
                             TwoFactorEnabled = false,
                             UserName = "hristo80"
                         },
@@ -274,14 +274,14 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "c225f1de-8898-473c-8b8d-484a5034beea",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4be30fe4-fcbb-4300-9f49-402dabfbc6b5",
+                            ConcurrencyStamp = "85d8f619-26cb-496d-a7d1-b0db134beb17",
                             Email = "tina93@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "tina93@abv.bg",
                             NormalizedUserName = "tina93",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0b5990cd-bbee-4aa2-a0c1-f5a952f05aed",
+                            SecurityStamp = "ad044e51-bde2-47c0-be39-7855a974a590",
                             TwoFactorEnabled = false,
                             UserName = "tina93"
                         });
@@ -597,6 +597,136 @@ namespace TRBabyShop.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(48),
+                            ProductId = 1,
+                            Text = "Amazing item!",
+                            UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(86),
+                            ProductId = 3,
+                            Text = "Very usefull!!Thank you",
+                            UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(89),
+                            ProductId = 3,
+                            Text = "It`s perfect for our baby!Thank you",
+                            UserId = "c225f1de-8898-473c-8b8d-484a5034beea"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(92),
+                            ProductId = 8,
+                            Text = "Low quality ,im very upset :(",
+                            UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(95),
+                            ProductId = 11,
+                            Text = "Excellent :)",
+                            UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(99),
+                            ProductId = 11,
+                            Text = "Excellent ,Thank you:)",
+                            UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(102),
+                            ProductId = 12,
+                            Text = "It`s really expensive for its quality ",
+                            UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(104),
+                            ProductId = 4,
+                            Text = "Low quality ,not impressed :(",
+                            UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(107),
+                            ProductId = 7,
+                            Text = "Low quality ,not impressed :(",
+                            UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(111),
+                            ProductId = 9,
+                            Text = "Low quality ,not impressed :(",
+                            UserId = "04fa2e1b-1e98-42fa-b709-f364b63cfa91"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(113),
+                            ProductId = 3,
+                            Text = "Low quality ,not impressed :(",
+                            UserId = "04fa2e1b-1e98-42fa-b709-f364b63cfa91"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(224),
+                            ProductId = 4,
+                            Text = "Very good ,thanks",
+                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(227),
+                            ProductId = 5,
+                            Text = "Very good ,thanks",
+                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(230),
+                            ProductId = 8,
+                            Text = "Very good ,thanks",
+                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(232),
+                            ProductId = 9,
+                            Text = "Not recommend :(",
+                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CreatedOn = new DateTime(2022, 11, 10, 15, 40, 56, 220, DateTimeKind.Local).AddTicks(235),
+                            ProductId = 10,
+                            Text = "Not recommend :(",
+                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
+                        });
                 });
 
             modelBuilder.Entity("TRBabyShop.Infrastructure.Data.Models.ShoppingCart", b =>

@@ -10,5 +10,7 @@ namespace TRBabyShop.Infrastructure.Data.Models
     public class AppUser:IdentityUser
     {
         public List<UserProduct> UserProducts { get; set; } = new List<UserProduct>();
+
+        public ICollection<Review> UserReviews { get; set; } = new List<Review>();
     }
 }

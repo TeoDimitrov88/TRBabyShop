@@ -13,5 +13,9 @@
         public const int MaxReviewTextLength = 500;
 
         public const int MinReviewTextLength = 4;
+
+        public const int MaxDescriptionLength = 500;
+
+        public const int MinDescriptionLength = 20;
     }
 }

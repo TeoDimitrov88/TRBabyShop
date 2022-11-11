@@ -27,11 +27,12 @@
 
                     <ul class="nav nav-pills">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" text-muted>
+                           <a class="nav-link dropdown" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" text-muted>
                                 <i class="bi bi-arrow-down-circle-fill"></i> &nbsp; Categories
                             </a>
                             <div class="dropdown-menu ">
-                                <a class="dropdown-item" asp-controller="Category" asp-action="All">
+                                <a class="dropdown-item" asp-controller="Category" asp-action="All" >
+
                                     <i class="bi bi-arrow-right-circle-fill"></i> &nbsp; All Categories
                                 </a>
                             </div>
@@ -46,10 +47,22 @@
                                 </a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" text-muted>
+                                <i class="bi bi-arrow-down-circle-fill"></i> &nbsp; Reviews
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Review" asp-action="Add">
+                                    <i class="bi bi-arrow-right-circle-fill"></i> &nbsp; Add Review
+                                </a>
+                            </div>
+                        </li>
                     </ul>
                     <div>
                         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TR Baby Baby</a>
                     </div>
+
+
                     <partial name="_LoginPartial" />
                 </div>
 

@@ -1,4 +1,5 @@
-﻿@model ProductViewModel;
+﻿
+@model ProductViewModel;
 
 @{
     ViewBag.Title = "Product";
@@ -8,9 +9,9 @@
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 <div class="text-center row">
-        @*  <img src="@prod.Image" alt="Product" width="400" height="400" />*@
+   
         <div class="card border-primary  mb-4 " style="width: 20rem; ">
-            <a asp-controller="Product" asp-action="GetById" method="get">
+            <a asp-controller="Product" asp-action="GetById" asp-route-productId="@Model.Id" method="get">
                 <img class="card-img-top" style="width: 18rem;"
                  src="@Model.Image">
             </a>

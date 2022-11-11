@@ -13,7 +13,7 @@
 
         @*  <img src="@prod.Image" alt="Product" width="400" height="400" />*@
         <div class="card border-primary  mb-4 " style="width: 20rem; ">
-            <a asp-controller="Product" asp-action="GetById" method="get">
+            <a asp-controller="Product" asp-action="GetById" asp-route-productId="@prod.Id" method="get">
                 <img class="card-img-top" style="width: 18rem;"
                  src="@prod.Image">
             </a>
@@ -21,17 +21,26 @@
 
                 <h5 class="card-title mt-3">@prod.Name</h5>
                 <h5 class="mb-2">Price: @prod.Price</h5>
-                <a asp-controller="Review" asp-action="All" method="get">
-                    <p class="mb-2">Reviews: @prod.Reviews</p>
+                <a asp-controller="Review" asp-action="All" asp-route-productId="@prod.Id">
+                    <p class="mb-2">Reviews @prod.Reviews</p>
+                </a>
+                <a asp-controller="Review" asp-action="Add" asp-route-productId="@prod.Id">
+                    <p class="mb-2">Add review @prod.</p>
                 </a>
             </div>
 
             <form class="input-group-sm" asp-controller="Product" asp-action="All" asp-route-productId="@prod.Id">
                 <input type="button" value="Add to Cart" class="fs-6 btn btn-info mb-3 p-2" />
             </form>
-            <form class="input-group-sm" asp-controller="Product" asp-action="Add">
-                <input type="submit" value="Add Product" class="fs-6 btn btn-success mb-3 p-2" />
-            </form>
+            <form class="input-gr-sm">
+            <a asp-controller="Product" asp-action="Add" class="fs-6 btn btn-info mb-3 p-2">
+                <i class="bi bi-plus-circle "></i>&nbsp; Add Product
+            </a>
+            </form>       
+        <form class="input-group-sm" asp-controller="Product" asp-action="Update"
+        asp-route-productId="@prod.Id">
+        <input type="submit" value="Update Product" class="fs-6 btn btn-success mb-3 p-2" />
+        </form>
             <form class="nav-link" asp-controller="Product" asp-action="Delete" asp-route-productId="@prod.Id">
                 <input type="button" value="Delete Product" class="fs-6 btn btn-danger mb-2 p-1" />
             </form>

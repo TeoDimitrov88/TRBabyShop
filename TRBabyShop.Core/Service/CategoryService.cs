@@ -29,6 +29,17 @@ namespace TRBabyShop.Core.Service
                 });
         }
 
-       
+        public async Task AddCategoryAsync(CategoryViewModel model)
+        {
+            var newCategory = new Category()
+            {
+                Id = model.Id,
+                Name = model.Name,
+               
+            };
+
+            await dbContext.Categories.AddAsync(newCategory);
+            await dbContext.SaveChangesAsync();
+        }
     }
 }

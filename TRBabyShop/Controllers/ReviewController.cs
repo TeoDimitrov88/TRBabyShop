@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
+using TRBabyShop.Infrastructure.Data.Common;
+using TRBabyShop.Infrastructure.Data.Models;
 using TRBabyShop.Models;
 
 namespace TRBabyShop.Controllers
@@ -10,10 +12,12 @@ namespace TRBabyShop.Controllers
     public class ReviewController : Controller
     {
         private readonly IReviewService reviewService;
+        private readonly IRepository repo;
 
-        public ReviewController(IReviewService _reviewService)
+        public ReviewController(IReviewService _reviewService, IRepository _repo)
         {
             reviewService = _reviewService;
+            repo = _repo;
         }
 
         public async Task<IActionResult> All(int productId)
@@ -52,18 +56,16 @@ namespace TRBabyShop.Controllers
             }
             catch (Exception e)
             {
-                var erroMassage = new ErrorViewModel { RequestId = e.Message };
-                return View("Error", erroMassage);
+                var errorMessage = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", errorMessage);
             }
         }
 
-        [Authorize]
-        [HttpPost]
         public async Task<IActionResult> Delete(int reviewId)
         {
-            await reviewService.DeleteReview(reviewId);
+            var review = await reviewService.DeleteReview(reviewId);
 
-            return RedirectToAction("All", "Review");
+            return RedirectToAction("All", "Product");
         }
     }
 }

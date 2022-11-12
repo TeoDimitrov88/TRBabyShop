@@ -29,8 +29,7 @@ namespace TRBabyShop.Core.Models
         public int CategoryId { get; set; }
 
         [Required]
-        [ForeignKey(nameof(CategoryId))]
-        public Category Category { get; set; } = null!;
+        public IEnumerable<Category> Categories { get; set; } = new List<Category>();
 
         [Required]
         public ICollection<Review> Reviews { get; set; } = null!;

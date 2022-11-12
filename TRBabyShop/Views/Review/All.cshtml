@@ -14,7 +14,7 @@
         <a asp-controller="Review" asp-action="All" asp-route-productId="@rev.ProductId">
        
 
-            <div class="card border-success mb-3" style="max-width: 20rem;">
+            <div class="card border-success mb-3" >
                 <div class="card-header">@rev.User</div>
                 <div class="card-body">
                     <h5 class="card-title">@rev.Product</h5>
@@ -23,8 +23,8 @@
                @* <form class="input-gr-sm">*@
             
            @* </form>*@
-                 @*<form class="nav-link" asp-controller="Review" asp-action="Delete" asp-route-reviewId="@rev.Id">
-                <input type="button" value="Delete Review" class="fs-6 btn btn-danger mb-2 p-1" />
+                @* <form class="nav-link" asp-controller="Review" asp-action="Delete" asp-route-reviewId="@rev.Id">
+                <input type="button" value="Delete" class="fs-6 btn btn-danger mb-2 p-1" />
             </form>*@
             <a asp-controller="Review" asp-action="Delete"  asp-route-reviewId="@rev.Id" class="badge bg-danger">
                  Delete

@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Views/Category/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Views/Category/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWxsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

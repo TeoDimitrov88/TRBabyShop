@@ -1,12 +1,12 @@
-﻿@{
+﻿@*@model IEnumerable<ProductViewModel>*@
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to TR Baby Shop</h1>
     <p>Everything for your baby</p>
-
-
 
     <div class="wrapper">
 
@@ -20,3 +20,28 @@
 
     </div>
 </div>
+    
+   @* <div class="row pb-3">
+        @foreach (var prod in Model)
+        {
+            <a asp-controller="Product" asp-action="GetById" asp-route-productId="@prod.Id" method="get">
+                <img class="card-img-top" style="width: 18rem;"
+                 src="@prod.Image">
+            </a>
+            <div class="col-lg-3 col-md-6">
+                <div class="row p-2">
+                    <div class="12 p-1" style="border:1px solid #008cba; border radius: 5px;">
+                        <div class="card">
+                            <img src="@prod.Image" class="card-top rounded" />
+                            <div class="pl-1">
+                                <p class="card-title h5 text-primary">@prod.Name</p>
+                                <p class="card-title text-secondary">@prod.Reviews</p>
+                                <p class="card-title text-secondary">@prod.Price</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+*@

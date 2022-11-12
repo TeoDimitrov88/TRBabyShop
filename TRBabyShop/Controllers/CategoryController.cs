@@ -19,6 +19,34 @@ namespace TRBabyShop.Controllers
             return View(model);
         }
 
-      
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            var model = await categoryService.GetCategoriesAsync();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(CategoryViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                await categoryService.AddCategoryAsync(model);
+
+                return RedirectToAction("All", "Category");
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "Ooops ,something went wrong!");
+
+                return View(model);
+            }
+        }
     }
 }

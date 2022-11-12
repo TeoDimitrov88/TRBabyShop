@@ -22,21 +22,17 @@
                 <h5 class="card-title mt-3">@prod.Name</h5>
                 <h5 class="mb-2">Price: @prod.Price</h5>
                 <a asp-controller="Review" asp-action="All" asp-route-productId="@prod.Id">
-                    <p class="mb-2">Reviews @prod.Reviews</p>
+                    <p class="mb-2">Reviews </p>
                 </a>
                 <a asp-controller="Review" asp-action="Add" asp-route-productId="@prod.Id">
-                    <p class="mb-2">Add review @prod.</p>
+                    <p class="mb-2">Add review </p>
                 </a>
             </div>
 
             <form class="input-group-sm" asp-controller="Product" asp-action="All" asp-route-productId="@prod.Id">
                 <input type="button" value="Add to Cart" class="fs-6 btn btn-info mb-3 p-2" />
             </form>
-            <form class="input-gr-sm">
-            <a asp-controller="Product" asp-action="Add" class="fs-6 btn btn-info mb-3 p-2">
-                <i class="bi bi-plus-circle "></i>&nbsp; Add Product
-            </a>
-            </form>       
+                 
         <form class="input-group-sm" asp-controller="Product" asp-action="Update"
         asp-route-productId="@prod.Id">
         <input type="submit" value="Update Product" class="fs-6 btn btn-success mb-3 p-2" />

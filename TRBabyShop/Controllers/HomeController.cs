@@ -1,14 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TRBabyShop.Core.Contracts;
 using TRBabyShop.Models;
 
 namespace TRBabyShop.Controllers
 {
     public class HomeController : Controller
     {
- 
-        public IActionResult Index()
+        private readonly IProductService productService;
+
+        public HomeController(IProductService _productService)
         {
+           productService = _productService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var model=await productService.GetProductAsync();
             return View();
         }
 

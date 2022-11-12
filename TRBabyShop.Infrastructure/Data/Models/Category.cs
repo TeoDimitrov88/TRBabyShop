@@ -16,6 +16,6 @@ namespace TRBabyShop.Infrastructure.Data.Models
         public string Name { get; set; } = null!;
 
         [Required]
-        public ICollection<Product> Products { get; set; } = null!;
+        public IEnumerable<Product> Products { get; set; } =new List<Product>();
     }
 }

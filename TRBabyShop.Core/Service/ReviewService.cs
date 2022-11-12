@@ -26,10 +26,17 @@ namespace TRBabyShop.Core.Service
         public async Task AddReview(ReviewViewModel model, string userId)
         {
             var product = await dbContext.Products.FirstOrDefaultAsync(p => p.Id == model.ProductId);
-            if (product == null) throw new ArgumentException("Invalid product Id!");
+            if (product == null)
+            { 
+                throw new ArgumentException("Invalid product Id!");
+            }
+
 
             var user = await dbContext.Users.Where(u => u.Id == userId).Include(u => u.UserReviews).FirstOrDefaultAsync();
-            if (user == null) throw new ArgumentException("Invalid user Id!");
+            if (user == null)
+            { 
+                throw new ArgumentException("Invalid user Id!");
+            }
 
             var review = new Review()
             {
@@ -46,10 +53,20 @@ namespace TRBabyShop.Core.Service
 
         }
 
-        public async Task DeleteReview(int reviewId)
+        
+        public async Task<int> DeleteReview(int reviewId)
         {
-                await repo.DeleteAsync<Review>(reviewId);
-                await repo.SaveChangesAsync();  
+            var review = await repo.GetByIdAsync<Review>(reviewId);
+
+            if (review == null)
+            {
+            throw new ArgumentException("Invalid review.");
+            }
+
+            await repo.DeleteAsync<Review>(reviewId);
+            await repo.SaveChangesAsync();
+
+            return review.Id;
         }
 
         public async Task<IEnumerable<ReviewViewModel>> GetProductReviews(int productId)

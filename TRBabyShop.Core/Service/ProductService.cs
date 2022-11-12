@@ -30,7 +30,7 @@ namespace TRBabyShop.Core.Service
                     Id=p.Id,
                     Name = p.Name,
                     Description = p.Description,
-                    Category = p.Category,
+                    CategoryId = p.CategoryId,
                     Price = p.Price,
                     Image = p.Image,
                     Reviews = p.Reviews
@@ -76,13 +76,7 @@ namespace TRBabyShop.Core.Service
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteProduct(int productId)
-        {
-            await repo.DeleteAsync<Product>(productId);
-            await repo.SaveChangesAsync();
-        }
-
-        public async Task UpdateProduct(int productId, ProductViewModel model)
+        public async Task UpdateProduct(int productId, AddProductViewModel model)
         {
             var product = await repo.GetByIdAsync<Product>(productId);
             if (product != null)
@@ -90,35 +84,45 @@ namespace TRBabyShop.Core.Service
                 product.Id = model.Id;
                 product.Name = model.Name;
                 product.Price = model.Price;
-                product.Category=model.Category;
                 product.Description = model.Description;
                 product.Image = model.Image;
-                product.CategoryId=model.CategoryId;
-                product.Reviews=model.Reviews;
-            }
+                product.CategoryId = model.CategoryId;
 
-            throw new ArgumentException("Wrong product ID!");
-            repo.Update(product);
+                repo.Update(product);
+                await repo.SaveChangesAsync();
+            }
+            else
+            {
+                throw new ArgumentException("Wrong product ID!");
+            }  
+        }
+
+        public async Task DeleteProduct(int productId)
+        {
+            await repo.DeleteAsync<Product>(productId);
             await repo.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<ProductViewModel>> GetProductById(int productId)
-        {
-            var product = await dbContext.Products.ToListAsync();
+        
 
-            return product
-                 .Where(p => p.Id == productId)
-                 .Select(p => new ProductViewModel()
+        public async Task<ProductViewModel> GetProductById(int productId)
+        {
+            var product = await repo.GetByIdAsync<Product>(productId);
+            if (product==null)
+            {
+                throw new ArgumentException("Invalid product Id.");
+            }
+
+            return new ProductViewModel()
                  {
-                     Id = p.Id,
-                     Description=p.Description,
-                     CategoryId = p.CategoryId,
-                     Category=p.Category,
-                     Name = p.Name,
-                     Price = p.Price,
-                     Image = p.Image,
-                     Reviews=p.Reviews
-                 });
+                     Name = product.Name,
+                     Description= product.Description,
+                     Id = product.Id,
+                     Price = product.Price,
+                     CategoryId = product.CategoryId,
+                     Image = product.Image,
+                     Reviews= product.Reviews
+                 };
         }
     }
 }

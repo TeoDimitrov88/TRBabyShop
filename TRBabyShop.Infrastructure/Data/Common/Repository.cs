@@ -22,7 +22,7 @@ namespace TRBabyShop.Infrastructure.Data.Common
         /// and tracking entity states 
         /// </summary>
         protected DbContext Context { get; set; }
-
+        private readonly ApplicationDbContext _context;
         /// <summary>
         /// Representation of table in database
         /// </summary>
@@ -34,6 +34,7 @@ namespace TRBabyShop.Infrastructure.Data.Common
         public Repository(ApplicationDbContext context)
         {
             Context = context;
+            _context = context;
         }
 
         /// <summary>

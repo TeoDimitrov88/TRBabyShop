@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TRBabyShop.Infrastructure.Data.Models;
 
 namespace TRBabyShop.Core.Models
@@ -34,5 +30,8 @@ namespace TRBabyShop.Core.Models
 
         [Required]
         public IEnumerable<Category> Categories { get; set; } = new List<Category>();
+
+        [Required]
+        public ICollection<Review> Reviews { get; set; } = null!;
     }
 }

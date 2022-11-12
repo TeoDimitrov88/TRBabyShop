@@ -9,7 +9,7 @@ namespace TRBabyShop.Core.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(Common.Constants.MaxCategoryNameLength,MinimumLength =Common.Constants.MinCategoryNameLength)]
+        [StringLength(Common.Constants.MaxCategoryNameLength, MinimumLength = Common.Constants.MinCategoryNameLength)]
         public string Name { get; set; } = null!;
 
         [Required]

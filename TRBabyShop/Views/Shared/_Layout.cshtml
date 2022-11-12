@@ -69,9 +69,12 @@
                         </li>
                     </ul>
                     <div>
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TR Baby Shop</a>
+                        <a class="navbar-brand"  asp-controller="Home" asp-action="Index">TR Baby Shop</a>
                     </div>
-
+                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="ShoppingCart" asp-action="Index"><i class = "fa fa-facebook"></i>
+                    
+                              <i class="bi bi-cart-check-fill"></i>
+                           </a>
 
                     <partial name="_LoginPartial" />
                 </div>

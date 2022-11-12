@@ -1,9 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
-using TRBabyShop.Core.Contracts;
-using TRBabyShop.Core.Service;
+using TRBabyShop.Extensions;
 using TRBabyShop.Infrastructure.Data;
-using TRBabyShop.Infrastructure.Data.Common;
 using TRBabyShop.Infrastructure.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,11 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
-builder.Services.AddScoped<IRepository, Repository>();
-builder.Services.AddScoped<IReviewService, ReviewService>();
+
 
 builder.Services.AddDefaultIdentity<AppUser>(options =>
 {
@@ -29,6 +23,8 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
     options.Password.RequireUppercase = true;
 } )
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddApplicationServices();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {

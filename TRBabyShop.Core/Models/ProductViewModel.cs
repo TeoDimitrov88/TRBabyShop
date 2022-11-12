@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using TRBabyShop.Infrastructure.Data.Models;
 
 namespace TRBabyShop.Core.Models
@@ -10,12 +9,12 @@ namespace TRBabyShop.Core.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(Common.Constants.MaxProductNameLength,MinimumLength =Common.Constants.MinProductNameLength)]
+        [StringLength(Common.Constants.MaxProductNameLength, MinimumLength = Common.Constants.MinProductNameLength)]
         public string Name { get; set; } = null!;
 
         [Required]
-        [StringLength(Common.Constants.MaxDescriptionLength,MinimumLength =Common.Constants.MinDescriptionLength)]
-          
+        [StringLength(Common.Constants.MaxDescriptionLength, MinimumLength = Common.Constants.MinDescriptionLength)]
+
         public string Description { get; set; } = null!;
 
         [Required]

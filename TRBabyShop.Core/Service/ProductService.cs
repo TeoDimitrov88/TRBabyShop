@@ -33,7 +33,8 @@ namespace TRBabyShop.Core.Service
                     CategoryId = p.CategoryId,
                     Price = p.Price,
                     Image = p.Image,
-                    Reviews = p.Reviews
+                    Reviews=p.Reviews
+                    
 
                 });
         }

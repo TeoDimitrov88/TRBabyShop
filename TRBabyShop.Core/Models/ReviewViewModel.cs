@@ -21,7 +21,7 @@ namespace TRBabyShop.Core.Models
 
         public string? User { get; set; }
         [Required]
-        [StringLength(Common.Constants.MaxReviewTextLength,MinimumLength =Common.Constants.MinReviewTextLength, ErrorMessage = "{0} lenght must be between {2} and {1} characters long!")]
+        [StringLength(Common.Constants.MaxReviewTextLength, MinimumLength = Common.Constants.MinReviewTextLength, ErrorMessage = "{0} lenght must be between {2} and {1} characters long!")]
         public string Text { get; set; } = null!;
 
         [Required]
@@ -31,6 +31,6 @@ namespace TRBabyShop.Core.Models
         public int ProductId { get; set; }
 
         [Required]
-        public DateTime CreatedOn { get; set; }= DateTime.UtcNow;
+        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
     }
 }

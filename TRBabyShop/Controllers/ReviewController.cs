@@ -4,7 +4,6 @@ using System.Security.Claims;
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data.Common;
-using TRBabyShop.Infrastructure.Data.Models;
 using TRBabyShop.Models;
 
 namespace TRBabyShop.Controllers

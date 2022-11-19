@@ -25,6 +25,7 @@ namespace TRBabyShop.Core.Service
 
         public async Task AddReview(ReviewViewModel model, string userId)
         {
+
             var product = await dbContext.Products.FirstOrDefaultAsync(p => p.Id == model.ProductId);
             if (product == null)
             { 
@@ -38,18 +39,21 @@ namespace TRBabyShop.Core.Service
                 throw new ArgumentException("Invalid user Id!");
             }
 
-            var review = new Review()
+            else
             {
-                ProductId = model.ProductId,
-                UserId = model.UserId,
-                Text = model.Text,
-                CreatedOn = model.CreatedOn
+                var newReview = new Review()
+                {
+                    ProductId = model.ProductId,
+                    UserId = model.UserId,
+                    Text = model.Text,
+                    CreatedOn = model.CreatedOn
 
-            };
-            product?.Reviews.Add(review);
-            user?.UserReviews.Add(review);
-            await dbContext.Reviews.AddAsync(review);
-            await dbContext.SaveChangesAsync();
+                };
+                product?.Reviews.Add(newReview);
+                user?.UserReviews.Add(newReview);
+                await dbContext.Reviews.AddAsync(newReview);
+                await dbContext.SaveChangesAsync();
+            }
 
         }
 

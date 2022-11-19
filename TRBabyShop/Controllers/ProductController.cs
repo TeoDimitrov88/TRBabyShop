@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
+using TRBabyShop.Infrastructure.Data;
+using TRBabyShop.Infrastructure.Data.Models;
 using TRBabyShop.Models;
 
 namespace TRBabyShop.Controllers
@@ -8,11 +11,12 @@ namespace TRBabyShop.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService productService;
+        private readonly ApplicationDbContext dbContext;
 
-        
-        public ProductController(IProductService _productService)
+        public ProductController(IProductService _productService, ApplicationDbContext _dbContext)
         {
             productService = _productService;
+            dbContext = _dbContext;
         }
         [HttpGet]
         public async Task<IActionResult> All()
@@ -31,9 +35,10 @@ namespace TRBabyShop.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
+            var category = await productService.GetCategoriesAsync();
             var model = new AddProductViewModel()
             {
-                Categories = await productService.GetCategoriesAsync()
+                Categories = category
             };
 
             return View(model);
@@ -51,14 +56,17 @@ namespace TRBabyShop.Controllers
             {
                 await productService.AddProductAsync(model);
 
-                return RedirectToAction("All","Product");
+               
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                ModelState.AddModelError("", "Ooops ,something went wrong!");
-
-                return View(model);
+                var error = new ErrorViewModel
+                {
+                    RequestId=ex.Message
+                };
+                return View("Error", error);
             }
+            return RedirectToAction(nameof(All));
         }
         [HttpPost]
         public async Task<IActionResult> Delete(int productId)
@@ -71,36 +79,41 @@ namespace TRBabyShop.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(int productId)
         {
-            var product = await productService.GetProductById(productId);
+            if (productId==0)
+            {
+                return NotFound();
+            }
+            var product = await productService.GetProductUpdateAsync(productId);
 
             return View(product);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(int productId, AddProductViewModel model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int productId, Product model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            await productService.UpdateProductAsync(productId, model);
 
-            try
-            {
-                await productService.UpdateProduct(productId, model);
 
-                return RedirectToAction(nameof(All));
-            }
-            catch (Exception e)
-            {
-                var error = new ErrorViewModel { RequestId = e.Message };
-                return View("Error", error);
-            }
+            return RedirectToAction(nameof(All));
         }
 
         public async Task<IActionResult> GetById(int productId)
         {
             var model = await productService.GetProductById(productId);
             return View(model);
+        }
+
+        public IActionResult Details(int productId)
+        {
+            ShoppingCartViewModel cart = new()
+            {
+                Quantity = 1,
+                Product = dbContext.Products.FirstOrDefault(p => p.Id == productId)
+              
+            };
+
+            return View(cart);
         }
     }
 }

@@ -11,9 +11,10 @@ namespace TRBabyShop.Core.Models
 {
     public class ShoppingCartViewModel
     {
-        public IEnumerable<ShoppingCart> CartList { get; set; }
+        public Product Product { get; set; } = null!;
 
-        public Order Order { get; set; } = null!;
+        [Range(1,100,ErrorMessage ="Please enter a value between 1 and 100!")]
+        public int Quantity { get; set; } 
 
     }
 }

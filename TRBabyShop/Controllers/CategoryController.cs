@@ -22,8 +22,8 @@ namespace TRBabyShop.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-            var model = await categoryService.GetCategoriesAsync();
-
+            var model = new CategoryViewModel();
+            await categoryService.AddCategoryAsync(model);
             return View(model);
         }
 
@@ -39,7 +39,7 @@ namespace TRBabyShop.Controllers
             {
                 await categoryService.AddCategoryAsync(model);
 
-                return RedirectToAction("All", "Category");
+                return RedirectToAction(nameof(All));
             }
             catch (Exception)
             {

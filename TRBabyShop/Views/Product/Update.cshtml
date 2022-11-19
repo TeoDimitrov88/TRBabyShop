@@ -1,5 +1,6 @@
-﻿@using TRBabyShop.Core.Models
-@model AddProductViewModel
+﻿
+@using TRBabyShop.Infrastructure.Data.Models
+@model Product
 
 @{
     ViewBag.Title = "Update Product";
@@ -12,7 +13,7 @@
         <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
             <form method="post">
                 <div class="mb-3">
-                    <label asp-for="@Model." class="form-label">Name</label>
+                    <label asp-for="@Model.Name" class="form-label">Name</label>
                     <input asp-for="@Model.Name" class="form-control" aria-required="true" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
@@ -34,10 +35,10 @@
                 <div class="mb-3">
                     <label asp-for="@Model.CategoryId" class="form-label">Category</label>
                     <select asp-for="@Model.CategoryId" class="form-control">
-                        @foreach (var cat in Model.Categories)
+                       @* @foreach (var cat in Model.Category)
                         {
                             <option value="@cat.Id">@cat.Name</option>
-                        }
+                        }*@
                     </select>
                     <span asp-validation-for="CategoryId" class="text-danger"></span>
                 </div>
@@ -49,6 +50,6 @@
 </div>
 
 
-@section Scripts {
+@*@section Scripts {
     <partial name="_ValidationScriptsPartial" />
-}
+}*@

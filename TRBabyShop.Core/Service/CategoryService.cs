@@ -33,7 +33,6 @@ namespace TRBabyShop.Core.Service
         {
             var newCategory = new Category()
             {
-                Id = model.Id,
                 Name = model.Name,
                
             };

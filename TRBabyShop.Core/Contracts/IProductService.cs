@@ -11,7 +11,8 @@ namespace TRBabyShop.Core.Contracts
 
         Task<IEnumerable<Category>> GetCategoriesAsync();
 
-        Task  UpdateProduct(int productId, AddProductViewModel model);
+        Task<Product> GetProductUpdateAsync(int id);
+        Task UpdateProductAsync(int productId, Product model);
 
         Task DeleteProduct(int productId);
 

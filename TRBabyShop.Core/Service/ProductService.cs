@@ -65,7 +65,6 @@ namespace TRBabyShop.Core.Service
         {
             var newProduct = new Product()
             {
-                Id = model.Id,
                 Name = model.Name,
                 Price = model.Price,
                 Description = model.Description,
@@ -77,9 +76,9 @@ namespace TRBabyShop.Core.Service
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task UpdateProduct(int productId, AddProductViewModel model)
+        public async Task UpdateProductAsync(int productId, Product model)
         {
-            var product = await repo.GetByIdAsync<Product>(productId);
+            var product = await GetProductUpdateAsync(productId);
             if (product != null)
             {
                 product.Id = model.Id;
@@ -96,6 +95,23 @@ namespace TRBabyShop.Core.Service
             {
                 throw new ArgumentException("Wrong product ID!");
             }  
+        }
+
+        public async Task<Product> GetProductUpdateAsync(int id)
+        {
+            var user = await dbContext.Products.Where(x => x.Id == id)
+                .Select(x => new Product
+                {
+                    Id = x.Id,
+                    Category=x.Category,
+                    Name=x.Name,
+                    Description=x.Description,
+                    Image=x.Image,
+                    CategoryId=x.CategoryId,
+                    Price=x.Price
+                }).FirstOrDefaultAsync();
+
+            return user!;
         }
 
         public async Task DeleteProduct(int productId)
@@ -125,5 +141,7 @@ namespace TRBabyShop.Core.Service
                      Reviews= product.Reviews
                  };
         }
+
+       
     }
 }

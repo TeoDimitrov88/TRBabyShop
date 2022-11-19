@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
+using TRBabyShop.Core.Service;
 using TRBabyShop.Infrastructure.Data.Models;
 using TRBabyShop.Models;
 
@@ -13,12 +16,15 @@ namespace TRBabyShop.Controllers
 
         private readonly SignInManager<AppUser> signInManager;
 
+        private readonly IUserService userservice;
+
         public UserController(
            UserManager<AppUser> _userManager,
-           SignInManager<AppUser> _signInManager)
+           SignInManager<AppUser> _signInManager, IUserService _userservice)
         {
             userManager = _userManager;
             signInManager = _signInManager;
+            userservice = _userservice;
         }
 
         [HttpGet]
@@ -110,6 +116,53 @@ namespace TRBabyShop.Controllers
             await signInManager.SignOutAsync();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> MyFavoriteProducts()
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                var model = await userservice.GetFavoriteProductForUsersAsync(userId);
+
+                return View("Favorite", model);
+            }
+            catch (Exception e)
+            {
+                var error = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", error);
+            }
+        }
+
+        public async Task<IActionResult> AddToCollection(int productId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                await userservice.AddProductToUserCollectionAsync(productId, userId);
+            }
+            catch (Exception e)
+            {
+                var erroMassage = new ErrorViewModel { RequestId = e.Message };
+                return View("Error", erroMassage);
+            }
+
+            return RedirectToAction(nameof(MyFavoriteProducts));
+        }
+        public async Task<IActionResult> RemoveFromCollection(int productId)
+        {
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                await userservice.RemoveProductFromFavoriteAsync(productId, userId);
+                return RedirectToAction(nameof(MyFavoriteProducts));
+            }
+            catch (Exception ex)
+            {
+                var error = new ErrorViewModel { RequestId = ex.Message };
+                return View("Error", error);
+            }
+
         }
     }
 }

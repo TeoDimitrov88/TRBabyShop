@@ -23,6 +23,7 @@ namespace TRBabyShop.Infrastructure.Data.Common
         /// </summary>
         protected DbContext Context { get; set; }
         private readonly ApplicationDbContext _context;
+    
         /// <summary>
         /// Representation of table in database
         /// </summary>
@@ -35,7 +36,10 @@ namespace TRBabyShop.Infrastructure.Data.Common
         {
             Context = context;
             _context = context;
+            context.ShoppingCarts.Include(u => u.Product);
         }
+
+       
 
         /// <summary>
         /// Adds entity to the database
@@ -59,14 +63,26 @@ namespace TRBabyShop.Infrastructure.Data.Common
         /// All records in a table
         /// </summary>
         /// <returns>Queryable expression tree</returns>
-        public IQueryable<T> All<T>() where T : class
+        public IQueryable<T> GetAll<T>() where T : class
         {
             return DbSet<T>().AsQueryable();
         }
 
-        public IQueryable<T> All<T>(Expression<Func<T, bool>> search) where T : class
+        public IEnumerable<T> All<T>(Expression<Func<T, bool>>? filter=null,string? includeProperties=null) where T : class
         {
-            return this.DbSet<T>().Where(search);
+            IQueryable<T> query = DbSet<T>();
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+            if (includeProperties!=null)
+            {
+                foreach (var includeProp in includeProperties.Split(new char[] { ','}, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+            return query.ToList();
         }
 
         /// <summary>
@@ -185,5 +201,7 @@ namespace TRBabyShop.Infrastructure.Data.Common
             var entities = All<T>(deleteWhereClause);
             DeleteRange(entities);
         }
+
+        
     }
 }

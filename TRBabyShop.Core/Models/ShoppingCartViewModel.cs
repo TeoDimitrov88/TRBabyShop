@@ -13,6 +13,10 @@ namespace TRBabyShop.Core.Models
     {
         public Product Product { get; set; } = null!;
 
+        public string UserId { get; set; }
+
+        public int ProductId { get; set; }
+
         [Range(1,100,ErrorMessage ="Please enter a value between 1 and 100!")]
         public int Quantity { get; set; } 
 

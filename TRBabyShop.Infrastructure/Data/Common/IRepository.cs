@@ -13,13 +13,13 @@ namespace TRBabyShop.Infrastructure.Data.Common
         /// All records in a table
         /// </summary>
         /// <returns>Queryable expression tree</returns>
-        IQueryable<T> All<T>() where T : class;
+        IQueryable<T> GetAll<T>() where T : class;
 
         /// <summary>
         /// All records in a table
         /// </summary>
         /// <returns>Queryable expression tree</returns>
-        IQueryable<T> All<T>(Expression<Func<T, bool>> search) where T : class;
+        IEnumerable<T> All<T>(Expression<Func<T, bool>>? filter = null, string? includeProperties = null) where T : class;
 
         /// <summary>
         /// The result collection won't be tracked by the context

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using TRBabyShop.Core.Contracts;
+using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
-using TRBabyShop.Infrastructure.Data.Common;
 using TRBabyShop.Infrastructure.Data.Models;
 
 namespace TRBabyShop.Core.Service
@@ -21,16 +17,18 @@ namespace TRBabyShop.Core.Service
         }
 
         
-        public int DecreaseCount(ShoppingCart shoppingCart, int count)
+        public int DecreaseCount(ShoppingCart shoppingCart, int quantity)
         {
-            shoppingCart.Quantity -= count;
+            shoppingCart.Quantity -= quantity;
             return shoppingCart.Quantity;
         }
 
-        public int IncreaseCount(ShoppingCart shoppingCart, int count)
+        public int IncreaseCount(ShoppingCart shoppingCart, int quantity)
         {
-            shoppingCart.Quantity += count;
+            shoppingCart.Quantity += quantity;
             return shoppingCart.Quantity;
         }
+
+        
     }
 }

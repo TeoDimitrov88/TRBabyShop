@@ -19,6 +19,7 @@ namespace TRBabyShop.Infrastructure.Data.Models
         public Product Product { get; set; } = null!;
 
         [Required]
+        [Range(1,1000,ErrorMessage ="Quantity must be between 1 and 1000")]
         public int Quantity { get; set; }
 
         public string UserId { get; set; } = null!;

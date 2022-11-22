@@ -13,7 +13,7 @@ namespace TRBabyShop.Controllers
     {
         private readonly IShoppingCartService shoppingCartService;
         private readonly ApplicationDbContext dbContext;
-        public CartListViewModel cart { get; set; }
+        public CartListViewModel cartVM { get; set; }
         public ShoppingCartController(IShoppingCartService _shoppingCartService, ApplicationDbContext _dbContext)
         {
             shoppingCartService = _shoppingCartService;
@@ -27,17 +27,56 @@ namespace TRBabyShop.Controllers
             var listCartAdd= dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value)
                 .Select(x=>new ShoppingCartViewModel()
                 {
+                    Id=x.Id,
+                    Price=x.Product.Price,
                    UserId=x.UserId,
                    Product=x.Product,
                    ProductId=x.ProductId,
-                   Quantity=x.Quantity
+                   Quantity=x.Quantity,
+                   Total=x.Quantity*x.Product.Price
                 }).ToList();
 
-            cart = new CartListViewModel
+            cartVM = new CartListViewModel
             {
                 ListCart = listCartAdd
             };
+
+            foreach (var cart in cartVM.ListCart)
+            {
+                cartVM.cartTotal += (cart.Price * cart.Quantity);
+            }
             return View(listCartAdd);
+        }
+
+        public IActionResult Plus(int cartId)
+        {
+            var cart = dbContext.ShoppingCarts.FirstOrDefault(u => u.Id == cartId);
+            shoppingCartService.IncreaseCount(cart, 1);
+            dbContext.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Minus(int cartId)
+        {
+            var cart = dbContext.ShoppingCarts.FirstOrDefault(u => u.Id == cartId);
+            if (cart.Quantity<=1)
+            {
+                dbContext.ShoppingCarts.Remove(cart);
+            }
+            else
+            {
+                shoppingCartService.DecreaseCount(cart, 1);
+            }
+            dbContext.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Remove(int cartId)
+        {
+            var cart = dbContext.ShoppingCarts.FirstOrDefault(c => c.Id == cartId);
+            dbContext.ShoppingCarts.Remove(cart);
+            dbContext.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -26,5 +26,8 @@ namespace TRBabyShop.Infrastructure.Data.Models
 
         [ForeignKey(nameof(UserId))]
         public AppUser User { get; set; } = null!;
+
+        [NotMapped]
+        public decimal Price { get; set; }
     }
 }

@@ -35,5 +35,13 @@ namespace TRBabyShop.Core.Service
                 }
             }
         }
+
+        public void UpdateStripePaymentId(int id, string sessionId, string paymentIntentId)
+        {
+            var orderFromDb = dbContext.Orders.FirstOrDefault(o => o.Id == id);
+           
+            orderFromDb.SessionId = sessionId;
+            orderFromDb.PaymentIntentId = paymentIntentId;
+        }
     }
 }

@@ -1,5 +1,8 @@
-﻿@using TRBabyShop.Core.Models
+﻿@using TRBabyShop.Core.Common
+@using TRBabyShop.Core.Models
 @model CartListViewModel
+@using Microsoft.Extensions.Options
+@inject IOptions<StripeSettings> Stripe
 
 <form method="post">
     <br />

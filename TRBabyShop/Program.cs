@@ -1,5 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
+using Stripe;
+using TRBabyShop.Core.Common;
 using TRBabyShop.Extensions;
 using TRBabyShop.Infrastructure.Data;
 using TRBabyShop.Infrastructure.Data.Models;
@@ -9,7 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+{
+    options.UseSqlServer(connectionString);
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+});
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
@@ -53,6 +59,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 
 app.UseAuthentication();
 app.UseAuthorization();

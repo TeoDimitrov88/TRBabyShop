@@ -5,6 +5,8 @@ using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
 using TRBabyShop.Infrastructure.Data.Common;
+using TRBabyShop.Infrastructure.Data.Models;
+using static TRBabyShop.Infrastructure.Data.Common.Constants;
 
 namespace TRBabyShop.Controllers
 {
@@ -13,6 +15,7 @@ namespace TRBabyShop.Controllers
     {
         private readonly IShoppingCartService shoppingCartService;
         private readonly ApplicationDbContext dbContext;
+        [BindProperty]
         public CartListViewModel cartVM { get; set; }
         public ShoppingCartController(IShoppingCartService _shoppingCartService, ApplicationDbContext _dbContext)
         {
@@ -25,7 +28,7 @@ namespace TRBabyShop.Controllers
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             var listCartAdd= dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value)
-                .Select(x=>new ShoppingCartViewModel()
+                .Select(x=>new ShoppingCart()
                 {
                     Id=x.Id,
                     Price=x.Product.Price,
@@ -36,16 +39,113 @@ namespace TRBabyShop.Controllers
                    Total=x.Quantity*x.Product.Price
                 }).ToList();
 
+
             cartVM = new CartListViewModel
             {
-                ListCart = listCartAdd
+                ListCart = listCartAdd,
+                Order = new()
+
             };
 
             foreach (var cart in cartVM.ListCart)
             {
-                cartVM.cartTotal += (cart.Price * cart.Quantity);
+                cartVM.Order.OrderTotal += (cart.Price * cart.Quantity);
             }
-            return View(listCartAdd);
+            return View(cartVM);
+        }
+
+        public IActionResult Summary()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            var listCartAdd = dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value)
+                .Select(x => new ShoppingCart()
+                {
+                    Id = x.Id,
+                    Price = x.Product.Price,
+                    UserId = x.UserId,
+                    Product = x.Product,
+                    ProductId = x.ProductId,
+                    Quantity = x.Quantity,
+                    Total = x.Quantity * x.Product.Price,
+                    Order = x.Order
+                }).ToList();
+
+            cartVM = new CartListViewModel
+            {
+                ListCart = listCartAdd,
+                Order = new()
+            };
+            cartVM.Order.User = dbContext.Users.FirstOrDefault(u => u.Id == claim.Value);
+
+            
+            foreach (var cart in cartVM.ListCart)
+            {
+                cartVM.Order.OrderTotal += (cart.Price * cart.Quantity);
+            }
+            return View(cartVM);
+        }
+
+        [HttpPost]
+        [ActionName("Summary")]
+        [ValidateAntiForgeryToken]
+        public IActionResult SummaryPost()
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            //var listCartAdded = dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value).ToList();
+            
+            var listCartAdd = dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value)
+                .Select(x => new ShoppingCart()
+                {
+                    Id = x.Id,
+                    Price = x.Product.Price,
+                    UserId = x.UserId,
+                    Product = x.Product,
+                    ProductId = x.ProductId,
+                    Quantity = x.Quantity,
+                    Total = x.Quantity * x.Product.Price,
+                    Order = x.Order
+                }).ToList();
+
+            cartVM.ListCart = listCartAdd;
+
+
+            cartVM.Order.PaymentStatus = Status.PaymentStatusPending;
+            cartVM.Order.OrderStatus = Status.PendingStatus;
+            cartVM.Order.OrderDate= DateTime.Now;
+            cartVM.Order.UserId = claim.Value;
+
+
+            foreach (var cart in cartVM.ListCart)
+            {
+                cartVM.Order.OrderTotal += (cart.Price * cart.Quantity);
+            }
+
+            dbContext.Orders.Add(cartVM.Order);
+            dbContext.SaveChanges();
+
+            foreach (var cart in cartVM.ListCart)
+            {
+                OrderDetail orderDetails = new()
+                {
+                    ProductId = cart.ProductId,
+                    OrderId = cartVM.Order.Id,
+                    Price = cart.Price,
+                    Quantity = cart.Quantity
+                };
+
+                dbContext.OrderDetails.Add(orderDetails);
+                dbContext.SaveChanges();
+            }
+
+            dbContext.ShoppingCarts.RemoveRange(cartVM.ListCart);
+            dbContext.SaveChanges();
+
+
+            return RedirectToAction("All", "Product");
         }
 
         public IActionResult Plus(int cartId)

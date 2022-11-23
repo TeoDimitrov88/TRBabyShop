@@ -29,5 +29,10 @@ namespace TRBabyShop.Infrastructure.Data.Models
 
         [NotMapped]
         public decimal Price { get; set; }
+        [NotMapped]
+        public decimal Total { get; set; }
+
+        [NotMapped]
+        public Order Order { get; set; }
     }
 }

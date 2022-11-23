@@ -15,6 +15,8 @@ namespace TRBabyShop.Extensions
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IReviewService, ReviewService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderDetailService, OrderDetailService>();
             return services;
         }
     }

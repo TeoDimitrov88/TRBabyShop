@@ -18,6 +18,10 @@ namespace TRBabyShop.Infrastructure.Data.Models
         [Required]
         [ForeignKey(nameof(UserId))]
         public AppUser User { get; set; } = null!;
+        [Required]
+        public string City { get; set; } = null!;
+        [Required]
+        public string PostCode { get; set; } = null!;
 
         [Required]
         public DateTime OrderDate { get; set; }
@@ -30,5 +34,10 @@ namespace TRBabyShop.Infrastructure.Data.Models
 
         public string? PaymentStatus { get; set; }
 
+        public string?  TrackingNumber { get; set; }
+
+        public string? SessionId  { get; set; }
+
+        public string? PaymentIntentId  { get; set; }
     }
 }

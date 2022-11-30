@@ -278,3 +278,6 @@ C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\Microsoft.Ex
 C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\Stripe.net.dll
+C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\AngleSharp.dll
+C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\AngleSharp.Css.dll
+C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\HtmlSanitizer.dll

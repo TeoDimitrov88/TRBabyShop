@@ -36,6 +36,7 @@ namespace TRBabyShop.Core.Service
                 Id = u.ProductId,
                 Name = u.Product.Name,
                 Description = u.Product.Description,
+                Price=u.Product.Price,
                 Image = u.Product.Image,
                 CategoryId = u.Product.CategoryId,
                 Category=u.Product.Category.Name
@@ -50,7 +51,7 @@ namespace TRBabyShop.Core.Service
                 throw new ArgumentException("Invalid User ID");
             }
 
-            var product = await repo.GetByIdAsync<Product>(productId);
+            var product = await dbContext.Products.FirstOrDefaultAsync(p => p.Id == productId);
             if (product == null)
             {
                 throw new ArgumentException("Invalid product Id");
@@ -58,14 +59,13 @@ namespace TRBabyShop.Core.Service
 
             if (!user.UserProducts.Any(p => p.ProductId == productId))
             {
-                user.UserProducts.Add(new UserProduct()
+                var productToAdd = new UserProduct()
                 {
-                    Product=product,
-                    ProductId=product.Id,
-                    User=user,
-                    UserId=user.Id
-                });
-                await dbContext.SaveChangesAsync();
+                    ProductId = product.Id,
+                    UserId = user.Id
+                };
+               await  dbContext.UserProducts.AddAsync(productToAdd);
+              await dbContext.SaveChangesAsync();
             }
             else
             {
@@ -88,7 +88,7 @@ namespace TRBabyShop.Core.Service
             {
                 throw new ArgumentException("Invalid product Id");
             }
-            user.UserProducts.Remove(product);
+             dbContext.UserProducts.Remove(product);
             await dbContext.SaveChangesAsync();
         }
     }

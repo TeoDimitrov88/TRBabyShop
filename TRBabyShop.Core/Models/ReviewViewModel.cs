@@ -11,24 +11,22 @@ namespace TRBabyShop.Core.Models
 {
     public class ReviewViewModel
     {
-        [Key]
         public int Id { get; set; }
+        [Required]
+        public AppUser User { get; set; } = null!;
 
         [Required]
         public string UserId { get; set; } = null!;
 
         [Required]
-
-        public string? User { get; set; }
-        [Required]
         [StringLength(Common.Constants.MaxReviewTextLength, MinimumLength = Common.Constants.MinReviewTextLength, ErrorMessage = "{0} lenght must be between {2} and {1} characters long!")]
         public string Text { get; set; } = null!;
 
         [Required]
-        public string? Product { get; set; }
+        public int ProductId { get; set; }
 
         [Required]
-        public int ProductId { get; set; }
+        public string Product { get; set; }
 
         [Required]
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;

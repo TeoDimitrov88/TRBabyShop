@@ -26,27 +26,29 @@ namespace TRBabyShop.Core.Service
         public async Task AddReview(ReviewViewModel model, string userId)
         {
 
-            var product = await dbContext.Products.FirstOrDefaultAsync(p => p.Id == model.ProductId);
+            var product = await repo.GetByIdAsync<Product>(model.ProductId);
+
             if (product == null)
             { 
-                throw new ArgumentException("Invalid product Id!");
+                throw new ArgumentException("Invalid product !");
             }
 
+            var user = await repo.GetByIdAsync<AppUser>(userId);
 
-            var user = await dbContext.Users.Where(u => u.Id == userId).Include(u => u.UserReviews).FirstOrDefaultAsync();
             if (user == null)
             { 
-                throw new ArgumentException("Invalid user Id!");
+                throw new ArgumentException("Invalid user !");
             }
 
             else
             {
                 var newReview = new Review()
                 {
+                    Id=model.Id,
                     ProductId = model.ProductId,
                     UserId = model.UserId,
                     Text = model.Text,
-                    CreatedOn = model.CreatedOn
+                    CreatedOn = DateTime.Now
 
                 };
                 product?.Reviews.Add(newReview);
@@ -79,12 +81,12 @@ namespace TRBabyShop.Core.Service
                  .Where(r => r.ProductId == productId)
                  .Select(r => new ReviewViewModel()
                  {
-                     Id = r.Id,
+                     User=r.User,
                      UserId = r.UserId,
+                     Product=r.Product.Name,
                      ProductId = r.ProductId,
                      Text = r.Text,
-                     CreatedOn = r.CreatedOn,
-                     User = r.User.UserName
+                     CreatedOn = r.CreatedOn
                  }).ToListAsync();
         }
     }

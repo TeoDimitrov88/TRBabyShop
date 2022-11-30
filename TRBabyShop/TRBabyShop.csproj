@@ -24,8 +24,4 @@
     <ProjectReference Include="..\TRBabyShop.Core\TRBabyShop.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\" />
-  </ItemGroup>
-
 </Project>

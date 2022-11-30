@@ -32,7 +32,7 @@
                                 <i class="bi bi-arrow-down-circle-fill"></i> &nbsp; Categories
                             </a>
                             <div class="dropdown-menu ">
-                                <a class="dropdown-item" asp-controller="Category" asp-action="All">
+                                <a class="dropdown-item"  asp-area="Users" asp-controller="Category" asp-action="All">
 
                                     <i class="bi bi-arrow-right-circle-fill"></i> &nbsp; All Categories
                                 </a>
@@ -43,7 +43,7 @@
                                 <i class="bi bi-arrow-down-circle-fill"></i> &nbsp; Products
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Product" asp-action="All">
+                                <a class="dropdown-item" asp-area="Users" asp-controller="Product" asp-action="All">
                                     <i class="bi bi-arrow-right-circle-fill"></i> &nbsp; All Products
                                 </a>
                             </div>
@@ -53,34 +53,33 @@
                                 <i class="bi bi-arrow-down-circle-fill"></i> &nbsp; Reviews
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Review" asp-action="Add">
+                                <a class="dropdown-item" asp-area="Users" asp-controller="Review" asp-action="Add">
                                     <i class="bi bi-arrow-right-circle-fill"></i> &nbsp; Add Review
                                 </a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Product" asp-action="Add">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Add">
                                 <i class="bi bi-plus-circle "></i>&nbsp; Add Product
                             </a>
                         </li>
                         <li class="nav-item">
                             <div>
-                                <a class="nav-link text-dark" type="button" asp-controller="Category" asp-action="Add">
+                                <a class="nav-link text-dark" type="button" asp-area="Admin" asp-controller="Category" asp-action="Add">
                                     <i class="bi bi-plus-circle "></i>&nbsp; Add Category
                                 </a>
                             </div>
                         </li>
                     </ul>
                     <div>
-                        <a class="navbar-brand" asp-controller="Home" asp-action="Index">TR Baby Shop</a>
+                        <a class="navbar-brand" asp-area="Users" asp-controller="Home" asp-action="Index">TR Baby Shop</a>
                     </div>
-                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="ShoppingCart" asp-action="Index">
-                        <i class="fa fa-facebook"></i>
-                        <i class="bi bi-cart-check-fill"></i>
+                    <a class="nav-link text-dark" asp-area="Users" asp-controller="ShoppingCart" asp-action="Index">
+                       
+                        <i class="bi bi-cart-check-fill "></i>
                     </a>
 
-                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="User" asp-action="MyFavoriteProducts">
-                        <i class="fa fa-facebook"></i>
+                    <a class="nav-link text-dark" asp-area="Users" asp-controller="User" asp-action="MyFavoriteProducts">
                         <i class="bi bi-star-fill"></i>
                     </a>
 

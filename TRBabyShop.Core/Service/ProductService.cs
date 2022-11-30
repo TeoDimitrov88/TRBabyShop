@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
@@ -76,25 +77,23 @@ namespace TRBabyShop.Core.Service
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task UpdateProductAsync(int productId, Product model)
+        public async Task UpdateProductAsync(int productId, ProductViewModel model)
         {
             var product = await GetProductUpdateAsync(productId);
-            if (product != null)
-            {
-                product.Id = model.Id;
-                product.Name = model.Name;
-                product.Price = model.Price;
-                product.Description = model.Description;
-                product.Image = model.Image;
-                product.CategoryId = model.CategoryId;
-
-                repo.Update(product);
-                await repo.SaveChangesAsync();
-            }
-            else
+            if (product == null)
             {
                 throw new ArgumentException("Wrong product ID!");
-            }  
+            }
+
+            product.Id = model.Id;
+            product.Name = model.Name;
+            product.Price = model.Price;
+            product.Description = model.Description;
+            product.Image = model.Image;
+            product.CategoryId = model.CategoryId;
+
+            repo.Update(product);
+            await repo.SaveChangesAsync();
         }
 
         public async Task<Product> GetProductUpdateAsync(int id)

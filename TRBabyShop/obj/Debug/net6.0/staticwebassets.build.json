@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1XaundnUo5WfXRvZIwZfe/iFH13mPXtNYSir5wsZHHE=",
+  "Hash": "PWA24S8dLhNDn35qtPp9Zohh0rs9y7syhrGDuQSXdL8=",
   "Source": "TRBabyShop",
   "BasePath": "_content/TRBabyShop",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\source\\repos\\TRBabyShop\\TRBabyShop\\wwwroot\\js\\order.js",
+      "SourceId": "TRBabyShop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\source\\repos\\TRBabyShop\\TRBabyShop\\wwwroot\\",
+      "BasePath": "_content/TRBabyShop",
+      "RelativePath": "js/order.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\order.js"
     },
     {
       "Identity": "C:\\Users\\Lenovo\\source\\repos\\TRBabyShop\\TRBabyShop\\wwwroot\\js\\site.js",

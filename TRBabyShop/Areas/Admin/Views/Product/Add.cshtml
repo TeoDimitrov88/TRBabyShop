@@ -5,6 +5,8 @@
     ViewBag.Title = "Add Product";
 }
 
+<h1 class="text-center pt-4">@ViewBag.Title</h1>
+
 <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
     <form method="post">
         <fieldset>
@@ -45,42 +47,4 @@
     </form>
 </div>
 
-@*<div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-    <form method="post">
-        <fieldset>
-            <div class="mb-3">
-                <label asp-for="@Model.Name" class="form-label">Name</label>
-                <input asp-for="@Model.Name" class="form-control" aria-required="true" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="@Model.Description" class="form-label">Description</label>
-                <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="5"></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-             <div class="mb-3">
-                <label asp-for="@Model.Price" class="form-label">Price</label>
-                <input asp-for="@Model.Price" class="form-control" aria-required="true" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="@Model.Image" class="form-label">Image </label>
-                <input asp-for="@Model.Image" class="form-control" aria-required="true" />
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="@Model.CategoryId" class="form-label mt-4">Category</label>
-                <select class="form-select" asp-for="@Model.CategoryId">
-                    @foreach (var category in Model.Categories)
-                    {
-                        <option value="@category.Id" style="text-dark">@category.Name</option>
-                    }
-                </select>
-            </div>
-            <br />
-            <div class="mb-3">
-                <input class="btn btn-primary" type="submit" value="Save" />
-            </div>
-        </fieldset>
-    </form>
-</div>*@
+

@@ -1,16 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
 
 namespace TRBabyShop.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize]
     public class CategoryController : Controller
     {
-        private readonly ICategoryService categoryService;
+        private readonly ICategoryService cateService;
 
-        public CategoryController(ICategoryService _categoryService)
+        public CategoryController(ICategoryService _cateService)
         {
-            categoryService = _categoryService;
+            cateService = _cateService;
         }
         [HttpGet]
         public IActionResult Add()
@@ -30,9 +33,9 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
             try
             {
-                await categoryService.AddCategoryAsync(model);
+                await cateService.AddCategoryAsync(model);
 
-                return RedirectToAction("All","Category");
+                return RedirectToAction("All", "Category", new { area = "Users" });
             }
             catch (Exception)
             {

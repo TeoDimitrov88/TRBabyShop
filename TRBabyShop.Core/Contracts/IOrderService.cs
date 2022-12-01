@@ -9,6 +9,7 @@ namespace TRBabyShop.Core.Contracts
 {
     public interface IOrderService
     {
+        Task<IEnumerable<Order>> GetOrderAsync();
         void Update(Order order);
 
         void UpdateStatus(int id, string orderStatus, string? paymentStatus = null);

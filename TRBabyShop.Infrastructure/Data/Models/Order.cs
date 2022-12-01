@@ -34,8 +34,6 @@ namespace TRBabyShop.Infrastructure.Data.Models
 
         public string? PaymentStatus { get; set; }
 
-        public string?  TrackingNumber { get; set; }
-
         public string? SessionId  { get; set; }
 
         public string? PaymentIntentId  { get; set; }

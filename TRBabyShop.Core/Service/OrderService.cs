@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TRBabyShop.Core.Contracts;
+using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
 using TRBabyShop.Infrastructure.Data.Models;
 
@@ -18,6 +20,13 @@ namespace TRBabyShop.Core.Service
             dbContext = _dbContext;
         }
 
+        public async Task<IEnumerable<Order>> GetOrderAsync()
+        {
+            var orders = await dbContext.Orders
+                .ToListAsync();
+
+            return orders;
+        }
         public void Update(Order order)
         {
             dbContext.Orders.Update(order);

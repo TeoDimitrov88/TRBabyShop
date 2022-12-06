@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Stripe.Checkout;
 using System.Security.Claims;
 using TRBabyShop.Core.Contracts;
@@ -65,6 +66,7 @@ namespace TRBabyShop.Areas.Users.Controllers
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             var listCartAdd = dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value)
+                .Include(u=>u.Product)
                 .Select(x => new ShoppingCart()
                 {
                     Id = x.Id,
@@ -83,6 +85,8 @@ namespace TRBabyShop.Areas.Users.Controllers
                 Order = new()
             };
             cartVM.Order.User = dbContext.Users.FirstOrDefault(u => u.Id == claim.Value);
+            cartVM.Order.Name = cartVM.Order.User.UserName;
+            cartVM.Order.Email = cartVM.Order.User.Email;
 
 
             foreach (var cart in cartVM.ListCart)
@@ -101,6 +105,7 @@ namespace TRBabyShop.Areas.Users.Controllers
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             var listCartAdd = dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value)
+                .Include(u=>u.Product)
                 .Select(x => new ShoppingCart()
                 {
                     Id = x.Id,
@@ -111,21 +116,27 @@ namespace TRBabyShop.Areas.Users.Controllers
                     Quantity = x.Quantity,
                     Total = x.Quantity * x.Product.Price,
                     Order = x.Order
+                    
                 }).ToList();
 
             cartVM.ListCart = listCartAdd;
 
+            
 
-            cartVM.Order.PaymentStatus = Status.PaymentStatusPending;
-            cartVM.Order.OrderStatus = Status.PendingStatus;
             cartVM.Order.OrderDate = DateTime.Now;
             cartVM.Order.UserId = claim.Value;
+            cartVM.Order.Name = claimsIdentity.Name;
+            cartVM.Order.Email = cartVM.Order.User.Email;
+            cartVM.Order.PaymentStatus = Status.PaymentStatusApproved;
+            cartVM.Order.OrderStatus = Status.ApprovedStatus;
 
 
             foreach (var cart in cartVM.ListCart)
             {
                 cartVM.Order.OrderTotal += cart.Price * cart.Quantity;
             }
+
+           
 
             dbContext.Orders.Add(cartVM.Order);
             dbContext.SaveChanges();
@@ -147,8 +158,9 @@ namespace TRBabyShop.Areas.Users.Controllers
             var domain = "https://localhost:7079/";
             var options = new SessionCreateOptions
             {
+               
                 LineItems = new List<SessionLineItemOptions>(),
-
+                
                 Mode = "payment",
                 SuccessUrl = domain + $"Users/ShoppingCart/OrderConfirmation?id={cartVM.Order.Id}",
                 CancelUrl = domain + $"Users/ShoppingCart",
@@ -177,7 +189,7 @@ namespace TRBabyShop.Areas.Users.Controllers
             var service = new SessionService();
             Session session = service.Create(options);
             cartVM.Order.SessionId = session.Id;
-            orderService.UpdateStripePaymentId(cartVM.Order.Id, session.Id, session.PaymentIntentId);
+    orderService.UpdateStripePaymentId(cartVM.Order.Id, session.Id, session.PaymentIntentId);
             dbContext.SaveChanges();
 
 
@@ -224,8 +236,9 @@ namespace TRBabyShop.Areas.Users.Controllers
             else
             {
                 shoppingCartService.DecreaseCount(cart, 1);
+                dbContext.ShoppingCarts.Update(cart);
             }
-            dbContext.ShoppingCarts.Update(cart);
+            
             dbContext.SaveChanges();
             return RedirectToAction(nameof(Index));
         }

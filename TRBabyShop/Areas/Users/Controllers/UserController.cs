@@ -21,13 +21,16 @@ namespace TRBabyShop.Areas.Users.Controllers
 
         private readonly IUserService userservice;
 
+        private readonly RoleManager<IdentityRole> roleManager;
+
         public UserController(
            UserManager<AppUser> _userManager,
-           SignInManager<AppUser> _signInManager, IUserService _userservice)
+           SignInManager<AppUser> _signInManager, IUserService _userservice, RoleManager<IdentityRole> _roleManager)
         {
             userManager = _userManager;
             signInManager = _signInManager;
             userservice = _userservice;
+            roleManager = _roleManager;
         }
 
         [HttpGet]

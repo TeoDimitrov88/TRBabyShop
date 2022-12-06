@@ -40,10 +40,10 @@
                             </div>
                             <div class="col-6 col-sm-4 col-lg-6 pt-2">
                                 <div class="w-75 btn-group" role="group">
-                                    <a asp-area="Users" asp-controller="ShoppingCart" asp-action="Plus"  asp-route-cartId="@cart.Id" class="btn btn-primary">
+                                    <a asp-area="Users" asp-controller="ShoppingCart" asp-action="Plus" asp-route-cartId="@cart.Id" class="btn btn-primary">
                                         <i class="bi bi-plus-square"></i>
                                     </a> &nbsp;
-                                    <a  asp-area="Users" asp-controller="ShoppingCart" asp-action="Minus"  asp-route-cartId="@cart.Id" class="btn btn-warning">
+                                    <a asp-area="Users" asp-controller="ShoppingCart" asp-action="Minus" asp-route-cartId="@cart.Id" class="btn btn-warning">
                                         <i class="bi bi-dash-square"></i>
                                     </a>
                                 </div>
@@ -79,13 +79,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <div class="card-footer row">
-                        <div class="col-sm-12 col-lg-4 col-md-6 offset-lg-8 offset-md-6 ">
-                            <a  asp-area="Users" asp-action="Summary" asp-route-userId="@Model.Order.UserId" class="btn btn-success form-control">Summary</a>
+                @if (@Model.Order.OrderTotal > 0)
+                {
+
+                    <div class="card-footer">
+                        <div class="card-footer row">
+                            <div class="col-sm-12 col-lg-4 col-md-6 offset-lg-8 offset-md-6 ">
+                                <a asp-area="Users" asp-action="Summary" asp-route-userId="@Model.Order.UserId" class="btn btn-success form-control">Summary</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </div>

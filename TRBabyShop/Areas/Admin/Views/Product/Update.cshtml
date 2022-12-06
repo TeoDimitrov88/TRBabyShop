@@ -1,6 +1,7 @@
 ﻿@using TRBabyShop.Core.Models
+@using TRBabyShop.Infrastructure.Data.Models
 
-@model ProductViewModel
+@model UpdateProductVM
 
 @{
     ViewBag.Title = "Update Product";
@@ -12,6 +13,7 @@
 <div class="row">
         <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
             <form method="post">
+                 <input type="hidden" asp-for="@Model.Id" />
                 <div class="mb-3">
                     <label asp-for="@Model.Name" class="form-label">Name</label>
                     <input asp-for="@Model.Name" class="form-control" aria-required="true" />

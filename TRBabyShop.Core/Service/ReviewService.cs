@@ -60,34 +60,39 @@ namespace TRBabyShop.Core.Service
         }
 
         
-        public async Task<int> DeleteReview(int reviewId)
+        public async Task DeleteReview(int reviewId)
         {
-            var review = await repo.GetByIdAsync<Review>(reviewId);
+            var review =  dbContext.Reviews.Where(r => r.Id == reviewId);
 
             if (review == null)
             {
             throw new ArgumentException("Invalid review.");
             }
+            
 
-            await repo.DeleteAsync<Review>(reviewId);
-            await repo.SaveChangesAsync();
+           dbContext.Remove(reviewId);
+            dbContext.Update(review);
+          await dbContext.SaveChangesAsync();
 
-            return review.Id;
+           
         }
 
         public async Task<IEnumerable<ReviewViewModel>> GetProductReviews(int productId)
         {
-            return await repo.AllReadonly<Review>()
-                 .Where(r => r.ProductId == productId)
-                 .Select(r => new ReviewViewModel()
-                 {
-                     User=r.User,
-                     UserId = r.UserId,
-                     Product=r.Product.Name,
-                     ProductId = r.ProductId,
-                     Text = r.Text,
-                     CreatedOn = r.CreatedOn
-                 }).ToListAsync();
+           
+                var reviews = await dbContext.Reviews.Where(r=>r.ProductId==productId)
+                .Include(r=>r.User)
+                    .ToListAsync();
+
+                return reviews
+                    .Select(r => new ReviewViewModel()
+                    {
+                       Id= r.Id,
+                       UserId = r.UserId,
+                       User=r.User.UserName,
+                       CreatedOn=r.CreatedOn,
+                       Text=r.Text,
+                    });
         }
     }
 }

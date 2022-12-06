@@ -14,8 +14,8 @@ namespace TRBabyShop.Core.Models
         public int Id { get; set; }
         public Product Product { get; set; } = null!;
 
-        public string User { get; set; }
-        public string UserId { get; set; }
+        public string User { get; set; } = null!;
+        public string UserId { get; set; } = null!;
 
         public int ProductId { get; set; }
 
@@ -26,6 +26,6 @@ namespace TRBabyShop.Core.Models
         [Range(typeof(decimal), "0.0", "1500000.00", ConvertValueInInvariantCulture = true)]
         public decimal Total { get; set; }
 
-        public Order Order { get; set; }
+        public Order Order { get; set; } = null!;
     }
 }

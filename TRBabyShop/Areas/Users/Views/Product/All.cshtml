@@ -30,10 +30,13 @@
                         <form class="input-group-sm" asp-area="Users" asp-controller="User" asp-action="AddToCollection" asp-route-productId="@prod.Id">
                             <input type="submit" value="Add to Fav" class="fs-6 btn btn-secondary mb-3 p-2" />
                         </form>
-                        <form class="input-group-sm" asp-area="Admin" asp-controller="Product" asp-action="Update"
-                          asp-route-productId="@prod.Id" >
+                        @*<form class="input-group-sm" asp-area="Admin" asp-controller="Product" asp-action="Update"
+                          asp-route-productId="@prod.Id" method="get">*@
+                          <a asp-area="Admin" asp-controller="Product" asp-action="Update" asp-route-productId="@prod.Id">
+                                @*<p class="mb-2"> <i class="bi bi-star-fill">  Reviews </i></p>*@
                             <input type="submit" value="Update Product" class="fs-6 btn btn-success mb-3 p-2" />
-                        </form>
+                            </a>
+                       @* </form>*@
                         <form class="input-group-sm" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-productId="@prod.Id">
                             <input type="submit" value="Delete Product" class="fs-6 btn btn-danger mb-2 p-1" />
                         </form>

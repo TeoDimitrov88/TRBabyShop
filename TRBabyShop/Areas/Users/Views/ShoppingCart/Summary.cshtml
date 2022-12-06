@@ -39,6 +39,15 @@
                             </div>
                             <div class="row my-1">
                                 <div class="col-3">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-9">
+                                    <input asp-for="Order.User.Email" class="form-control" />
+                                    <span asp-validation-for="Order.User.Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">
                                     <label>City</label>
                                 </div>
                                 <div class="col-9">
@@ -89,7 +98,7 @@
                         </p>
                     </div>
                     <div class="col-12 col-md-4">
-                            <button type="submit" value="Place Order" class="btn btn-primary form-control">Place Order</button>
+                        <button type="submit" value="Place Order" class="btn btn-primary form-control">Place Order</button>
                     </div>
                 </div>
             </div>

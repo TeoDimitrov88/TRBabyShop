@@ -3,7 +3,7 @@
 @model OrderViewModel
 
 <form method="post">
-	<input asp-for="Order.Id" hidden />
+	<input asp-for="@Model.Order.Id" hidden />
 	<br />
 	<div class="container">
 		<div class="card">
@@ -13,7 +13,7 @@
 					<i class="fas fa-shopping-cart"></i> &nbsp; Order Summary
 				</div>
 				<div class="col-12 col-md-4 offset-md-2 text-right">
-					<a asp-action="Index" class="btn btn-outline-info form-control btn-sm">Back to Orders</a>
+					<a asp-action="All" class="btn btn-outline-info form-control btn-sm">Back to Orders</a>
 				</div>
 				</div>
 			</div>
@@ -26,21 +26,30 @@
 									<span class="text-primary">PickUp Details:</span>
 								</h4>
 							</div>
-							@*<div class="row my-1">
+							<div class="row my-1">
 								<div class="col-3">Name</div>
 								<div class="col-9">
-									@if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+									@*@if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
 									{
-									}
+									}*@
 										<input asp-for="Order.Name" type="text" class="form-control" />
 										<span asp-validation-for="Order.Name" class="text-danger"></span>
-									else
+								@*	else
 									{
-									}
-										<input asp-for="Order.Name" readonly type="text" class="form-control" />
+									}*@
+										@*<input asp-for="Order.Name" readonly type="text" class="form-control" />*@
 								</div>
-							</div>*@
-							
+							</div>
+							<div class="row my-1">
+								<div class="col-3">Email</div>
+								<div class="col-9">
+									
+										<input asp-for="Order.Email" type="text" class="form-control" />
+										<span asp-validation-for="Order.Email" class="text-danger"></span>
+								
+										@*<input asp-for="Order.Email" readonly type="text" class="form-control" />*@
+								</div>
+							</div>
 							<div class="row my-1">
 								<div class="col-3">City</div>
 								<div class="col-9">
@@ -52,7 +61,7 @@
 									@*else
 									{
 									}*@
-										<input asp-for="Order.City" readonly type="text" class="form-control" />
+										@*<input asp-for="Order.City" readonly type="text" class="form-control" />*@
 								</div>
 							</div>
 							
@@ -67,7 +76,7 @@
 									@*else
 									{
 									}*@
-										<input asp-for="Order.PostCode" readonly type="text" class="form-control" />
+										@*<input asp-for="Order.PostCode" readonly type="text" class="form-control" />*@
 								</div>
 							</div>
 							
@@ -76,14 +85,14 @@
 								<div class="col-3">Order Date</div>
 								<div class="col-9">
 
-									<input value="@Model.Order.OrderDate.ToShortDateString()" readonly type="text" class="form-control" />
+									<input asp-for="Order.OrderDate" readonly type="text" class="form-control" />
 
 								</div>
 							</div>
 							<div class="row my-1">
 								<div class="col-3">Shipping Date</div>
 								<div class="col-9">
-									<input value="@Model.Order.ShippingDate.ToShortDateString()" type="text" readonly class="form-control" />
+									<input asp-for="Order.ShippingDate" type="text" readonly class="form-control" />
 								</div>
 							</div>
 							@*@if (User.IsInRole(SD.Role_Admin))
@@ -96,11 +105,11 @@
 									</div>
 								</div>
 								<div class="row my-1">
-									<div class="col-3">Payment Intent ID</div>
-									<div class="col-9">
-										<input asp-for="Order.PaymentIntentId" type="text" readonly class="form-control" />
-									</div>
+								<div class="col-3">Order Status</div>
+								<div class="col-9">
+									<input asp-for="Order.OrderStatus" type="text" readonly class="form-control" />
 								</div>
+							</div>
 							<div class="row my-1">
 								<div class="col-3">Payment Status</div>
 								<div class="col-9">
@@ -116,8 +125,9 @@
 							<h4 class="d-flex justify-content-between align-items-center mb-3">
 								<span class="text-primary">Order Summary</span>
 							</h4>
-							<label class="btn btn-outline-primary form-control my-2">Order Status - @Model.Order.OrderStatus</label>
-
+							<a
+							<label class="btn btn-dark form-control my-2">Order Status -  @Model.Order.OrderStatus</label>
+							
 							<ul class="list-group mb-3">
 								@foreach (var detail in Model.OrderDetail)
 								{
@@ -125,7 +135,7 @@
 										<div class="row container">
 											<div class="col-8">
 
-												<h6 class="my-0 text-primary">@detail.Product.Name</h6>
+												<h6 class="my-0 text-muted">@detail.Product.Name</h6>
 												<small class="text-muted">Price : @detail.Price.ToString("c")</small><br />
 												<small class="text-muted">Quantity : @detail.Quantity</small>
 											</div>
@@ -155,7 +165,7 @@
 								}*@
 								@if (Model.Order.OrderStatus == Status.ApprovedStatus)
 								{
-									<input type="submit" asp-action="StartProcessing" class="btn btn-primary form-control my-1" value="Start Processing" />
+									<input type="submit" asp-action="StartProcessing" class="btn btn-success form-control my-1" value="Start Processing" />
 								}
 								@if (Model.Order.OrderStatus == Status.StatusInProcess)
 								{

@@ -17,5 +17,10 @@
         public const int MaxDescriptionLength = 500;
 
         public const int MinDescriptionLength = 20;
+
+        public const int MaxImageUrlLength = 5000;
+
+        public const int MinImageUrlLength = 20;
     }
 }
+

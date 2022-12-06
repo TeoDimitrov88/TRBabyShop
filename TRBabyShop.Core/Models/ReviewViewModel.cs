@@ -13,7 +13,7 @@ namespace TRBabyShop.Core.Models
     {
         public int Id { get; set; }
         [Required]
-        public AppUser User { get; set; } = null!;
+        public string User { get; set; } = null!;
 
         [Required]
         public string UserId { get; set; } = null!;
@@ -26,7 +26,7 @@ namespace TRBabyShop.Core.Models
         public int ProductId { get; set; }
 
         [Required]
-        public string Product { get; set; }
+        public string Product { get; set; } = null!;
 
         [Required]
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;

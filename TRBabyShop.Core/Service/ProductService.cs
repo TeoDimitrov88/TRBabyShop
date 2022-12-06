@@ -42,7 +42,12 @@ namespace TRBabyShop.Core.Service
 
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
-            return await dbContext.Categories.ToListAsync();
+            return await repo.AllReadonly<Category>()
+                .Select(c=>new Category()
+                {
+                    Id= c.Id,
+                    Name= c.Name
+                }).ToListAsync();
         }
 
         public async Task<IEnumerable<ProductViewModel>> GetProductsByCategoryAsync(int categoryId)
@@ -77,9 +82,10 @@ namespace TRBabyShop.Core.Service
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task UpdateProductAsync(int productId, ProductViewModel model)
+        public async Task UpdateProductAsync(int productId, UpdateProductVM model)
         {
-            var product = await GetProductUpdateAsync(productId);
+            var product = await repo.GetByIdAsync<Product>(productId);
+               
             if (product == null)
             {
                 throw new ArgumentException("Wrong product ID!");
@@ -92,25 +98,8 @@ namespace TRBabyShop.Core.Service
             product.Image = model.Image;
             product.CategoryId = model.CategoryId;
 
-            repo.Update(product);
             await repo.SaveChangesAsync();
-        }
 
-        public async Task<Product> GetProductUpdateAsync(int id)
-        {
-            var user = await dbContext.Products.Where(x => x.Id == id)
-                .Select(x => new Product
-                {
-                    Id = x.Id,
-                    Category=x.Category,
-                    Name=x.Name,
-                    Description=x.Description,
-                    Image=x.Image,
-                    CategoryId=x.CategoryId,
-                    Price=x.Price
-                }).FirstOrDefaultAsync();
-
-            return user!;
         }
 
         public async Task DeleteProduct(int productId)
@@ -119,7 +108,10 @@ namespace TRBabyShop.Core.Service
             await repo.SaveChangesAsync();
         }
 
-        
+        public async Task<int> GetProductsCategoryId(int productId)
+        {
+            return (await repo.GetByIdAsync<Product>(productId)).CategoryId;
+        }
 
         public async Task<ProductViewModel> GetProductById(int productId)
         {
@@ -138,6 +130,7 @@ namespace TRBabyShop.Core.Service
                      CategoryId = product.CategoryId,
                      Image = product.Image,
                      Reviews= product.Reviews
+                     
                  };
         }
 

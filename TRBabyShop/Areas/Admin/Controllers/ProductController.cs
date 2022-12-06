@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
+using TRBabyShop.Infrastructure.Data;
+using TRBabyShop.Infrastructure.Data.Common;
 using TRBabyShop.Models;
 
 namespace TRBabyShop.Areas.Admin.Controllers
@@ -11,10 +13,14 @@ namespace TRBabyShop.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService prodService;
+        private readonly ApplicationDbContext dbContext;
+        private readonly IRepository repo;
 
-        public ProductController(IProductService _prodService)
+        public ProductController(IProductService _prodService, ApplicationDbContext _dbContext, IRepository _repo)
         {
-            prodService = _prodService;  
+            prodService = _prodService; 
+            dbContext = _dbContext;
+            repo = _repo;
         }
        
         [HttpGet]
@@ -61,21 +67,33 @@ namespace TRBabyShop.Areas.Admin.Controllers
             return RedirectToAction("All", "Product", new { area = "Users" });
         }
 
-  
+        [HttpGet]
         public async Task<IActionResult> Update(int productId)
         {
             if (productId == 0)
             {
                 return NotFound();
             }
-            var product = await prodService.GetProductUpdateAsync(productId);
+            var product = await prodService.GetProductById(productId);
+            var categoryId=await prodService.GetProductsCategoryId(productId);
 
-            return View(product);
+            var model = new UpdateProductVM()
+            {
+                Id = productId,
+                Name = product.Name,
+                Description=product.Description,
+                Price = product.Price,
+                CategoryId = categoryId,
+                Image = product.Image,
+                Categories= await prodService.GetCategoriesAsync()
+            };
+            
+            return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int productId, ProductViewModel model)
+        public async Task<IActionResult> Update(int productId, UpdateProductVM model)
         {
             if (!ModelState.IsValid)
             {
@@ -84,7 +102,7 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
             try
             {
-                await prodService.UpdateProductAsync(productId, model);
+                await prodService.UpdateProductAsync(model.Id, model);
 
                 return RedirectToAction("All", "Product", new { area = "Users" });
             }

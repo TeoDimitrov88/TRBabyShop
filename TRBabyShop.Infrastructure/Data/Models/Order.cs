@@ -37,5 +37,13 @@ namespace TRBabyShop.Infrastructure.Data.Models
         public string? SessionId  { get; set; }
 
         public string? PaymentIntentId  { get; set; }
+
+        [Required]
+        public string Name { get; set; } = null!;
+
+        [Required]
+        public string Email { get; set; } = null!;
+
+
     }
 }

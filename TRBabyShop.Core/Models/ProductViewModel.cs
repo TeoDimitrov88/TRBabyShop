@@ -30,7 +30,7 @@ namespace TRBabyShop.Core.Models
         [Required]
         public IEnumerable<Category> Categories { get; set; } = new List<Category>();
 
-        [Required]
+       
         public ICollection<Review> Reviews { get; set; } = null!;
     }
 }

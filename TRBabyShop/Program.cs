@@ -1,4 +1,6 @@
 
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Stripe;
 using TRBabyShop.Core.Common;
@@ -27,7 +29,8 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
     options.Password.RequiredLength = 5;
     options.Password.RequireDigit = false;
     options.Password.RequireUppercase = true;
-} )
+})
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddApplicationServices();
@@ -38,7 +41,11 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = "/User/Logout";
     options.AccessDeniedPath = "/User/AccessDenied";
 });
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(
+    options=>
+    {
+        options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+    });
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

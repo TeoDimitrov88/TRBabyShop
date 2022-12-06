@@ -10,12 +10,13 @@
 
     <br /><br />
 
-    <table class="table table-bordered table-dark">
+    <table class="table table-bordered table-active">
         <thead>
-            <tr>
+            <tr class="table-info">
                 <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
                 <th scope="col">City</th>
-                <th scope="col">Postcode</th>
                <th scope="col">Total Price</th>
                 <th scope="col">Status</th>
                 <th scope="col">Info</th>
@@ -28,8 +29,9 @@
                 <tr>
                    
                     <td>@order.Id</td>
+                    <td>@order.Name</td>
+                    <td>@order.Email</td>
                     <td>@order.City</td>
-                    <td>@order.PostCode</td>
                     <td>@order.OrderTotal</td>
                     <td>@order.OrderStatus</td>
                     <td>

@@ -52,7 +52,7 @@ namespace TRBabyShop.Areas.Users.Controllers
                 var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
                 await reviewService.AddReview(model, userId);
 
-                return RedirectToAction("All", "Product", "Admin");
+                return RedirectToAction("All", "Product");
             }
             catch (Exception e)
             {
@@ -61,11 +61,12 @@ namespace TRBabyShop.Areas.Users.Controllers
             }
         }
 
+        [HttpPost]
         public async Task<IActionResult> Delete(int reviewId)
         {
-            var review = await reviewService.DeleteReview(reviewId);
+            await reviewService.DeleteReview(reviewId);
 
-            return RedirectToAction("All", "Product","Admin");
+            return RedirectToAction("All", "Product");
         }
     }
 }

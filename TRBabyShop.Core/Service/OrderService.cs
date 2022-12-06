@@ -20,13 +20,32 @@ namespace TRBabyShop.Core.Service
             dbContext = _dbContext;
         }
 
+       
+        
         public async Task<IEnumerable<Order>> GetOrderAsync()
         {
-            var orders = await dbContext.Orders
+            var orders = await dbContext.Orders.Include(o => o.User)
                 .ToListAsync();
 
-            return orders;
+            return orders
+                .Select(o => new Order()
+                
+                {
+                    Id = o.Id,
+                    UserId = o.UserId,
+                    Name = o.Name,
+                    Email = o.User.Email,
+                    City = o.City,
+                    PostCode = o.PostCode,
+                    PaymentStatus = o.PaymentStatus,
+                    OrderStatus = o.OrderStatus,
+                    OrderDate = o.OrderDate,
+                    OrderTotal = o.OrderTotal,
+                    SessionId = o.SessionId
+                });
         }
+
+      
         public void Update(Order order)
         {
             dbContext.Orders.Update(order);
@@ -49,6 +68,7 @@ namespace TRBabyShop.Core.Service
         {
             var orderFromDb = dbContext.Orders.FirstOrDefault(o => o.Id == id);
            
+            
             orderFromDb.SessionId = sessionId;
             orderFromDb.PaymentIntentId = paymentIntentId;
         }

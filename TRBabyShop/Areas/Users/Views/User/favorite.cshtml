@@ -33,11 +33,6 @@
                     <p class="mb-2">Add review </p>
                 </a>
             </div>
-           
-            <form class="input-group-sm" asp-area="Users" asp-controller="Product" asp-action="Details" asp-route-productId="@prod.Id">
-              
-                 <input type="button" value="Add to Cart" class="fs-6 btn btn-info mb-3 p-2" />
-            </form>
             <form class="input-group-sm" asp-area="Users" asp-controller="User" asp-action="RemoveFromCollection" asp-route-productId="@prod.Id">
                  <input type="submit" value="Remove from Fav" class="fs-6 btn btn-info mb-3 p-2" />
             </form>

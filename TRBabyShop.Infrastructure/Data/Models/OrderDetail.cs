@@ -19,7 +19,6 @@ namespace TRBabyShop.Infrastructure.Data.Models
 
         [Required]
         [ForeignKey(nameof(OrderId))]
-        [ValidateNever]
         public Order Order { get; set; } = null!;
 
         [Required]

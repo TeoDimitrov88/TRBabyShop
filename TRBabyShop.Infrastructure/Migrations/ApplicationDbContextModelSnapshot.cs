@@ -228,15 +228,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "04ba4719-a5ce-478d-b36d-169ffe19e118",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b7193c2-0fea-4c85-881f-12262f92295d",
+                            ConcurrencyStamp = "80f567a0-fe7b-4bbf-8511-5ce956cd00ca",
                             Email = "teo88@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "teo88@abv.bg",
                             NormalizedUserName = "teodor88",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHSUSAx1un04Sec0EZt8d+Fgm6ivvhm0DX4VKwFHDMb47zfV7kUhCVuDPz164PCMug==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJMAw6UWm028lTcbS8ZXBI6MaL54586APvtFracUQhK/MkpAH/kr5wWe+ugVFYsABA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7f3a38d3-3354-44fa-b79c-f40262b2dff1",
+                            SecurityStamp = "85847a85-e856-478a-b94b-4eaf8d698673",
                             TwoFactorEnabled = false,
                             UserName = "teodor88"
                         },
@@ -244,14 +244,14 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "d381c77f-aabf-46bd-80e3-cf9ee84a668b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "823b29db-2eab-4d89-a559-509dfff685ac",
+                            ConcurrencyStamp = "790fb3e1-8670-41f9-a05b-f113a86439d2",
                             Email = "ivan89@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ivan89@abv.bg",
                             NormalizedUserName = "ivan89",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a09c183d-709d-4ce5-8c91-60c4fe291d73",
+                            SecurityStamp = "9c26db5e-151d-48ee-b0fa-1a2f7eacbbcb",
                             TwoFactorEnabled = false,
                             UserName = "ivan89"
                         },
@@ -259,14 +259,14 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "cd0f2b40-9353-405c-ae22-c1097419f287",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "977f6e06-fe8e-4bd0-9eed-ee4d80573e91",
+                            ConcurrencyStamp = "91c0fa86-fc97-4bb0-8ec1-e3b5598bc6c2",
                             Email = "hristo80@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "hristo80@abv.bg",
                             NormalizedUserName = "hristo80",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "efe7cd89-c558-4976-af01-0efab0888285",
+                            SecurityStamp = "b932217d-f33d-4b25-bb13-d323a3a0ee6a",
                             TwoFactorEnabled = false,
                             UserName = "hristo80"
                         },
@@ -274,16 +274,31 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "c225f1de-8898-473c-8b8d-484a5034beea",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "be2b93ce-6728-4734-bada-ddb2aaa151ef",
+                            ConcurrencyStamp = "10303722-ac53-4a95-aab6-cec75f0728c2",
                             Email = "tina93@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "tina93@abv.bg",
                             NormalizedUserName = "tina93",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b882fd44-1247-417f-95ee-e5308de3053f",
+                            SecurityStamp = "a39a0942-9d7a-416c-8a37-8a9ba8a0b982",
                             TwoFactorEnabled = false,
                             UserName = "tina93"
+                        },
+                        new
+                        {
+                            Id = "1163da51-2369-4b12-aef5-86c360e358de",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f8e79fbc-a52f-4d36-b428-a85b1aa219fc",
+                            Email = "admin@abv.bg",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@abv.bg",
+                            NormalizedUserName = "ADMIN",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "c79c2210-3b05-4291-be55-8cce54eba711",
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
                         });
                 });
 
@@ -385,9 +400,6 @@ namespace TRBabyShop.Infrastructure.Migrations
 
                     b.Property<DateTime>("ShippingDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("TrackingNumber")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -627,7 +639,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7127),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8392),
                             ProductId = 1,
                             Text = "Amazing item!",
                             UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
@@ -635,7 +647,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7172),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8436),
                             ProductId = 3,
                             Text = "Very usefull!!Thank you",
                             UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
@@ -643,7 +655,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7175),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8439),
                             ProductId = 3,
                             Text = "It`s perfect for our baby!Thank you",
                             UserId = "c225f1de-8898-473c-8b8d-484a5034beea"
@@ -651,7 +663,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7178),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8442),
                             ProductId = 8,
                             Text = "Low quality ,im very upset :(",
                             UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
@@ -659,7 +671,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7181),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8444),
                             ProductId = 11,
                             Text = "Excellent :)",
                             UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
@@ -667,7 +679,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7184),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8449),
                             ProductId = 11,
                             Text = "Excellent ,Thank you:)",
                             UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
@@ -675,7 +687,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7187),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8451),
                             ProductId = 12,
                             Text = "It`s really expensive for its quality ",
                             UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
@@ -683,7 +695,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7190),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8454),
                             ProductId = 4,
                             Text = "Low quality ,not impressed :(",
                             UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
@@ -691,7 +703,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7192),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8456),
                             ProductId = 7,
                             Text = "Low quality ,not impressed :(",
                             UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
@@ -699,7 +711,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7196),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8460),
                             ProductId = 9,
                             Text = "Low quality ,not impressed :(",
                             UserId = "04fa2e1b-1e98-42fa-b709-f364b63cfa91"
@@ -707,7 +719,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7199),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8462),
                             ProductId = 3,
                             Text = "Low quality ,not impressed :(",
                             UserId = "04fa2e1b-1e98-42fa-b709-f364b63cfa91"
@@ -715,7 +727,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7201),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8465),
                             ProductId = 4,
                             Text = "Very good ,thanks",
                             UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
@@ -723,7 +735,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7204),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8467),
                             ProductId = 5,
                             Text = "Very good ,thanks",
                             UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
@@ -731,7 +743,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7206),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8470),
                             ProductId = 8,
                             Text = "Very good ,thanks",
                             UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
@@ -739,7 +751,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7209),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8472),
                             ProductId = 9,
                             Text = "Not recommend :(",
                             UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
@@ -747,7 +759,7 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedOn = new DateTime(2022, 12, 1, 0, 4, 19, 145, DateTimeKind.Local).AddTicks(7211),
+                            CreatedOn = new DateTime(2022, 12, 7, 15, 43, 7, 712, DateTimeKind.Local).AddTicks(8475),
                             ProductId = 10,
                             Text = "Not recommend :(",
                             UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"

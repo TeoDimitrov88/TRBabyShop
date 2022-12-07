@@ -30,6 +30,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                 NormalizedUserName = "teodor88",
                 Email = "teo88@abv.bg",
                 NormalizedEmail = "teo88@abv.bg"
+                
             };
             user.PasswordHash = hasher.HashPassword(user, "teo12!");
 
@@ -70,6 +71,18 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
             user.PasswordHash = hasher.HashPassword(user4, "teo12!");
 
             users.Add(user4);
+
+            var user5 = new AppUser()
+            {
+                Id = "1163da51-2369-4b12-aef5-86c360e358de",
+                UserName = "admin",
+                NormalizedUserName = "ADMIN",
+                Email = "admin@abv.bg",
+                NormalizedEmail = "ADMIN@abv.bg"
+            };
+            user.PasswordHash = hasher.HashPassword(user4, "Admin123");
+
+            users.Add(user5);
 
             return users;
         }

@@ -74,6 +74,8 @@ namespace TRBabyShop.Areas.Users.Controllers
                 ModelState.AddModelError("", item.Description);
             }
 
+            await this.userManager.AddToRoleAsync(newUser, "customer");
+
             return View(model);
         }
 

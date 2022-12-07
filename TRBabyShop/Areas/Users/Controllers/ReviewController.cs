@@ -5,11 +5,12 @@ using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data.Common;
 using TRBabyShop.Models;
+using static TRBabyShop.Infrastructure.Data.Common.Constants;
 
 namespace TRBabyShop.Areas.Users.Controllers
 {
     [Area("Users")]
-    [Authorize]
+    [Authorize(Roles = Status.RoleAdmin + "," + Status.RoleCustomer)]
     public class ReviewController : Controller
     {
         private readonly IReviewService reviewService;
@@ -33,11 +34,13 @@ namespace TRBabyShop.Areas.Users.Controllers
         [HttpGet]
         public IActionResult Add(int productId)
         {
+           
+
             var model = new ReviewViewModel()
             {
                 ProductId = productId,
-                CreatedOn = DateTime.Now
-
+                CreatedOn = DateTime.Now,
+                
             };
 
             return View(model);
@@ -62,6 +65,7 @@ namespace TRBabyShop.Areas.Users.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles =Status.RoleAdmin)]
         public async Task<IActionResult> Delete(int reviewId)
         {
             await reviewService.DeleteReview(reviewId);

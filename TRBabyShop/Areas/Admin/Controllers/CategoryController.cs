@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
+using static TRBabyShop.Infrastructure.Data.Common.Constants;
 
 namespace TRBabyShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = Status.RoleAdmin)]
     public class CategoryController : Controller
     {
         private readonly ICategoryService cateService;

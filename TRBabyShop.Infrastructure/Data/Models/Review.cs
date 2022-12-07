@@ -13,7 +13,6 @@ namespace TRBabyShop.Infrastructure.Data.Models
         [Required]
         public string UserId { get; set; } = null!;
 
-        [Required]
         [ForeignKey(nameof(UserId))]
         public AppUser User { get; set; } = null!;
 
@@ -26,7 +25,6 @@ namespace TRBabyShop.Infrastructure.Data.Models
         [Required]
         public int ProductId { get; set; }
 
-        [Required]
         [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; } = null!;
 

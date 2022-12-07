@@ -5,11 +5,12 @@ using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
 using TRBabyShop.Infrastructure.Data.Common;
 using TRBabyShop.Models;
+using static TRBabyShop.Infrastructure.Data.Common.Constants;
 
 namespace TRBabyShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles =Status.RoleCustomer)]
     public class ProductController : Controller
     {
         private readonly IProductService prodService;
@@ -112,8 +113,5 @@ namespace TRBabyShop.Areas.Admin.Controllers
                 return View("Error", error);
             }
         }
-
-       
-       
     }
 }

@@ -91,12 +91,13 @@ namespace TRBabyShop.Core.Service
                 throw new ArgumentException("Wrong product ID!");
             }
 
-            product.Id = model.Id;
             product.Name = model.Name;
             product.Price = model.Price;
             product.Description = model.Description;
             product.Image = model.Image;
             product.CategoryId = model.CategoryId;
+
+            repo.Update(product);
 
             await repo.SaveChangesAsync();
 

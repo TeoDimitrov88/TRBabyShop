@@ -7,22 +7,20 @@ using TRBabyShop.Infrastructure.Data;
 using TRBabyShop.Infrastructure.Data.Common;
 using TRBabyShop.Infrastructure.Data.Models;
 using TRBabyShop.Models;
+using static TRBabyShop.Infrastructure.Data.Common.Constants;
 
 namespace TRBabyShop.Areas.Admin.Controllers
 {
     [Area("Users")]
+    //[Authorize(Status.RoleAdmin + "," + Status.RoleCustomer)]
     public class HomeController : Controller
     {
         private readonly IProductService productService;
-        private readonly ApplicationDbContext dbContext;
-        private readonly IShoppingCartService shoppingCartService;
-        private readonly IRepository repo;
+       
         public HomeController(IProductService _productService, ApplicationDbContext _dbContext, IShoppingCartService _shoppingCartService, IRepository _repo)
         {
             productService = _productService;
-            dbContext = _dbContext;
-            shoppingCartService = _shoppingCartService;
-            repo = _repo;
+          
         }
 
         public async Task<IActionResult> Index()

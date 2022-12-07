@@ -7,12 +7,12 @@ using TRBabyShop.Core.Models;
 using TRBabyShop.Core.Service;
 using TRBabyShop.Infrastructure.Data.Models;
 using TRBabyShop.Models;
+using static TRBabyShop.Infrastructure.Data.Common.Constants;
 
 namespace TRBabyShop.Areas.Users.Controllers
 {
     [Area("Users")]
-    [Authorize]
-
+    [Authorize(Roles = Status.RoleAdmin + "," + Status.RoleCustomer)]
     public class UserController : Controller
     {
         private readonly UserManager<AppUser> userManager;
@@ -128,6 +128,10 @@ namespace TRBabyShop.Areas.Users.Controllers
 
         public async Task<IActionResult> MyFavoriteProducts()
         {
+            if (User.IsInRole(Status.RoleAdmin))
+            {
+                return RedirectToAction("Index", "Home");
+            }
             try
             {
                 var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;

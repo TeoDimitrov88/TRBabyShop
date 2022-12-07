@@ -12,7 +12,7 @@ using static TRBabyShop.Infrastructure.Data.Common.Constants;
 namespace TRBabyShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = Status.RoleAdmin)]
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext dbcontext;
@@ -31,30 +31,34 @@ namespace TRBabyShop.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> All(string status)
         {
-            //if (User.IsInRole(Status.RoleAdmin))
-            //{
+            IEnumerable<Order> orderList;
 
-            //}
-            var orderList = await orderService.GetOrderAsync();
-
-            //else
-            //{
-            //    var claimsIdentity = (ClaimsIdentity)User.Identity;
-            //    var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            //    orderList = dbcontext.Orders.Where(u => u.UserId == claim.Value).Include(u => u.User);
-            //}
-
-            if (status=="pending")
+            if (User.IsInRole(Status.RoleAdmin))
             {
-                orderList = orderList.Where(p => p.PaymentStatus == Status.PaymentStatusPending);
+             orderList = await orderService.GetOrderAsync();
             }
-            else if (status=="inprocess")
+
+
+            else
+            {
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+               orderList = dbcontext.Orders.Where(u => u.UserId == claim.Value).Include(u => u.User);
+
+            }
+
+            if (status == "pending")
+            {
+                 orderList = orderList.Where(p => p.PaymentStatus == Status.PaymentStatusPending);
+            }
+            else if (status == "inprocess")
             {
                 orderList = orderList.Where(p => p.PaymentStatus == Status.StatusInProcess);
             }
-            else if (status=="completed")
+            else if (status == "completed")
             {
                 orderList = orderList.Where(p => p.PaymentStatus == Status.ShippedStatus);
             }
@@ -62,6 +66,8 @@ namespace TRBabyShop.Areas.Admin.Controllers
             {
                 orderList = orderList.Where(p => p.PaymentStatus == Status.ApprovedStatus);
             }
+
+
             return View(orderList);
         }
 
@@ -82,6 +88,7 @@ namespace TRBabyShop.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles =Status.RoleAdmin)]
         [ValidateAntiForgeryToken]
         public IActionResult UpdateOrderDetail()
         {
@@ -100,6 +107,7 @@ namespace TRBabyShop.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Status.RoleAdmin)]
         [ValidateAntiForgeryToken]
 
         public IActionResult StartProcessing()
@@ -115,6 +123,7 @@ namespace TRBabyShop.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Status.RoleAdmin)]
         [ValidateAntiForgeryToken]
 
         public IActionResult ShipOrder()

@@ -12,7 +12,7 @@ namespace TRBabyShop.Core.Models
     public class ReviewViewModel
     {
         public int Id { get; set; }
-        [Required]
+ 
         public string User { get; set; } = null!;
 
         [Required]
@@ -25,7 +25,6 @@ namespace TRBabyShop.Core.Models
         [Required]
         public int ProductId { get; set; }
 
-        [Required]
         public string Product { get; set; } = null!;
 
         [Required]

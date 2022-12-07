@@ -31,7 +31,7 @@ namespace TRBabyShop.Infrastructure.Data.Models
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; } = null!;
 
-        [Required]
-        public ICollection<Review> Reviews { get; set; } = null!;
+
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
     }
 }

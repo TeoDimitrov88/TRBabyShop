@@ -28,12 +28,15 @@ namespace TRBabyShop.Core.Service
 
             var product = await repo.GetByIdAsync<Product>(model.ProductId);
 
+            model.Product = product.Name;
+           
             if (product == null)
             { 
                 throw new ArgumentException("Invalid product !");
             }
 
             var user = await repo.GetByIdAsync<AppUser>(userId);
+            model.User = user.UserName;
 
             if (user == null)
             { 
@@ -44,13 +47,14 @@ namespace TRBabyShop.Core.Service
             {
                 var newReview = new Review()
                 {
-                    Id=model.Id,
                     ProductId = model.ProductId,
-                    UserId = model.UserId,
+                    UserId = user.Id,
                     Text = model.Text,
                     CreatedOn = DateTime.Now
 
                 };
+                
+
                 product?.Reviews.Add(newReview);
                 user?.UserReviews.Add(newReview);
                 await dbContext.Reviews.AddAsync(newReview);
@@ -89,7 +93,6 @@ namespace TRBabyShop.Core.Service
                     {
                        Id= r.Id,
                        UserId = r.UserId,
-                       User=r.User.UserName,
                        CreatedOn=r.CreatedOn,
                        Text=r.Text,
                     });

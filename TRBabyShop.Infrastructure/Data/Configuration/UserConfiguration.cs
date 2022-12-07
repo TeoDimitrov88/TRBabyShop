@@ -75,8 +75,8 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
             var user5 = new AppUser()
             {
                 Id = "1163da51-2369-4b12-aef5-86c360e358de",
-                UserName = "admin",
-                NormalizedUserName = "ADMIN",
+                UserName = "admin12",
+                NormalizedUserName = "ADMIN12",
                 Email = "admin@abv.bg",
                 NormalizedEmail = "ADMIN@abv.bg"
             };

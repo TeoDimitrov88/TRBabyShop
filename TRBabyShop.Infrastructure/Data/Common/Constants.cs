@@ -20,8 +20,8 @@ namespace TRBabyShop.Infrastructure.Data.Common
 
         public static class Status
         {
-            public const string RoleUser = "User";
-            public const string RoleAdmin = "Admin";
+            public const string RoleCustomer = "customer";
+            public const string RoleAdmin = "admin";
 
 
             public const string PendingStatus = "Pending";

@@ -5,11 +5,12 @@ using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
 using TRBabyShop.Infrastructure.Data.Models;
+using static TRBabyShop.Infrastructure.Data.Common.Constants;
 
 namespace TRBabyShop.Areas.Users.Controllers
 {
     [Area("Users")]
-    [Authorize]
+    [Authorize(Roles =Status.RoleAdmin +","+ Status.RoleCustomer)]
     public class ProductController : Controller
     {
         private readonly IProductService productService;

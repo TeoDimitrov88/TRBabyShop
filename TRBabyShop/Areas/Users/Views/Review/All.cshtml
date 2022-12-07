@@ -1,4 +1,5 @@
 ﻿@using TRBabyShop.Core.Models
+@using static TRBabyShop.Infrastructure.Data.Common.Constants
 @model IEnumerable<ReviewViewModel>;
 
 <hr />
@@ -26,10 +27,13 @@
                 </p>
             </div>
 
+            
             <div class="d-flex justify-content-between text-center">
                 <a asp-area="Users" asp-controller="Review" asp-action="Delete" asp-route-reviewId="@rev.Id" class="btn btn-danger btn-sm text-center" method="post" >Delete</a>
                 
             </div>
+         
+                
         </div>
         <hr />
     }

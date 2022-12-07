@@ -8,10 +8,13 @@
 <hr />
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
+
  <a asp-area="Users" asp-controller="Product" asp-action="All" >
 <button type="button" class="btn btn-secondary disabled mb-4">Back to list</button>
 </a>
-<div class="text-center row">
+@if (Model.Any())
+{
+ <div class="text-center row">
     @foreach (var prod in Model)
     {
 
@@ -50,4 +53,11 @@
 
     }
 
-</div>
+</div>   
+}
+
+else
+{
+         <h3 class="text-center">You have no favorites product yet!</h3>
+}
+

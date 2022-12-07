@@ -7,6 +7,7 @@ using TRBabyShop.Core.Common;
 using TRBabyShop.Extensions;
 using TRBabyShop.Infrastructure.Data;
 using TRBabyShop.Infrastructure.Data.Models;
+using TRBabyShop.ModelBinder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +34,10 @@ builder.Services.AddDefaultIdentity<AppUser>(options =>
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+
 builder.Services.AddApplicationServices();
+
+
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -44,6 +48,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddControllersWithViews(
     options=>
     {
+        options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
         options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
     });
 builder.Services.AddRazorPages();

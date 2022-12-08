@@ -80,7 +80,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                 Email = "admin@abv.bg",
                 NormalizedEmail = "ADMIN@abv.bg"
             };
-            user.PasswordHash = hasher.HashPassword(user4, "Admin123");
+            user.PasswordHash = hasher.HashPassword(user4, "Admin123!");
 
             users.Add(user5);
 

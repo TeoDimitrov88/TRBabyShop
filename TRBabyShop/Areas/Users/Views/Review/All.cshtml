@@ -12,31 +12,32 @@
 <hr />
 
 <div class="card  container pt-4">
-   
-    @foreach (var rev in Model)
-    {
-        <div class="card text-dark bg-warning mb-3" style="max-width: 20rem;">
-            <div class="card-header">
-                <p class="mb-1">
-                    @rev.User <span class="small">@rev.CreatedOn</span>
-                </p>
-            </div>
-            <div class="card-body">
-                <p class="small mb-0 text-dark">
-                    @rev.Text
-                </p>
-            </div>
 
-            
-            <div class="d-flex justify-content-between text-center">
-                <a asp-area="Users" asp-controller="Review" asp-action="Delete" asp-route-reviewId="@rev.Id" class="btn btn-danger btn-sm text-center" method="post" >Delete</a>
-                
+    <div class="card  container pt-4">
+
+        @foreach (var rev in Model)
+        {
+            <div class="card text-dark bg-warning mb-3" style="max-width: 20rem;">
+                <div class="card-header">
+                    <p class="mb-1">
+                        @rev.User  , @rev.CreatedOn
+                    </p>
+                </div>
+                <div class="card-body">
+                    <p class="small mb-0 text-dark">
+                        @rev.Text
+                    </p>
+                </div>
+
+
+                <div class="d-flex justify-content-between text-center">
+                    <a asp-area="Users" asp-controller="Review" asp-action="Delete" asp-route-reviewId="@rev.Id" class="btn btn-danger btn-sm text-center" method="post">Delete</a>
+
+                </div>
             </div>
-         
-                
-        </div>
-        <hr />
-    }
+            <hr />
+        }
+    </div>
 </div>
 
 

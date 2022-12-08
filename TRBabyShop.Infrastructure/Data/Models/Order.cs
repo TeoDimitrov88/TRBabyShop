@@ -39,9 +39,11 @@ namespace TRBabyShop.Infrastructure.Data.Models
         public string? PaymentIntentId  { get; set; }
 
         [Required]
+        [StringLength(30, ErrorMessage = "Name field is required!")]
         public string Name { get; set; } = null!;
 
         [Required]
+        [StringLength(30, ErrorMessage = "Email field is required!")]
         public string Email { get; set; } = null!;
 
 

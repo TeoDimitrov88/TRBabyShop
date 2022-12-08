@@ -1,4 +1,5 @@
 ﻿@using TRBabyShop.Core.Models
+@using static TRBabyShop.Infrastructure.Data.Common.Constants
 @model IEnumerable<ProductViewModel>;
 
 
@@ -12,58 +13,42 @@
 <div class="text-center row">
     @foreach (var prod in Model)
     {
-        <div class="card  container pt-4">
-            <div class="card-header bg-primary text-light ml-0  row ">
-                <div class="col-12 col-md-6">
-                    <h1 class="text-white-50">@prod.Name</h1>
+        <div class="col-lg-3 col-lg-1">
+            <div class="row p-2">
+                <div class=" p-1">
+                    <div class="card border-primary " style="width: 20rem; border-radius: 5px; ">
+                        <a asp-area="Users" asp-controller="Product" asp-action="Details" asp-route-productId="@prod.Id" method="get">
+                            <img class="card-img-top" style="width: 18rem;"
+                             src="@prod.Image">
+                        </a>
+                        <div class="card-body">
 
-                </div>
-                <div class="card-body row container">
-                    <div class="container rounded p-2">
-                        <div class="row">
-                            <div class="col-8 col-lg-8">
+                            <h5 class="card-title mt-3">@prod.Name</h5>
+                            <h5 class="mb-2">Price: @prod.Price</h5>
+                            <a asp-area="Users" asp-controller="Review" asp-action="All" asp-route-productId="@prod.Id">
+                                <p class="mb-2"> <i class="bi bi-star-fill">  Reviews </i></p>
+                            </a>
+                        </div>
+                        <form class="input-group-sm" asp-area="Users" asp-controller="User" asp-action="AddToCollection" asp-route-productId="@prod.Id">
+                            <input type="submit" value="Add to Fav" class="fs-6 btn btn-secondary mb-3 p-2" />
+                        </form>
+                        @if (User.IsInRole(Status.RoleAdmin))
+                        {
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Update" asp-route-productId="@prod.Id">
 
-                                @*<div class="row pl-2">
-                            <h5 class="text-muted">ISBN : @Model.Reviews</h5>
-                            </div>*@
-                                <div class="row pl-2">
-                                    <h5 class="text-muted pb-2"> Price: @prod.Price.ToString("c")</h5>
-                                </div>
-                                <div class="row text-center pl-2">
-                                    <div class="p-1 col-2 bg-secondary border-bottom">
-                                        <div>Quantity</div>
-                                    </div>
-                                </div>
-                                <div class="row text-center pl-2" ; font-weight:bold">
-                                    <div class="p-1 col-2 bg-secondary">
-                                        <div>Price</div>
-                                    </div>
-                                    <div class="p-1 col-2 bg-secondary">
-                                        <div>@prod.Price.ToString("c")</div>
-                                    </div>
+                                <input type="submit" value="Update Product" class="fs-6 btn btn-success mb-3 p-2" />
+                            </a>
 
-                                </div>
-                                <div class="row pl-2">
-                                    <p class="text-secondary">@Html.Raw(prod.Description)</p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-3 offset-lg-1 text-center">
-                                <img src="@prod.Image" width="100%" class="rounded" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-12 col-md-6 pb-1">
-                            <a class="btn btn-success form-control " style="height:50px;" asp-area="Users" asp-action="Index">Back to Home</a>
-                        </div>
-                        <div class="col-12 col-md-6 pb-1">
-                            <button type="submit" value="Add to Cart" class="btn btn-primary form-control" style="height:50px;">Add to Cart</button>
-                        </div>
+                            <form class="input-group-sm" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-productId="@prod.Id">
+                                <input type="submit" value="Delete Product" class="fs-6 btn btn-danger mb-2 p-1" />
+                            </form>
+
+                        }
+
                     </div>
                 </div>
             </div>
         </div>
     }
+
 </div>

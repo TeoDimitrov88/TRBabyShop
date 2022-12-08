@@ -49,8 +49,6 @@
                         </li>
                         @if (User.IsInRole(Status.RoleAdmin))
                         {
-
-
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Add">
                                     <i class="bi bi-plus-circle "></i>&nbsp; Add Product
@@ -64,19 +62,14 @@
                                 </div>
                             </li>
                         }
-
-                        @if (User.IsInRole(Status.RoleAdmin)|| User.IsInRole(Status.RoleCustomer))
+                         @if (User.Identity!.IsAuthenticated)
                         {
-
-
-                            <li class="nav-item">
+                        <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Order" asp-action="All">
                                     <i class="bi bi-truck "></i>&nbsp; Order
                                 </a>
                             </li>
-
                         }
-
                         <div>
                             <a class="navbar-brand" asp-area="Users" asp-controller="Home" asp-action="Index">TR Baby Shop</a>
                         </div>

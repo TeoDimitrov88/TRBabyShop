@@ -189,6 +189,9 @@ namespace TRBabyShop.Areas.Users.Controllers
             var service = new SessionService();
             Session session = service.Create(options);
             cartVM.Order.SessionId = session.Id;
+            cartVM.Order.UserId = claim.Value;
+            cartVM.Order.PaymentIntentId = session.PaymentIntentId;
+            
     orderService.UpdateStripePaymentId(cartVM.Order.Id, session.Id, session.PaymentIntentId);
             dbContext.SaveChanges();
 

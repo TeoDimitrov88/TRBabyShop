@@ -24,10 +24,12 @@ namespace TRBabyShop.Core.Models
         [Required]
         public string Image { get; set; } = null!;
 
+        public int Quantity { get; set; }
+
         [Required]
         public int CategoryId { get; set; }
 
-        [Required]
+        [Required]  
         public IEnumerable<Category> Categories { get; set; } = new List<Category>();
 
        

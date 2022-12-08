@@ -2,15 +2,78 @@
 
 @model IEnumerable<Order>
 
-    @{
+@{
+    var status = Context.Request.Query["status"];
+    var pending = "text-dark";
+    var processing = "text-dark";
+    var approved = "text-dark";
+    var completed = "text-dark";
+    var all = "text-dark";
+
+    if (status=="pending")
+    {
+        pending = "active text-white";
+    }
+    if (status=="processing")
+    {
+        processing = "active text-white";
+    }
+    if (status=="approved")
+    {
+        approved = "active text-white";
+    }
+    if (status=="completed")
+    {
+        completed = "active text-white";
+    }
+    if (status=="all")
+    {
+        all = "active text-white";
+    }
+
+}
+
+@{
     ViewBag.Title = "All Orders";
 }
 
 <h1 class="text-center pt-4">@ViewBag.Title</h1>
 
-    <br /><br />
+<br />
+<br />
 
-    
+<div class="p-3">
+    <div class="d-flex justify-content-between pt-4">
+        <div class="p-2">
+            <h2 class="text-primary">Order List</h2>
+        </div>
+        <div class="p-2">
+
+            <ul class="list-group list-group-horizontal-sm">
+                <a style="text-decoration:none;" asp-controller="Order"
+                   asp-action="All" asp-route-status="processing">
+                <li class="list-group-item @processing">In Process</li>
+                </a>
+                <a style="text-decoration:none;" asp-controller="Order"
+                   asp-action="All" asp-route-status="pending">
+                <li class="list-group-item @pending"> Pending </li>
+                </a>
+                <a style="text-decoration:none;" asp-controller="Order"
+                   asp-action="All" asp-route-status="completed">
+                <li class="list-group-item @completed">Completed</li>
+                </a>
+                <a style="text-decoration:none;" asp-controller="Order"
+                   asp-action="All" asp-route-status="approved">
+                <li class="list-group-item @approved">Approved</li>
+                </a>
+                <a style="text-decoration:none;" asp-controller="Order"
+                   asp-action="All" asp-route-status="all">
+                <li class="list-group-item @all"> All </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
     <table class="table table-bordered table-active">
         <thead>
             <tr class="table-info">
@@ -18,17 +81,17 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">City</th>
-               <th scope="col">Total Price</th>
+                <th scope="col">Total Price</th>
                 <th scope="col">Status</th>
                 <th scope="col">Info</th>
             </tr>
-            
+
         </thead>
         @foreach (var order in Model)
         {
             <tbody>
                 <tr>
-                   
+
                     <td>@order.Id</td>
                     <td>@order.Name</td>
                     <td>@order.Email</td>
@@ -37,10 +100,11 @@
                     <td>@order.OrderStatus</td>
                     <td>
                         <a asp-area="Admin" asp-controller="Order" asp-action="Details" asp-route-orderId="@order.Id">
-                        <button type="button" class="btn btn-info">Details</button>
+                            <button type="button" class="btn btn-info">Details</button>
                         </a>
                     </td>
                 </tr>
             </tbody>
         }
     </table>
+</div>

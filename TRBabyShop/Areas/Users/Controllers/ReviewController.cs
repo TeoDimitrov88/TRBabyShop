@@ -34,12 +34,13 @@ namespace TRBabyShop.Areas.Users.Controllers
         [HttpGet]
         public IActionResult Add(int productId)
         {
-           
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
 
             var model = new ReviewViewModel()
             {
                 ProductId = productId,
                 CreatedOn = DateTime.Now,
+                User=claimsIdentity?.Name!
                 
             };
 
@@ -55,7 +56,7 @@ namespace TRBabyShop.Areas.Users.Controllers
                 var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
                 await reviewService.AddReview(model, userId);
 
-                return RedirectToAction("All", "Product");
+                return RedirectToAction(nameof(All));
             }
             catch (Exception e)
             {

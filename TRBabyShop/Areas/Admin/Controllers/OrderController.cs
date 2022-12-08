@@ -12,7 +12,7 @@ using static TRBabyShop.Infrastructure.Data.Common.Constants;
 namespace TRBabyShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = Status.RoleAdmin)]
+    [Authorize(Roles = Status.RoleAdmin + "," + Status.RoleCustomer)]
     public class OrderController : Controller
     {
         private readonly ApplicationDbContext dbcontext;
@@ -52,19 +52,19 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
             if (status == "pending")
             {
-                 orderList = orderList.Where(p => p.PaymentStatus == Status.PaymentStatusPending);
+                 orderList = orderList.Where(o => o.OrderStatus == Status.PendingStatus);
             }
-            else if (status == "inprocess")
+            else if (status == "processing")
             {
-                orderList = orderList.Where(p => p.PaymentStatus == Status.StatusInProcess);
+                orderList = orderList.Where(o => o.OrderStatus == Status.StatusInProcess);
             }
             else if (status == "completed")
             {
-                orderList = orderList.Where(p => p.PaymentStatus == Status.ShippedStatus);
+                orderList = orderList.Where(o => o.OrderStatus == Status.ShippedStatus);
             }
             else if (status == "approved")
             {
-                orderList = orderList.Where(p => p.PaymentStatus == Status.ApprovedStatus);
+                orderList = orderList.Where(o => o.OrderStatus == Status.ApprovedStatus);
             }
 
 
@@ -100,10 +100,11 @@ namespace TRBabyShop.Areas.Admin.Controllers
             orderFromDb.PaymentStatus=OrderVM.Order.PaymentStatus;
             orderFromDb.PostCode = OrderVM.Order.PostCode;
 
+
             dbcontext.Orders.Update(orderFromDb);
             dbcontext.SaveChanges();
 
-            return RedirectToAction("Details","Order",new {id=orderFromDb.Id});
+            return RedirectToAction("Details","Order",new {orderId = orderFromDb.Id});
         }
 
         [HttpPost]

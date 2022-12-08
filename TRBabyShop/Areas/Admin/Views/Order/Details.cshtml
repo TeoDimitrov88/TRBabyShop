@@ -6,14 +6,14 @@
     <input asp-for="@Model.Order.Id" hidden />
     <br />
     <div class="container">
-        <div class="card">
-            <div class="card-header bg-dark text-light ml-0">
+        <div class="card mt-5">
+            <div class="card-header bg-info text-light ml-0">
                 <div class="container row">
                     <div class="col-12 d-none d-md-block col-md-6 pb-1">
                         <i class="fas fa-shopping-cart"></i> &nbsp; Order Summary
                     </div>
                     <div class="col-12 col-md-4 offset-md-2 text-right">
-                        <a asp-action="All" class="btn btn-outline-info form-control btn-sm">Back to Orders</a>
+                        <a asp-action="All" class="btn btn-secondary form-control btn-sm">Back to Orders</a>
                     </div>
                 </div>
             </div>
@@ -111,42 +111,41 @@
                                 <div class="row my-1">
                                     <div class="col-3">Order Status</div>
                                     <div class="col-9">
-                                        <input asp-for="Order.OrderStatus" type="text" readonly class="form-control" />
+                                        <input asp-for="Order.OrderStatus" type="text" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="row my-1">
                                     <div class="col-3">Payment Status</div>
                                     <div class="col-9">
-                                        <input asp-for="Order.PaymentStatus" type="text" readonly class="form-control" />
+                                        <input asp-for="Order.PaymentStatus" type="text"  class="form-control" />
                                     </div>
                                 </div>
-                                <input type="submit" asp-action="UpdateOrderDetail" class="btn btn-warning form-control my-1" value="Update Order Details" />
+                                <input type="submit" asp-action="UpdateOrderDetail" class="btn btn-warning text-dark form-control my-1" value="Update Order Details" />
                             }
                         </div>
+
                         <div class="col-12 col-lg-5 offset-lg-1">
                             <h4 class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-primary">Order Summary</span>
                             </h4>
-                            <a
-							<label class="btn btn-dark form-control my-2">Order Status -  @Model.Order.OrderStatus</label>
-
+                            <label class="btn btn-dark form-control my-2">Order Status -  @Model.Order.OrderStatus</label>
                             <ul class="list-group mb-3">
-                                    @foreach (var detail in Model.OrderDetail)
-                                    {
-                                                <li class="list-group-item d-flex justify-content-between p-2">
-                                                    <div class="row container">
-                                                        <div class="col-8">
+                                @foreach (var detail in Model.OrderDetail)
+                                {
+                                    <li class="list-group-item d-flex justify-content-between p-2">
+                                        <div class="row container">
+                                            <div class="col-8">
 
-                                                            <h6 class="my-0 text-muted">@detail.Product.Name</h6>
-                                                            <small class="text-muted">Price : @detail.Price.ToString("c")</small><br />
-                                                            <small class="text-muted">Quantity : @detail.Quantity</small>
-                                                        </div>
-                                                        <div class="col-4 text-end">
-                                                            <p class="text-success">@((detail.Quantity * detail.Price).ToString("c"))</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                    }
+                                                <h6 class="my-0 text-dark">@detail.Product.Name</h6>
+                                                <small class="text-dark">Price : @detail.Price.ToString("c")</small><br />
+                                                <small class="text-muted">Quantity : @detail.Quantity</small>
+                                            </div>
+                                            <div class="col-4 text-end">
+                                                <p class="text-dark">@((detail.Quantity * detail.Price).ToString("c"))</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
                                 <li class="list-group-item bg-info">
                                     <div class="row container">
                                         <div class="col-6">
@@ -158,29 +157,26 @@
                                     </div>
                                 </li>
                             </ul>
-                                @if (Model.Order.OrderStatus == Status.ShippedStatus)
-                                {
-                                                <input type="submit" class="btn btn-success form-control my-1" value="Pay Now" />
-                                }
-                                @if (User.IsInRole(Status.RoleAdmin))
-                                {
-                                    @if (Model.Order.OrderStatus == Status.ApprovedStatus)
-                                    {
-                                                        <input type="submit" asp-action="StartProcessing" class="btn btn-success form-control my-1" value="Start Processing" />
-                                    }
-                                    @if (Model.Order.OrderStatus == Status.StatusInProcess)
-                                    {
-                                                        <input type="submit" onclick="return validateInput()"
-									asp-action="ShipOrder" class="btn btn-primary form-control my-1" value="Ship Order" />
-                                    }
 
-                                    @if (Model.Order.OrderStatus != Status.CancelledStatus &&
-                                  Model.Order.OrderStatus != Status.ShippedStatus)
-                                    {
-                                                        <input type="submit" asp-action="CancelOrder" class="btn btn-danger form-control my-1" value="Cancel Order" />
-                                    }
-
+                            @if (User.IsInRole(Status.RoleAdmin))
+                            {
+                                @if (Model.Order.OrderStatus == Status.ApprovedStatus)
+                                {
+                                    <input type="submit" asp-action="StartProcessing" class="btn btn-success form-control my-1" value="Start Processing" />
                                 }
+                                @if (Model.Order.OrderStatus == Status.StatusInProcess)
+                                {
+                                    <input type="submit" onclick="return validateInput()"
+                                   asp-action="ShipOrder" class="btn btn-primary form-control my-1" value="Ship Order" />
+                                }
+
+                                @if (Model.Order.OrderStatus != Status.CancelledStatus &&
+                               Model.Order.OrderStatus != Status.ShippedStatus)
+                                {
+                                    <input type="submit" asp-action="CancelOrder" class="btn btn-danger form-control my-1" value="Cancel Order" />
+                                }
+
+                            }
                         </div>
                     </div>
                 </div>

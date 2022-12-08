@@ -92,6 +92,7 @@ namespace TRBabyShop.Core.Service
                     .Select(r => new ReviewViewModel()
                     {
                        Id= r.Id,
+                       User=r.User.UserName,
                        UserId = r.UserId,
                        CreatedOn=r.CreatedOn,
                        Text=r.Text,

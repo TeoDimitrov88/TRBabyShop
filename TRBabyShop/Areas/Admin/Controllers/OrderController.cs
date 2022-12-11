@@ -38,7 +38,7 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
             if (User.IsInRole(Status.RoleAdmin))
             {
-             orderList = await orderService.GetOrderAsync();
+                orderList = await orderService.GetOrderAsync();
             }
 
 
@@ -46,13 +46,13 @@ namespace TRBabyShop.Areas.Admin.Controllers
             {
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-               orderList = dbcontext.Orders.Where(u => u.UserId == claim.Value).Include(u => u.User);
+                orderList = dbcontext.Orders.Where(u => u.UserId == claim.Value).Include(u => u.User);
 
             }
 
             if (status == "pending")
             {
-                 orderList = orderList.Where(o => o.OrderStatus == Status.PendingStatus);
+                orderList = orderList.Where(o => o.OrderStatus == Status.PendingStatus);
             }
             else if (status == "processing")
             {
@@ -73,38 +73,38 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
         public IActionResult Details(int orderId)
         {
-          
+
             OrderVM = new OrderViewModel()
             {
-                Order = dbcontext.Orders.FirstOrDefault(o=>o.Id==orderId),
+                Order = dbcontext.Orders.FirstOrDefault(o => o.Id == orderId),
                 OrderDetail = dbcontext.OrderDetails
                 .Where(od => od.OrderId == orderId)
                 .Include(od => od.Product)
-                .Include(od=>od.Order.User)
+                .Include(od => od.Order.User)
             };
-            
+
 
             return View(OrderVM);
         }
 
         [HttpPost]
-        [Authorize(Roles =Status.RoleAdmin)]
+        [Authorize(Roles = Status.RoleAdmin)]
         [ValidateAntiForgeryToken]
         public IActionResult UpdateOrderDetail()
         {
             var orderFromDb = dbcontext.Orders.FirstOrDefault(o => o.Id == OrderVM.Order.Id);
-            orderFromDb.Name=OrderVM.Order.Name;
+            orderFromDb.Name = OrderVM.Order.Name;
             orderFromDb.Email = OrderVM.Order.Email;
-            orderFromDb.City= OrderVM.Order.City;
-            orderFromDb.OrderStatus= OrderVM.Order.OrderStatus;
-            orderFromDb.PaymentStatus=OrderVM.Order.PaymentStatus;
+            orderFromDb.City = OrderVM.Order.City;
+            orderFromDb.OrderStatus = OrderVM.Order.OrderStatus;
+            orderFromDb.PaymentStatus = OrderVM.Order.PaymentStatus;
             orderFromDb.PostCode = OrderVM.Order.PostCode;
 
 
             dbcontext.Orders.Update(orderFromDb);
             dbcontext.SaveChanges();
 
-            return RedirectToAction("Details","Order",new {orderId = orderFromDb.Id});
+            return RedirectToAction("Details", "Order", new { orderId = orderFromDb.Id });
         }
 
         [HttpPost]
@@ -114,7 +114,7 @@ namespace TRBabyShop.Areas.Admin.Controllers
         public IActionResult StartProcessing()
         {
 
-           var orderFromDb= dbcontext.Orders.FirstOrDefault(o => o.Id == OrderVM.Order.Id);
+            var orderFromDb = dbcontext.Orders.FirstOrDefault(o => o.Id == OrderVM.Order.Id);
             orderFromDb.OrderStatus = Status.StatusInProcess;
 
             dbcontext.Update(orderFromDb);
@@ -130,64 +130,33 @@ namespace TRBabyShop.Areas.Admin.Controllers
         public IActionResult ShipOrder()
         {
             var orderFromDb = dbcontext.Orders.FirstOrDefault(u => u.Id == OrderVM.Order.Id);
-           
-            orderFromDb.OrderStatus=Status.ShippedStatus;
+
+            orderFromDb.OrderStatus = Status.ShippedStatus;
             orderFromDb.ShippingDate = DateTime.Now;
 
             orderService.Update(orderFromDb);
             dbcontext.SaveChanges();
 
             return RedirectToAction("Details", "Order", new { orderId = OrderVM.Order.Id });
-        }
+        }        
 
-        [ActionName("Details")]
         [HttpPost]
+        [Authorize(Roles = Status.RoleAdmin)]
         [ValidateAntiForgeryToken]
-        public IActionResult Details_Pay_Now()
+        public IActionResult CancelOrder()
         {
-            OrderVM.Order = dbcontext.Orders.FirstOrDefault(o => o.Id == OrderVM.Order.Id);
-            OrderVM.OrderDetail = dbcontext.OrderDetails.Where(o => o.OrderId == OrderVM.Order.Id).Include(o => o.Product);
+            var orderFromDb = dbcontext.Orders.FirstOrDefault(o => o.Id == OrderVM.Order.Id);
 
-            //stripe settings below
-            var domain = "https://localhost:7079/";
-            var options = new SessionCreateOptions()
-            {
-                PaymentMethodTypes=new List<string>
-                {
-                    "card"
-                },
-                LineItems= new List<SessionLineItemOptions>(),
-            Mode="payment",
-            SuccessUrl=domain + $"admin/order/PaymentConfirmation?orderid={OrderVM.Order.Id}",
-            CancelUrl=domain + $"admin/order/details?orderId={OrderVM.Order.Id}"
-            };
 
-            foreach (var item in OrderVM.OrderDetail)
-            {
-                var sessionlineItem = new SessionLineItemOptions
-                {
-                    PriceData=new SessionLineItemPriceDataOptions
-                    {
-                        UnitAmount=(long)(item.Price*100),
-                        Currency="bgn",
-                        ProductData=new SessionLineItemPriceDataProductDataOptions 
-                        {
-                         Name=item.Product.Name
-                        },
-                    },
-                    Quantity=item.Quantity,
-                };
+            orderFromDb.OrderStatus = Status.CancelledStatus;
+            orderFromDb.PaymentStatus = Status.CancelledStatus;
 
-                options.LineItems.Add(sessionlineItem);
-            }
+            orderService.Update(orderFromDb);
 
-            var service = new SessionService();
-            Session session = service.Create(options);
-
-            orderService.UpdateStripePaymentId(OrderVM.Order.Id, session.Id, session.PaymentIntentId);
             dbcontext.SaveChanges();
-            Response.Headers.Add("Location", session.Url);
-            return new StatusCodeResult(303);
+
+
+            return RedirectToAction("Details", "Order", new { orderId = OrderVM.Order.Id });
         }
     }
 }

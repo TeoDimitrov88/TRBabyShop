@@ -56,7 +56,7 @@ namespace TRBabyShop.Areas.Users.Controllers
                 var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
                 await reviewService.AddReview(model, userId);
 
-                return RedirectToAction(nameof(All));
+                return RedirectToAction("All","Review", new { productId = model.ProductId });
             }
             catch (Exception e)
             {

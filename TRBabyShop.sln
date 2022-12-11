@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRBabyShop", "TRBabyShop\TRBabyShop.csproj", "{95C88EA7-AF8C-4AD8-819F-9ECF252EE96B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRBabyShop", "TRBabyShop\TRBabyShop.csproj", "{95C88EA7-AF8C-4AD8-819F-9ECF252EE96B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRBabyShop.Infrastructure", "TRBabyShop.Infrastructure\TRBabyShop.Infrastructure.csproj", "{5FD6D6D1-D0DE-4B32-8822-0463F81452AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRBabyShop.Infrastructure", "TRBabyShop.Infrastructure\TRBabyShop.Infrastructure.csproj", "{5FD6D6D1-D0DE-4B32-8822-0463F81452AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRBabyShop.Core", "TRBabyShop.Core\TRBabyShop.Core.csproj", "{B206C1CE-F86D-49D7-BF5D-638196F75EC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRBabyShop.Core", "TRBabyShop.Core\TRBabyShop.Core.csproj", "{B206C1CE-F86D-49D7-BF5D-638196F75EC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

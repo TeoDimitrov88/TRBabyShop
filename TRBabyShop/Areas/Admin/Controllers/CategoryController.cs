@@ -19,6 +19,7 @@ namespace TRBabyShop.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+           
             var model = new CategoryViewModel();
 
             return View(model);

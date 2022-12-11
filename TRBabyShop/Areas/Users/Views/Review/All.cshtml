@@ -14,7 +14,7 @@
 <div class="card  container pt-4">
 
     <div class="card  container pt-4">
-
+        
         @foreach (var rev in Model)
         {
             <div class="card text-dark bg-warning mb-3" style="max-width: 20rem;">
@@ -29,11 +29,14 @@
                     </p>
                 </div>
 
-
+@if(User.IsInRole(Status.RoleAdmin))
+                {
                 <div class="d-flex justify-content-between text-center">
                     <a asp-area="Users" asp-controller="Review" asp-action="Delete" asp-route-reviewId="@rev.Id" class="btn btn-danger btn-sm text-center" method="post">Delete</a>
 
                 </div>
+                }
+                   
             </div>
             <hr />
         }

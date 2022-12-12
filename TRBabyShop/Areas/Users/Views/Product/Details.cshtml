@@ -38,26 +38,26 @@
                             </div>
 
                         </div>
-                        <div class="col-12 col-lg-3 offset-lg-1 text-center">
-                            <img src="@Model.Product.Image" width="100%" class="rounded" />
+                        <div class="col-12 col-md-3 offset-md-1 text-center">
+                            <img src="@Model.Product.Image" width="300" class="rounded" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="row">
-                    <div class="col-12 col-md-6 pb-1">
-                        <a class="btn btn-warning form-control" style="height:50px;" asp-area="Users" asp-action="All">Back</a>
+                    <div class="col-12 col-sm-6 pb-1">
+                        <a class="btn btn-secondary form-control" style="height:50px; width:220" asp-area="Users" asp-action="All">Back</a>
                     </div>
                     @if (User.IsInRole(Status.RoleAdmin))
                     {
                         <div class="col-12 col-md-6 pb-1">
-                            <a class="btn btn-warning form-control" style="height:50px;" asp-area="Admin" asp-action="Update" asp-controller="Product" asp-route-productId="@Model.ProductId">Update</a>
+                            <a class="btn btn-warning form-control" style="height:50px;width:220" asp-area="Admin" asp-action="Update" asp-controller="Product" asp-route-productId="@Model.ProductId">Update</a>
                         </div>
                     }
 
                     <div class="col-12 col-md-6 pb-1">
-                        <button type="submit" value="Add to Cart" class="btn btn-info form-control" style="height:50px;">Add to Cart</button>
+                        <button type="submit" value="Add to Cart" class="btn btn-info form-control" style="height:50px;width:220">Add to Cart</button>
                     </div>
                 </div>
             </div>

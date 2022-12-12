@@ -167,15 +167,15 @@ namespace TRBabyShop.Tests
         }
 
         [Fact]
-        public async void TestDeleteProductReviews()
+        public async void TestGetReviewById()
         {
             var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase("testdgewtrgfdsr46");
+               .UseInMemoryDatabase("test35780");
             var dbContext = new ApplicationDbContext(optionBuilder.Options);
-
             var repo = new Repository(dbContext);
 
             var reviewService = new ReviewService(dbContext, repo);
+
             var product = new Product()
             {
                 Id = 1,
@@ -191,40 +191,94 @@ namespace TRBabyShop.Tests
                 UserName = "User1"
             };
 
-            ReviewViewModel newReview = new ReviewViewModel()
+            Review newReview = new Review()
             {
-                Id = 3,
+                Id = 55,
                 Text = "Very good product",
                 UserId = user.Id,
-                User=user.UserName,
-               ProductId=product.Id,
+                ProductId = product.Id,
                 CreatedOn = DateTime.Now
             };
-            ReviewViewModel newReview2 = new ReviewViewModel()
+            Review newReview2 = new Review()
             {
-                Id = 4,
+                Id = 56,
                 Text = "Very good product",
                 UserId = user.Id,
-                User = user.UserName,
-               ProductId=product.Id,
+                ProductId = product.Id,
                 CreatedOn = DateTime.Now
             };
 
             await dbContext.Users.AddAsync(user);
             await dbContext.Products.AddAsync(product);
+            await dbContext.SaveChangesAsync();
 
-            reviewService.AddReview(newReview, user.Id);
-            reviewService.AddReview(newReview2, user.Id);
+            await dbContext.Reviews.AddAsync(newReview);
+            await dbContext.Reviews.AddAsync(newReview2);
 
             await dbContext.SaveChangesAsync();
-            int reviewId = newReview.Id;
 
-            await reviewService.DeleteReview(reviewId);
+            var result = await reviewService.GetReviewById(newReview.Id);
 
-            var result = await dbContext.Reviews.ToListAsync();
 
-            Assert.Equal(1, result.Count());
-            Assert.NotNull(result.Count());
+            Assert.Equal(55, result.Id);
+
+        }
+
+        [Fact]
+        public async void TestGetReviewByIdThrowsArgumetnExceptionForInvalidReview()
+        {
+            var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
+               .UseInMemoryDatabase("test35789780");
+            var dbContext = new ApplicationDbContext(optionBuilder.Options);
+            var repo = new Repository(dbContext);
+
+            var reviewService = new ReviewService(dbContext, repo);
+
+            var product = new Product()
+            {
+                Id = 1,
+                Name = "product",
+                Description = "description",
+                Price = 10,
+                Image = "image.jpg",
+                CategoryId = 1
+            };
+            var user = new AppUser()
+            {
+                Id = "12345",
+                UserName = "User1"
+            };
+
+            Review newReview = new Review()
+            {
+                Id = 55,
+                Text = "Very good product",
+                UserId = user.Id,
+                ProductId = product.Id,
+                CreatedOn = DateTime.Now
+            };
+            Review newReview2 = new Review()
+            {
+                Id = 56,
+                Text = "Very good product",
+                UserId = user.Id,
+                ProductId = product.Id,
+                CreatedOn = DateTime.Now
+            };
+
+            await dbContext.Users.AddAsync(user);
+            await dbContext.Products.AddAsync(product);
+            await dbContext.SaveChangesAsync();
+
+            await dbContext.Reviews.AddAsync(newReview);
+            await dbContext.Reviews.AddAsync(newReview2);
+
+            await dbContext.SaveChangesAsync();
+
+            var result = await reviewService.GetReviewById(newReview.Id);
+
+
+          await Assert.ThrowsAsync<ArgumentException>(() =>  reviewService.GetReviewById(424324));
 
         }
     }

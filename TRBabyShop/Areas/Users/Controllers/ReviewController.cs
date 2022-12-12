@@ -65,12 +65,5 @@ namespace TRBabyShop.Areas.Users.Controllers
             }
         }
 
-        public async Task<IActionResult> Delete(int reviewId)
-        {
-           
-           var productId= await reviewService.DeleteReview(reviewId);
-            
-            return RedirectToAction("All","Product");
-        }
     }
 }

@@ -12,9 +12,11 @@
 <hr />
 
 <div class="card  container pt-4">
-
+     <div class="col-6 text-end mb-3">
+                        <a asp-area="Users" asp-controller="Product" asp-action="All" class="btn btn-secondary btn-sm">Back to Products</a>
+                    </div>
     <div class="card  container pt-4">
-        
+
         @foreach (var rev in Model)
         {
             <div class="card text-dark bg-warning mb-3" style="max-width: 20rem;">
@@ -28,17 +30,6 @@
                         @rev.Text
                     </p>
                 </div>
-
-@if(User.IsInRole(Status.RoleAdmin))
-                {
-                <div class="d-flex justify-content-between text-center">
-                    <a asp-area="Users" asp-controller="Review" asp-action="Delete" asp-route-reviewId="@rev.Id" class="btn btn-danger btn-sm text-center" method="post">
-                        <input type="submit" value="Delete" class="fs-6 btn btn-danger mb-2 p-1" />
-                    </a>
-
-                </div>
-                }
-                   
             </div>
             <hr />
         }

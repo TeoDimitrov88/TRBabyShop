@@ -76,22 +76,6 @@ namespace TRBabyShop.Core.Service
             return model;
         }
 
-        
-        public async Task<int> DeleteReview(int reviewId)
-        {
-            var review =  await repo.GetByIdAsync<Review>(reviewId);
-
-            if (review==null)
-            {
-                throw new ArgumentException("Invalid review!");
-            }
-           await repo.DeleteAsync<Review>(review.Id);
-
-            repo.Update(review);
-            await repo.SaveChangesAsync();
-
-            return review.ProductId;
-        }
 
         public async Task<IEnumerable<ReviewViewModel>> GetProductReviews(int productId)
         {

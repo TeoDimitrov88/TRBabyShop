@@ -46,5 +46,13 @@ namespace TRBabyShop.Areas.Admin.Controllers
                 return View(model);
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int categoryId)
+        {
+            await cateService.DeleteCategory(categoryId);
+
+            return RedirectToAction("All", "Category", new { area = "Users" });
+        }
     }
 }

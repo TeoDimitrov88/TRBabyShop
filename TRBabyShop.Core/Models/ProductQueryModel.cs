@@ -30,8 +30,6 @@ namespace TRBabyShop.Core.Models
 
         [Required]
         public int CategoryId { get; set; }
-
-        [Required]
         public string Category { get; set; } = null!;
 
        

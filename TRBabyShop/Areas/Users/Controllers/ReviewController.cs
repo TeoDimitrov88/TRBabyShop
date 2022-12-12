@@ -10,7 +10,7 @@ using static TRBabyShop.Infrastructure.Data.Common.Constants;
 namespace TRBabyShop.Areas.Users.Controllers
 {
     [Area("Users")]
-    [Authorize(Roles = Status.RoleAdmin + "," + Status.RoleCustomer)]
+    [Authorize]
     public class ReviewController : Controller
     {
         private readonly IReviewService reviewService;
@@ -65,13 +65,12 @@ namespace TRBabyShop.Areas.Users.Controllers
             }
         }
 
-        [HttpPost]
-        [Authorize(Roles =Status.RoleAdmin)]
         public async Task<IActionResult> Delete(int reviewId)
         {
-            await reviewService.DeleteReview(reviewId);
-
-            return RedirectToAction("All", "Product");
+           
+           var productId= await reviewService.DeleteReview(reviewId);
+            
+            return RedirectToAction("All","Product");
         }
     }
 }

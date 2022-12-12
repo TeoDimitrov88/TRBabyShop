@@ -27,7 +27,7 @@ namespace TRBabyShop.Infrastructure.Data.Models
         [Required]
         public int CategoryId { get; set; }
 
-        [Required]
+  
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; } = null!;
 

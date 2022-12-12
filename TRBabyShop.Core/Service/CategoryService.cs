@@ -2,6 +2,7 @@
 using TRBabyShop.Core.Contracts;
 using TRBabyShop.Core.Models;
 using TRBabyShop.Infrastructure.Data;
+using TRBabyShop.Infrastructure.Data.Common;
 using TRBabyShop.Infrastructure.Data.Models;
 
 namespace TRBabyShop.Core.Service
@@ -38,6 +39,15 @@ namespace TRBabyShop.Core.Service
             };
 
             await dbContext.Categories.AddAsync(newCategory);
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteCategory(int categoryId)
+        {
+            var category= await dbContext.Categories.FirstOrDefaultAsync(c => c.Id == categoryId);
+
+             dbContext.Categories.Remove(category);
+
             await dbContext.SaveChangesAsync();
         }
     }

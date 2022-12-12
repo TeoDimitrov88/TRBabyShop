@@ -17,7 +17,6 @@ namespace TRBabyShop.Infrastructure.Data.Models
         [Required]
         public int OrderId { get; set; }
 
-        [Required]
         [ForeignKey(nameof(OrderId))]
         public Order Order { get; set; } = null!;
 

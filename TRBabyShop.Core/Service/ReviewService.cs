@@ -28,15 +28,10 @@ namespace TRBabyShop.Core.Service
 
             var product = await repo.GetByIdAsync<Product>(model.ProductId);
 
-            model.Product = product.Name;
-           
-            if (product == null)
-            { 
-                throw new ArgumentException("Invalid product !");
-            }
+            model.Product = product.Name;     
 
             var user = await repo.GetByIdAsync<AppUser>(userId);
-            model.User = user.UserName;
+            //model.User = user.UserName;
 
             if (user == null)
             { 
@@ -62,23 +57,40 @@ namespace TRBabyShop.Core.Service
             }
 
         }
+        public async Task<ReviewViewModel> GetReviewById(int reviewId)
+        {
+            var review=await repo.GetByIdAsync<Review>(reviewId);
+            if (review==null)
+            {
+                throw new ArgumentException("Invalid review");
+            }
+            var model = new ReviewViewModel()
+            {
+                Id = reviewId,
+                ProductId = review.ProductId,
+                UserId = review.UserId,
+                Text = review.Text,
+                CreatedOn = review.CreatedOn
+            };
+
+            return model;
+        }
 
         
-        public async Task DeleteReview(int reviewId)
+        public async Task<int> DeleteReview(int reviewId)
         {
-            var review =  dbContext.Reviews.Where(r => r.Id == reviewId);
+            var review =  await repo.GetByIdAsync<Review>(reviewId);
 
-            if (review == null)
+            if (review==null)
             {
-            throw new ArgumentException("Invalid review.");
+                throw new ArgumentException("Invalid review!");
             }
-            
+           await repo.DeleteAsync<Review>(review.Id);
 
-           dbContext.Remove(reviewId);
-            dbContext.Update(review);
-          await dbContext.SaveChangesAsync();
+            repo.Update(review);
+            await repo.SaveChangesAsync();
 
-           
+            return review.ProductId;
         }
 
         public async Task<IEnumerable<ReviewViewModel>> GetProductReviews(int productId)

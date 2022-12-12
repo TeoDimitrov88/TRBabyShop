@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRBabyShop.Infrastructure",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TRBabyShop.Core", "TRBabyShop.Core\TRBabyShop.Core.csproj", "{B206C1CE-F86D-49D7-BF5D-638196F75EC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRBabyShop.Tests", "TRBabyShop.Tests\TRBabyShop.Tests.csproj", "{787FDAAD-AC69-439C-B317-7DC5BDF460D7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5FD6D6D1-D0DE-4B32-8822-0463F81452AD} = {5FD6D6D1-D0DE-4B32-8822-0463F81452AD}
+		{B206C1CE-F86D-49D7-BF5D-638196F75EC0} = {B206C1CE-F86D-49D7-BF5D-638196F75EC0}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,10 @@ Global
 		{B206C1CE-F86D-49D7-BF5D-638196F75EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B206C1CE-F86D-49D7-BF5D-638196F75EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B206C1CE-F86D-49D7-BF5D-638196F75EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{787FDAAD-AC69-439C-B317-7DC5BDF460D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787FDAAD-AC69-439C-B317-7DC5BDF460D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787FDAAD-AC69-439C-B317-7DC5BDF460D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{787FDAAD-AC69-439C-B317-7DC5BDF460D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

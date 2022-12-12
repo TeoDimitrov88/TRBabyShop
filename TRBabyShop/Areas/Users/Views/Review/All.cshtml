@@ -32,7 +32,9 @@
 @if(User.IsInRole(Status.RoleAdmin))
                 {
                 <div class="d-flex justify-content-between text-center">
-                    <a asp-area="Users" asp-controller="Review" asp-action="Delete" asp-route-reviewId="@rev.Id" class="btn btn-danger btn-sm text-center" method="post">Delete</a>
+                    <a asp-area="Users" asp-controller="Review" asp-action="Delete" asp-route-reviewId="@rev.Id" class="btn btn-danger btn-sm text-center" method="post">
+                        <input type="submit" value="Delete" class="fs-6 btn btn-danger mb-2 p-1" />
+                    </a>
 
                 </div>
                 }

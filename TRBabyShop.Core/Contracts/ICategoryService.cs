@@ -8,5 +8,7 @@ namespace TRBabyShop.Core.Contracts
         Task<IEnumerable<CategoryViewModel>> GetCategoriesAsync();
 
         Task AddCategoryAsync(CategoryViewModel model);
+
+        Task DeleteCategory(int categoryId);
     }
 }

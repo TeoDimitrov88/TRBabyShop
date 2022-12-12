@@ -13,6 +13,8 @@ namespace TRBabyShop.Core.Contracts
 
         Task AddReview(ReviewViewModel model, string userId);
 
-        Task DeleteReview(int reviewId);
+        Task<int> DeleteReview(int reviewId);
+
+        Task<ReviewViewModel> GetReviewById(int reviewId);
     }
 }

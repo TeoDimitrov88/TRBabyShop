@@ -9,7 +9,7 @@
 
 <h2 class="text-center">@ViewBag.Title</h2>
 
-<div class="text-center row">
+<div class="text-center row mt-4">
     @foreach (var prod in Model)
     {
         <div class="col-lg-3 col-lg-1">
@@ -31,7 +31,7 @@
                         <form class="input-group-sm" asp-area="Users" asp-controller="User" asp-action="AddToCollection" asp-route-productId="@prod.Id">
                             <input type="submit" value="Add to Fav" class="fs-6 btn btn-secondary mb-3 p-2" />
                         </form>
-                        @if (User.IsInRole(Status.RoleCustomer))
+                        @if (User.IsInRole(Status.RoleAdmin))
                         {
                             <a asp-area="Admin" asp-controller="Product" asp-action="Update" asp-route-productId="@prod.Id">
 

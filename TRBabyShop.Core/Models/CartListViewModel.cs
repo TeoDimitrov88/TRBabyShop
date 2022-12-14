@@ -9,10 +9,10 @@ namespace TRBabyShop.Core.Models
 {
     public class CartListViewModel
     {
-        public IEnumerable<ShoppingCart> ListCart { get; set; }
+        public IEnumerable<ShoppingCart> ListCart { get; set; } = null!;
 
         public decimal cartTotal { get; set; }
 
-        public Order Order { get; set; }
+        public Order Order { get; set; } = null!;
     }
 }

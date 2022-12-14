@@ -46,7 +46,7 @@ namespace TRBabyShop.Core.Service
         {
             var category= await dbContext.Categories.FirstOrDefaultAsync(c => c.Id == categoryId);
 
-             dbContext.Categories.Remove(category);
+             dbContext.Categories.Remove(category!);
 
             await dbContext.SaveChangesAsync();
         }

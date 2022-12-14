@@ -10,7 +10,7 @@ using static TRBabyShop.Infrastructure.Data.Common.Constants;
 namespace TRBabyShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles =Status.RoleCustomer)]
+    [Authorize(Roles =Status.RoleAdmin)]
     public class ProductController : Controller
     {
         private readonly IProductService prodService;

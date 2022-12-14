@@ -47,8 +47,8 @@
                                 </a>
                             </div>
                         </li>
-                        @if (User.IsInRole(Status.RoleAdmin))
-                        {
+                       @* @if ((User.Identity!.IsAuthenticated && User.IsInRole(Status.RoleAdmin)))
+                        {*@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Add">
                                     <i class="bi bi-plus-circle "></i>&nbsp; Add Product
@@ -56,12 +56,12 @@
                             </li>
                             <li class="nav-item">
                                 <div>
-                                    <a class="nav-link text-dark" type="button" asp-area="Admin" asp-controller="Category" asp-action="Add">
+                                    <a class="nav-link text-dark"  asp-area="Admin" asp-controller="Category" asp-action="Add">
                                         <i class="bi bi-plus-circle "></i>&nbsp; Add Category
                                     </a>
                                 </div>
                             </li>
-                        }
+                      @*  }*@
                          @if (User.Identity!.IsAuthenticated)
                         {
                         <li class="nav-item">

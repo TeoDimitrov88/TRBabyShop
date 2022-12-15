@@ -81,6 +81,7 @@ namespace TRBabyShop.Core.Service
         {
            
                 var reviews = await dbContext.Reviews.Where(r=>r.ProductId==productId)
+                .Include(p=>p.Product)
                 .Include(r=>r.User)
                     .ToListAsync();
 
@@ -91,7 +92,7 @@ namespace TRBabyShop.Core.Service
                        User=r.User.UserName,
                        UserId = r.UserId,
                        CreatedOn=r.CreatedOn,
-                       Text=r.Text,
+                       Text=r.Text
                     });
         }
     }

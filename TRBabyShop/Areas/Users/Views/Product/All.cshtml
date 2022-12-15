@@ -25,7 +25,7 @@
                             <h5 class="card-title mt-3">@prod.Name</h5>
                             <h5 class="mb-2">Price: @prod.Price</h5>
                             <a asp-area="Users" asp-controller="Review" asp-action="All" asp-route-productId="@prod.Id">
-                                <p class="mb-2"> <i class="bi bi-star-fill">  Reviews </i></p>
+                                <p class="mb-2"> <i class="bi bi-star-fill"> Reviews(@prod.Reviews.Count) </i></p>
                             </a>
                         </div>
                         <form class="input-group-sm" asp-area="Users" asp-controller="User" asp-action="AddToCollection" asp-route-productId="@prod.Id">
@@ -39,7 +39,7 @@
                             </a>
 
                             <form class="input-group-sm" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-productId="@prod.Id">
-                                <input type="submit" value="Delete Product" class="fs-6 btn btn-danger mb-2 p-1" />
+                                <input type="submit" value="Delete Product" class="fs-6 btn btn-danger mb-2 p-1" onclick="myConfirm(event)"/>
                             </form>
 
                         }
@@ -51,3 +51,29 @@
     }
 
 </div>
+
+                            @section Scripts {
+    <script>
+        function myConfirm(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#1cf765',
+                cancelButtonColor: '#e05a49',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    ).then((resultDeleted) => {
+                        e.target.parentElement.parentElement.submit();
+                    })
+                }
+            })
+        }
+    </script>
+}

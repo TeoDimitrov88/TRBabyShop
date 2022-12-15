@@ -33,7 +33,7 @@
                             </div>
                             <div class="row pl-2">
                                 <a asp-area="Users" asp-controller="Review" asp-action="All" asp-route-productId="@Model.ProductId">
-                                    <p class="mb-2"> <i class="bi bi-star-fill"> All Review </i></p>
+                                    <p class="mb-2"> <i class="bi bi-star-fill"> All Reviews </i></p>
                                 </a>
                             </div>
 
@@ -52,7 +52,7 @@
                     @if (User.IsInRole(Status.RoleAdmin))
                     {
                         <div class="col-12 col-md-6 pb-1">
-                            <a class="btn btn-warning form-control" style="height:50px;width:220" asp-area="Admin" asp-action="Update" asp-controller="Product" asp-route-productId="@Model.ProductId">Update</a>
+                            <a class="btn btn-success form-control" style="height:50px;width:220" asp-area="Admin" asp-action="Update" asp-controller="Product" asp-route-productId="@Model.ProductId">Update</a>
                         </div>
                     }
 

@@ -281,3 +281,4 @@ C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\Stripe.net.d
 C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\AngleSharp.dll
 C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\AngleSharp.Css.dll
 C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\HtmlSanitizer.dll
+C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\bin\Debug\net6.0\libman.json

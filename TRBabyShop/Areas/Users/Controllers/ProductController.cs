@@ -51,11 +51,11 @@ namespace TRBabyShop.Areas.Users.Controllers
         public IActionResult Details(int productId)
         {
             ShoppingCartViewModel cart = new()
+            
             {
                 Quantity = 1,
                 ProductId = productId,
-                Product = dbContext.Products.FirstOrDefault(p => p.Id == productId)
-
+                Product = dbContext.Products.FirstOrDefault(p => p.Id == productId),
 
             };
 
@@ -69,7 +69,7 @@ namespace TRBabyShop.Areas.Users.Controllers
         public IActionResult Details(ShoppingCartViewModel shoppingCart)
         {
 
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claimsIdentity = (ClaimsIdentity)User.Identity!;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             shoppingCart.UserId = claim.Value;

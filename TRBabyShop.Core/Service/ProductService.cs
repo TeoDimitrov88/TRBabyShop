@@ -23,6 +23,7 @@ namespace TRBabyShop.Core.Service
         public async Task<IEnumerable<ProductViewModel>> GetProductAsync()
         {
             var products = await dbContext.Products
+                .Include(r=>r.Reviews)
                 .ToListAsync();
 
             return products
@@ -34,9 +35,7 @@ namespace TRBabyShop.Core.Service
                     CategoryId = p.CategoryId,
                     Price = p.Price,
                     Image = p.Image,
-                    Reviews=p.Reviews
-                    
-
+                    Reviews=p.Reviews.ToList()
                 });
         }
 

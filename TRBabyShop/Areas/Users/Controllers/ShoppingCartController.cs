@@ -30,7 +30,7 @@ namespace TRBabyShop.Areas.Users.Controllers
         }
         public IActionResult Index()
         {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claimsIdentity = (ClaimsIdentity)User.Identity!;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             var listCartAdd = dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value)
@@ -62,7 +62,7 @@ namespace TRBabyShop.Areas.Users.Controllers
 
         public IActionResult Summary()
         {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claimsIdentity = (ClaimsIdentity)User.Identity!;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             var listCartAdd = dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value)
@@ -85,7 +85,7 @@ namespace TRBabyShop.Areas.Users.Controllers
                 Order = new()
             };
             cartVM.Order.User = dbContext.Users.FirstOrDefault(u => u.Id == claim.Value);
-            cartVM.Order.Name = cartVM.Order.User.UserName;
+            cartVM.Order.Name = cartVM.Order.User!.UserName;
             cartVM.Order.Email = cartVM.Order.User.Email;
 
 

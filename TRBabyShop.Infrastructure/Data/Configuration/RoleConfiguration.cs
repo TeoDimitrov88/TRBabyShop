@@ -28,7 +28,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                NormalizedName = "ADMIN",
 
             };
-
+            roles.Add(admin);
 
             var customer = new IdentityRole()
             {
@@ -36,6 +36,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                 Name = "customer",
                 NormalizedName = "CUSTOMER"
             };
+            roles.Add(customer);
 
             return roles;
         }

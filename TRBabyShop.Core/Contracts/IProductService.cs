@@ -18,5 +18,7 @@ namespace TRBabyShop.Core.Contracts
         Task DeleteProduct(int productId);
 
         Task <ProductViewModel> GetProductById(int productId);
+
+        Task<IEnumerable<ProductViewModel>> GetProductWithMostReviews();
     }
 }

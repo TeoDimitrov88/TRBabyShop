@@ -25,6 +25,7 @@ namespace TRBabyShop.Areas.Users.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> All()
         {
             var model = await productService.GetProductAsync();
@@ -39,6 +40,14 @@ namespace TRBabyShop.Areas.Users.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
+        public async Task<IActionResult> TopReviewProducts()
+        {
+            var model = await productService.GetProductWithMostReviews();
+
+            return View(model);
+        }
+
 
         [AllowAnonymous]
         public async Task<IActionResult> GetById(int productId)
@@ -47,7 +56,7 @@ namespace TRBabyShop.Areas.Users.Controllers
             return View(model);
         }
 
-       
+        [AllowAnonymous]
         public IActionResult Details(int productId)
         {
             ShoppingCartViewModel cart = new()

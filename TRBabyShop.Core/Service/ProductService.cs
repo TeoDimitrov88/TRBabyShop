@@ -23,29 +23,29 @@ namespace TRBabyShop.Core.Service
         public async Task<IEnumerable<ProductViewModel>> GetProductAsync()
         {
             var products = await dbContext.Products
-                .Include(r=>r.Reviews)
+                .Include(r => r.Reviews)
                 .ToListAsync();
 
             return products
                 .Select(p => new ProductViewModel()
                 {
-                    Id=p.Id,
+                    Id = p.Id,
                     Name = p.Name,
                     Description = p.Description,
                     CategoryId = p.CategoryId,
                     Price = p.Price,
                     Image = p.Image,
-                    Reviews=p.Reviews.ToList()
+                    Reviews = p.Reviews.ToList()
                 });
         }
 
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
             return await repo.AllReadonly<Category>()
-                .Select(c=>new Category()
+                .Select(c => new Category()
                 {
-                    Id= c.Id,
-                    Name= c.Name
+                    Id = c.Id,
+                    Name = c.Name
                 }).ToListAsync();
         }
 
@@ -84,7 +84,7 @@ namespace TRBabyShop.Core.Service
         public async Task UpdateProductAsync(int productId, UpdateProductVM model)
         {
             var product = await repo.GetByIdAsync<Product>(productId);
-               
+
             if (product == null)
             {
                 throw new ArgumentException("Wrong product ID!");
@@ -116,24 +116,42 @@ namespace TRBabyShop.Core.Service
         public async Task<ProductViewModel> GetProductById(int productId)
         {
             var product = await repo.GetByIdAsync<Product>(productId);
-            if (product==null)
+            if (product == null)
             {
                 throw new ArgumentException("Invalid product Id.");
             }
 
             return new ProductViewModel()
-                 {
-                     Name = product.Name,
-                     Description= product.Description,
-                     Id = product.Id,
-                     Price = product.Price,
-                     CategoryId = product.CategoryId,
-                     Image = product.Image,
-                     Reviews= product.Reviews
-                     
-                 };
+            {
+                Name = product.Name,
+                Description = product.Description,
+                Id = product.Id,
+                Price = product.Price,
+                CategoryId = product.CategoryId,
+                Image = product.Image,
+                Reviews = product.Reviews
+
+            };
         }
 
-       
-    }
+        public async Task<IEnumerable<ProductViewModel>> GetProductWithMostReviews()
+        {
+            var products = await dbContext.Products
+                .Include(r => r.Reviews)
+                .OrderByDescending(r => r.Reviews.Count)
+                .ToListAsync();
+
+            return products
+                .Select(p => new ProductViewModel()
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    CategoryId = p.CategoryId,
+                    Price = p.Price,
+                    Image = p.Image,
+                    Reviews = p.Reviews.ToList()
+                });
+        }
+}
 }

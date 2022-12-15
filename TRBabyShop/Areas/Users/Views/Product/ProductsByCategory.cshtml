@@ -10,6 +10,10 @@
 
 <h2 class="text-center">@ViewBag.Title</h2>
 
+<a asp-area="Users" asp-controller="Category" asp-action="All">
+    <button type="button" class="btn btn-secondary mb-4">Back to list</button>
+</a>
+
 <div class="text-center row">
     @foreach (var prod in Model)
     {

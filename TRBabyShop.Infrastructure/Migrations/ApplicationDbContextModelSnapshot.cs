@@ -47,6 +47,22 @@ namespace TRBabyShop.Infrastructure.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "NU89ca4e53-4fbf-46de-93e3-ee20568d4833LL",
+                            ConcurrencyStamp = "8a08ec17-5c95-4a13-9372-4b65eb05f596",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "e46a2abc-d6e9-4333-a560-989dc89f5797",
+                            ConcurrencyStamp = "3c11d546-b3de-4339-90ec-a6d4e3685b82",
+                            Name = "customer",
+                            NormalizedName = "CUSTOMER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -136,6 +152,33 @@ namespace TRBabyShop.Infrastructure.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "1163da51-2369-4b12-aef5-86c360e358de",
+                            RoleId = "NU89ca4e53-4fbf-46de-93e3-ee20568d4833LL"
+                        },
+                        new
+                        {
+                            UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118",
+                            RoleId = "e46a2abc-d6e9-4333-a560-989dc89f5797"
+                        },
+                        new
+                        {
+                            UserId = "d381c77f-aabf-46bd-80e3-cf9ee84a668b",
+                            RoleId = "e46a2abc-d6e9-4333-a560-989dc89f5797"
+                        },
+                        new
+                        {
+                            UserId = "cd0f2b40-9353-405c-ae22-c1097419f287",
+                            RoleId = "e46a2abc-d6e9-4333-a560-989dc89f5797"
+                        },
+                        new
+                        {
+                            UserId = "c225f1de-8898-473c-8b8d-484a5034beea",
+                            RoleId = "e46a2abc-d6e9-4333-a560-989dc89f5797"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -228,15 +271,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "04ba4719-a5ce-478d-b36d-169ffe19e118",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8799a17b-31e4-4349-b710-eac0d54e937c",
+                            ConcurrencyStamp = "c4b424df-10ea-40dc-ad2d-f9f888c65092",
                             Email = "teo88@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "teo88@abv.bg",
-                            NormalizedUserName = "teodor88",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMpMLQbF3Utrbiyh5eiTkk9CIWAY/ULC3+rHOlmsQV+W0e7norabfH2n3yKFLHa6dg==",
+                            NormalizedEmail = "TEO88@ABV.BG",
+                            NormalizedUserName = "TEODOR88",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDegVuqTC9FB3kvnarza1/1CIbOvnYI8Q5oGdJXVezY9QxhlQhbmCIhyHsPgtxvHtQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fc5d43db-27eb-41dd-939a-3b8718ca56b0",
+                            SecurityStamp = "c3e56b6c-d10e-4e58-949d-87b283ec0a66",
                             TwoFactorEnabled = false,
                             UserName = "teodor88"
                         },
@@ -244,14 +287,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "d381c77f-aabf-46bd-80e3-cf9ee84a668b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f18093f2-4d6a-4e73-b051-cfefed3855f0",
+                            ConcurrencyStamp = "869cba6e-df31-4857-b4d3-9931b6ea67be",
                             Email = "ivan89@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "ivan89@abv.bg",
-                            NormalizedUserName = "ivan89",
+                            NormalizedEmail = "IVAN89@ABV.BG",
+                            NormalizedUserName = "IVAN89",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHh2EvVuWKt1Xupn+kkoUIzCZF1Cu93gOI4StJdlzITCl+toyQKP0ZiUSllL/UW5GQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "94ada9e1-7548-495c-94c6-d1336da254f6",
+                            SecurityStamp = "eca5b4b6-76f6-4cb5-a74b-6deb488ce6f1",
                             TwoFactorEnabled = false,
                             UserName = "ivan89"
                         },
@@ -259,14 +303,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "cd0f2b40-9353-405c-ae22-c1097419f287",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7f0d2b30-a0ee-4422-a855-b5241b638a51",
+                            ConcurrencyStamp = "8cb0fbb6-e8cc-4630-814c-abe6c189300c",
                             Email = "hristo80@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "hristo80@abv.bg",
-                            NormalizedUserName = "hristo80",
+                            NormalizedEmail = "HRISTO80@ABV.BG",
+                            NormalizedUserName = "HRISTO80",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAvR+8OIBfcu5ZKfykRiS16T0xackwet2naGDoNtSgd6xWgRMvy4TrOEkn8rLG3dFw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f087770c-8819-4c39-ba65-056a85137005",
+                            SecurityStamp = "536f38d6-9af4-4f54-b600-d15168dda991",
                             TwoFactorEnabled = false,
                             UserName = "hristo80"
                         },
@@ -274,14 +319,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "c225f1de-8898-473c-8b8d-484a5034beea",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0d3448e8-a53d-4476-9417-1bb0dba3951f",
+                            ConcurrencyStamp = "52db6c07-2eb9-4df7-b6b9-3a0687f35f98",
                             Email = "tina93@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "tina93@abv.bg",
-                            NormalizedUserName = "tina93",
+                            NormalizedEmail = "TINA93@ABV.BG",
+                            NormalizedUserName = "TINA93",
+                            PasswordHash = "AQAAAAEAACcQAAAAEM3t2ZZUi84CUY0nZbBZ44XSLuPzYHTjnDzLZPtjpuaVEJ6L2MRuhRRkqcQYRMoSEA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "992643f3-9225-4051-825c-a3e4b267b969",
+                            SecurityStamp = "d08be54c-9653-4542-ad0c-b4acbf7969f8",
                             TwoFactorEnabled = false,
                             UserName = "tina93"
                         },
@@ -289,16 +335,17 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "1163da51-2369-4b12-aef5-86c360e358de",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7ff262c3-05ca-425d-a448-d0e4912dfd65",
+                            ConcurrencyStamp = "b95449a3-c60a-4bba-af6c-5513535663ad",
                             Email = "admin@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@abv.bg",
-                            NormalizedUserName = "ADMIN12",
+                            NormalizedEmail = "ADMIN@ABV.BG",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJx9mr31/9BCIjEdx+uyEQFWbDnLIGSLxPX9sNMCQZ+5D67hZYmskZNjzt8KQbZhag==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "669342c3-472f-4331-a291-0afc14cf1c2d",
+                            SecurityStamp = "2827a33a-2d95-47a3-9fac-1d3555163633",
                             TwoFactorEnabled = false,
-                            UserName = "admin12"
+                            UserName = "admin"
                         });
                 });
 
@@ -636,136 +683,6 @@ namespace TRBabyShop.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2889),
-                            ProductId = 1,
-                            Text = "Amazing item!",
-                            UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2935),
-                            ProductId = 3,
-                            Text = "Very usefull!!Thank you",
-                            UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2938),
-                            ProductId = 3,
-                            Text = "It`s perfect for our baby!Thank you",
-                            UserId = "c225f1de-8898-473c-8b8d-484a5034beea"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2941),
-                            ProductId = 8,
-                            Text = "Low quality ,im very upset :(",
-                            UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2944),
-                            ProductId = 11,
-                            Text = "Excellent :)",
-                            UserId = "04ba4719-a5ce-478d-b36d-169ffe19e118"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2948),
-                            ProductId = 11,
-                            Text = "Excellent ,Thank you:)",
-                            UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2951),
-                            ProductId = 12,
-                            Text = "It`s really expensive for its quality ",
-                            UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2953),
-                            ProductId = 4,
-                            Text = "Low quality ,not impressed :(",
-                            UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2956),
-                            ProductId = 7,
-                            Text = "Low quality ,not impressed :(",
-                            UserId = "cd0f2b40-9353-405c-ae22-c1097419f287"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2960),
-                            ProductId = 9,
-                            Text = "Low quality ,not impressed :(",
-                            UserId = "04fa2e1b-1e98-42fa-b709-f364b63cfa91"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2963),
-                            ProductId = 3,
-                            Text = "Low quality ,not impressed :(",
-                            UserId = "04fa2e1b-1e98-42fa-b709-f364b63cfa91"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2965),
-                            ProductId = 4,
-                            Text = "Very good ,thanks",
-                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2968),
-                            ProductId = 5,
-                            Text = "Very good ,thanks",
-                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2970),
-                            ProductId = 8,
-                            Text = "Very good ,thanks",
-                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2973),
-                            ProductId = 9,
-                            Text = "Not recommend :(",
-                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            CreatedOn = new DateTime(2022, 12, 15, 14, 53, 33, 137, DateTimeKind.Local).AddTicks(2976),
-                            ProductId = 10,
-                            Text = "Not recommend :(",
-                            UserId = "727a36c2-e76e-4764-a9f6-9402f63c7872"
-                        });
                 });
 
             modelBuilder.Entity("TRBabyShop.Infrastructure.Data.Models.ShoppingCart", b =>

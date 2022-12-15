@@ -9,6 +9,10 @@
 
 <h2 class="text-center">@ViewBag.Title</h2>
 
+<a asp-area="Users" asp-controller="Home" asp-action="Index">
+    <button type="button" class="btn btn-secondary mb-4">Back to list</button>
+</a>
+
 <div class="text-center row mt-4">
     @foreach (var prod in Model)
     {
@@ -25,7 +29,7 @@
                             <h5 class="card-title mt-3">@prod.Name</h5>
                             <h5 class="mb-2">Price: @prod.Price</h5>
                             <a asp-area="Users" asp-controller="Review" asp-action="All" asp-route-productId="@prod.Id">
-                                <p class="mb-2"> <i class="bi bi-star-fill"> Reviews(@prod.Reviews.Count) </i></p>
+                                <p class="mb-2"> <i class="bi bi-star-fill"> Reviews(@prod.Reviews.Count()) </i></p>
                             </a>
                         </div>
                         <form class="input-group-sm" asp-area="Users" asp-controller="User" asp-action="AddToCollection" asp-route-productId="@prod.Id">

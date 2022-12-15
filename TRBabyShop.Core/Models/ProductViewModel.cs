@@ -34,6 +34,6 @@ namespace TRBabyShop.Core.Models
         public IEnumerable<Category> Categories { get; set; } = new List<Category>();
 
        
-        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+        public IEnumerable<Review> Reviews { get; set; } = new List<Review>();
     }
 }

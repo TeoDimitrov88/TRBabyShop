@@ -1,0 +1,60 @@
+﻿@using TRBabyShop.Core.Models
+@using static TRBabyShop.Infrastructure.Data.Common.Constants
+@model IEnumerable<ProductViewModel>;
+
+@{
+    ViewBag.Title = "Top Products";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+
+<a asp-area="Users" asp-controller="Home" asp-action="Index">
+    <button type="button" class="btn btn-secondary mb-4">Back to list</button>
+</a>
+
+<div class="text-center row mt-4">
+    @foreach (var prod in Model)
+    {
+        <div class="col-lg-3 col-lg-1">
+            <div class="row p-2">
+                <div class=" p-1">
+                    <div class="card border-primary " style="width: 20rem; border-radius: 5px; ">
+                        <a asp-area="Users" asp-controller="Product" asp-action="Details" asp-route-productId="@prod.Id" method="get">
+                            <img class="card-img-top" style="width: 18rem;"
+                             src="@prod.Image">
+                        </a>
+                        <div class="card-body">
+
+                            <h5 class="card-title mt-3">@prod.Name</h5>
+                            <h5 class="mb-2">Price: @prod.Price</h5>
+                            <a asp-area="Users" asp-controller="Review" asp-action="All" asp-route-productId="@prod.Id">
+                                <p class="mb-2"> <i class="bi bi-star-fill"> Reviews(@prod.Reviews.Count()) </i></p>
+                            </a>
+                        </div>
+                        <form class="input-group-sm" asp-area="Users" asp-controller="User" asp-action="AddToCollection" asp-route-productId="@prod.Id">
+                            <input type="submit" value="Add to Fav" class="fs-6 btn btn-secondary mb-3 p-2" />
+                        </form>
+                        @if (User.IsInRole(Status.RoleAdmin))
+                        {
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Update" asp-route-productId="@prod.Id">
+
+                                <input type="submit" value="Update Product" class="fs-6 btn btn-success mb-3 p-2" />
+                            </a>
+
+                            <form class="input-group-sm" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-productId="@prod.Id">
+                                <input type="submit" value="Delete Product" class="fs-6 btn btn-danger mb-2 p-1" onclick="myConfirm(event)"/>
+                            </form>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+}

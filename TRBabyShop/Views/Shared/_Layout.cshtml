@@ -46,10 +46,13 @@
                                 <a class="dropdown-item" asp-area="Users" asp-controller="Product" asp-action="All">
                                     <i class="bi bi-arrow-right-circle-fill"></i> &nbsp; All Products
                                 </a>
+                                 <a class="dropdown-item" asp-area="Users" asp-controller="Product" asp-action="TopReviewProducts">
+                                    <i class="bi bi-arrow-right-circle-fill"></i> &nbsp; Top Products
+                                </a>
                             </div>
                         </li>
-                       @* @if ((User.Identity!.IsAuthenticated && User.IsInRole(Status.RoleAdmin)))
-                        {*@
+                        @if (User.IsInRole(Status.RoleAdmin))
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Add">
                                     <i class="bi bi-plus-circle "></i>&nbsp; Add Product
@@ -62,7 +65,7 @@
                                     </a>
                                 </div>
                             </li>
-                      @*  }*@
+                        }
                          @if (User.Identity!.IsAuthenticated)
                         {
                         <li class="nav-item">

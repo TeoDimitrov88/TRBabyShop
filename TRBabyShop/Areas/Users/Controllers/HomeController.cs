@@ -24,8 +24,9 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var model = await productService.GetProductAsync();
-            return View();
+            var model = await productService.GetProductWithMostReviews();
+
+            return View(model);
         }
 
 

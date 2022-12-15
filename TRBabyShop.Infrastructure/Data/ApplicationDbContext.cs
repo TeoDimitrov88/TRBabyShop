@@ -27,14 +27,15 @@ namespace TRBabyShop.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new CategoryConfiguration());
-            builder.ApplyConfiguration(new UserConfiguration());
-            builder.ApplyConfiguration(new ProductConfiguration());
-            builder.ApplyConfiguration(new ReviewConfiguration());
-            builder.ApplyConfiguration(new RoleConfiguration());
-
             builder.Entity<UserProduct>()
                 .HasKey(u => new { u.UserId, u.ProductId });
+
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new RoleConfiguration());
+            builder.ApplyConfiguration(new UserRolesConfiguration());
+            builder.ApplyConfiguration(new ProductConfiguration());
+            builder.ApplyConfiguration(new CategoryConfiguration());
+
 
             base.OnModelCreating(builder);
         }

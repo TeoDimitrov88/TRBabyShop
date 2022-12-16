@@ -28,6 +28,11 @@ namespace TRBabyShop.Areas.Users.Controllers
             orderService = _orderService;
             dbContext = _dbContext;
         }
+
+        /// <summary>
+        /// Index page for shopping cart
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity!;
@@ -60,6 +65,10 @@ namespace TRBabyShop.Areas.Users.Controllers
             return View(cartVM);
         }
 
+        /// <summary>
+        /// Getting summary in shopping cart order
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Summary()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity!;
@@ -96,15 +105,20 @@ namespace TRBabyShop.Areas.Users.Controllers
             return View(cartVM);
         }
 
+        /// <summary>
+        /// Getting summary and payment with stripe 
+        /// </summary>
+        /// <returns></returns>
+
         [HttpPost]
         [ActionName("Summary")]
         [ValidateAntiForgeryToken]
         public IActionResult SummaryPost()
         {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claimsIdentity = (ClaimsIdentity)User.Identity!;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            var listCartAdd = dbContext.ShoppingCarts.Where(u => u.UserId == claim.Value)
+            var listCartAdd = dbContext.ShoppingCarts.Where(u => u.UserId == claim!.Value)
                 .Include(u=>u.Product)
                 .Select(x => new ShoppingCart()
                 {
@@ -125,7 +139,7 @@ namespace TRBabyShop.Areas.Users.Controllers
 
             cartVM.Order.OrderDate = DateTime.Now;
             cartVM.Order.UserId = claim.Value;
-            cartVM.Order.Name = claimsIdentity.Name;
+            cartVM.Order.Name = claimsIdentity.Name!;
             cartVM.Order.Email = cartVM.Order.User.Email;
             cartVM.Order.PaymentStatus = Status.PaymentStatusApproved;
             cartVM.Order.OrderStatus = Status.ApprovedStatus;
@@ -201,12 +215,18 @@ namespace TRBabyShop.Areas.Users.Controllers
 
         }
 
+        /// <summary>
+        /// Order confirmation method 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
         public IActionResult OrderConfirmation(int id)
         {
             Order order = dbContext.Orders.FirstOrDefault(u => u.Id == id);
 
             var service = new SessionService();
-            Session session = service.Get(order.SessionId);
+            Session session = service.Get(order!.SessionId);
 
             //checking the stripe status
             if (session.PaymentStatus.ToLower() == "paid")
@@ -220,19 +240,30 @@ namespace TRBabyShop.Areas.Users.Controllers
 
             return View(id);
         }
+
+        /// <summary>
+        /// Increase quantity of product in cart
+        /// </summary>
+        /// <param name="cartId"></param>
+        /// <returns></returns>
         public IActionResult Plus(int cartId)
         {
             var cart = dbContext.ShoppingCarts.FirstOrDefault(u => u.Id == cartId);
-            shoppingCartService.IncreaseCount(cart, 1);
+            shoppingCartService.IncreaseCount(cart!, 1);
             dbContext.ShoppingCarts.Update(cart);
             dbContext.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// decrease quantity in cart
+        /// </summary>
+        /// <param name="cartId"></param>
+        /// <returns></returns>
         public IActionResult Minus(int cartId)
         {
             var cart = dbContext.ShoppingCarts.FirstOrDefault(u => u.Id == cartId);
-            if (cart.Quantity <= 1)
+            if (cart!.Quantity <= 1)
             {
                 dbContext.ShoppingCarts.Remove(cart);
             }
@@ -246,10 +277,15 @@ namespace TRBabyShop.Areas.Users.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// Remove product from cart
+        /// </summary>
+        /// <param name="cartId"></param>
+        /// <returns></returns>
         public IActionResult Remove(int cartId)
         {
             var cart = dbContext.ShoppingCarts.FirstOrDefault(c => c.Id == cartId);
-            dbContext.ShoppingCarts.Remove(cart);
+            dbContext.ShoppingCarts.Remove(cart!);
             dbContext.SaveChanges();
             return RedirectToAction(nameof(Index));
         }

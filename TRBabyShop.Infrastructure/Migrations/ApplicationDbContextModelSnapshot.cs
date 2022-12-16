@@ -52,14 +52,14 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = "NU89ca4e53-4fbf-46de-93e3-ee20568d4833LL",
-                            ConcurrencyStamp = "8a08ec17-5c95-4a13-9372-4b65eb05f596",
+                            ConcurrencyStamp = "dfde98f5-cdf4-49a9-bfe6-0d11e61c2825",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "e46a2abc-d6e9-4333-a560-989dc89f5797",
-                            ConcurrencyStamp = "3c11d546-b3de-4339-90ec-a6d4e3685b82",
+                            ConcurrencyStamp = "c3cda750-3e20-4b98-9b90-7354a1e74cff",
                             Name = "customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -271,15 +271,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "04ba4719-a5ce-478d-b36d-169ffe19e118",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c4b424df-10ea-40dc-ad2d-f9f888c65092",
+                            ConcurrencyStamp = "862759fb-6b03-48fb-ad23-7ac2f9d147c2",
                             Email = "teo88@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEO88@ABV.BG",
                             NormalizedUserName = "TEODOR88",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDegVuqTC9FB3kvnarza1/1CIbOvnYI8Q5oGdJXVezY9QxhlQhbmCIhyHsPgtxvHtQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENkYrJxHOxyKG99As70xjVfDujFyOW0pJ44BKa+kuD2Yupc1PohvZVuAwTrII6VEaQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c3e56b6c-d10e-4e58-949d-87b283ec0a66",
+                            SecurityStamp = "b8fc6b0c-ff74-4ba7-84a0-afd0f1ef04e2",
                             TwoFactorEnabled = false,
                             UserName = "teodor88"
                         },
@@ -287,15 +287,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "d381c77f-aabf-46bd-80e3-cf9ee84a668b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "869cba6e-df31-4857-b4d3-9931b6ea67be",
+                            ConcurrencyStamp = "dfae957a-2d65-408f-a6bc-7899f4d07ff3",
                             Email = "ivan89@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "IVAN89@ABV.BG",
                             NormalizedUserName = "IVAN89",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHh2EvVuWKt1Xupn+kkoUIzCZF1Cu93gOI4StJdlzITCl+toyQKP0ZiUSllL/UW5GQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECyi92oQJnKWkKmFNbIVXeUKMaygVI11DAa5dIKiZoSUZbs+mWSbtYSgWWAqDN+Mnw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eca5b4b6-76f6-4cb5-a74b-6deb488ce6f1",
+                            SecurityStamp = "d10fb7ca-dd9a-4937-b3b0-1ec25512657d",
                             TwoFactorEnabled = false,
                             UserName = "ivan89"
                         },
@@ -303,15 +303,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "cd0f2b40-9353-405c-ae22-c1097419f287",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8cb0fbb6-e8cc-4630-814c-abe6c189300c",
+                            ConcurrencyStamp = "b7c89149-89c1-4190-b3a3-7d5d4b3202bf",
                             Email = "hristo80@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HRISTO80@ABV.BG",
                             NormalizedUserName = "HRISTO80",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAvR+8OIBfcu5ZKfykRiS16T0xackwet2naGDoNtSgd6xWgRMvy4TrOEkn8rLG3dFw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO+FL0F5NnL5TEs0F1s64k3fraDF7R2IaYzN0MOUNg/7rOqH2ojVkcGB0If1mNhptg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "536f38d6-9af4-4f54-b600-d15168dda991",
+                            SecurityStamp = "b5390009-2199-4718-adf2-c2314b07b4ce",
                             TwoFactorEnabled = false,
                             UserName = "hristo80"
                         },
@@ -319,15 +319,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "c225f1de-8898-473c-8b8d-484a5034beea",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "52db6c07-2eb9-4df7-b6b9-3a0687f35f98",
+                            ConcurrencyStamp = "b31d6c34-d845-4ac8-a487-57e23ec59799",
                             Email = "tina93@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TINA93@ABV.BG",
                             NormalizedUserName = "TINA93",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM3t2ZZUi84CUY0nZbBZ44XSLuPzYHTjnDzLZPtjpuaVEJ6L2MRuhRRkqcQYRMoSEA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBB82wxydwav+hu+xtE/JiwilGYKJqT/CwW2ZMLYOi0rZQ0hXGYK+cWZemky0PSRgg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d08be54c-9653-4542-ad0c-b4acbf7969f8",
+                            SecurityStamp = "b8393506-2037-4832-98e0-9730f15a9430",
                             TwoFactorEnabled = false,
                             UserName = "tina93"
                         },
@@ -335,15 +335,15 @@ namespace TRBabyShop.Infrastructure.Migrations
                         {
                             Id = "1163da51-2369-4b12-aef5-86c360e358de",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b95449a3-c60a-4bba-af6c-5513535663ad",
+                            ConcurrencyStamp = "be6a1fb7-e4c7-40df-b85d-c1f9abc7977e",
                             Email = "admin@abv.bg",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ABV.BG",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJx9mr31/9BCIjEdx+uyEQFWbDnLIGSLxPX9sNMCQZ+5D67hZYmskZNjzt8KQbZhag==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIrNsJwGRB7ymXQSarkzBP5kUj0ejkUxJj+aO9gUmhOq2nBzwXBUfho2Qzly1tcx2A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2827a33a-2d95-47a3-9fac-1d3555163633",
+                            SecurityStamp = "b1944206-9164-4ce0-94f0-d0def42ed225",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -357,6 +357,10 @@ namespace TRBabyShop.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -369,36 +373,43 @@ namespace TRBabyShop.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
+                            Image = "https://media.istockphoto.com/id/509348476/vector/cute-little-baby-reading-book.jpg?s=612x612&w=0&k=20&c=a3vUKKQBlBzc7HDz3fikel_RAPQ3EIzZIbyS2_7xG28=",
                             Name = "Books"
                         },
                         new
                         {
                             Id = 2,
+                            Image = "https://www.chiccousa.com/on/demandware.static/-/Sites-Chicco-Library/default/dw8c761443/images/baby-talk/keyfit-30.jpg",
                             Name = "Car seats"
                         },
                         new
                         {
                             Id = 3,
+                            Image = "https://metafields-manager-by-hulkapps.s3-accelerate.amazonaws.com/uploads/yookidoo-shop.myshopify.com/1634474533-Bath_Toys_375X375.jpg",
                             Name = "Bath toys"
                         },
                         new
                         {
                             Id = 4,
+                            Image = "https://kdvr.com/wp-content/uploads/sites/11/2022/08/1040x585-2021-0916-best-baby-bottle-sterilizers-065dfd.jpg",
                             Name = "Bottle sterilizer"
                         },
                         new
                         {
                             Id = 5,
+                            Image = "https://i.pcmag.com/imagery/reviews/01szgG5mr7x5xqFnO8xvyQo-1..v1629209217.jpg",
                             Name = "Baby cameras"
                         },
                         new
                         {
                             Id = 6,
+                            Image = "https://www.silentnight.co.uk/pub/media/catalog/product/b/a/baby-sleep-bag-1.jpg",
                             Name = "Sleep bag"
                         },
                         new
                         {
                             Id = 7,
+                            Image = "https://media.istockphoto.com/id/1306729572/vector/cute-baby-boy-sitting-on-floor-and-reaching-out-to-a-huge-bottle-of-milk.jpg?s=612x612&w=is&k=20&c=KN4ox3aQonjNxZJAeqT9IoPvWyPh6aep1VyfN0sUE0c=",
                             Name = "Bottle feeding"
                         });
                 });

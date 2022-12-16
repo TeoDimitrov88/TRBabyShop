@@ -127,6 +127,10 @@ namespace TRBabyShop.Areas.Users.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// Getting favorite products for user
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> MyFavoriteProducts()
         {
             if (User.IsInRole(Status.RoleAdmin))
@@ -147,6 +151,12 @@ namespace TRBabyShop.Areas.Users.Controllers
             }
         }
 
+
+        /// <summary>
+        /// Add product to User favorites collection
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         public async Task<IActionResult> AddToCollection(int productId)
         {
             try
@@ -162,6 +172,12 @@ namespace TRBabyShop.Areas.Users.Controllers
 
             return RedirectToAction(nameof(MyFavoriteProducts));
         }
+
+        /// <summary>
+        /// remove product from User favorite collection
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         public async Task<IActionResult> RemoveFromCollection(int productId)
         {
             try

@@ -95,7 +95,9 @@
     }
 }
 
-body {
+        body
+
+{
     margin: 0;
     font-family: var(--bs-body-font-family);
     font-size: var(--bs-body-font-size);
@@ -104,7 +106,10 @@ body {
     color: var(--bs-body-color);
     text-align: var(--bs-body-text-align);
     background-image: url("https://thumbs.dreamstime.com/z/baby-shop-banner-template-kids-store-badge-newborn-symbols-seamless-pattern-vector-illustration-web-design-153996974.jpg");
-   /* background-color: var(--bs-body-bg);*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-color: darkgrey;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

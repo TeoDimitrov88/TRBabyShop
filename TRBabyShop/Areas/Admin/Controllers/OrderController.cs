@@ -30,6 +30,12 @@ namespace TRBabyShop.Areas.Admin.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Getting all orders method
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> All(string status)
@@ -71,6 +77,11 @@ namespace TRBabyShop.Areas.Admin.Controllers
             return View(orderList);
         }
 
+        /// <summary>
+        /// Getting details for every order
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
         public IActionResult Details(int orderId)
         {
 
@@ -86,6 +97,11 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
             return View(OrderVM);
         }
+
+        /// <summary>
+        /// Updating order details 
+        /// </summary>
+        /// <returns></returns>
 
         [HttpPost]
         [Authorize(Roles = Status.RoleAdmin)]
@@ -107,6 +123,11 @@ namespace TRBabyShop.Areas.Admin.Controllers
             return RedirectToAction("Details", "Order", new { orderId = orderFromDb.Id });
         }
 
+        /// <summary>
+        /// Start processing the order if payment is confirmed
+        /// </summary>
+        /// <returns></returns>
+
         [HttpPost]
         [Authorize(Roles = Status.RoleAdmin)]
         [ValidateAntiForgeryToken]
@@ -123,10 +144,14 @@ namespace TRBabyShop.Areas.Admin.Controllers
             return RedirectToAction("Details", "Order", new { orderId = OrderVM.Order.Id });
         }
 
+        /// <summary>
+        /// Shipping order method
+        /// </summary>
+        /// <returns></returns>
+
         [HttpPost]
         [Authorize(Roles = Status.RoleAdmin)]
         [ValidateAntiForgeryToken]
-
         public IActionResult ShipOrder()
         {
             var orderFromDb = dbcontext.Orders.FirstOrDefault(u => u.Id == OrderVM.Order.Id);
@@ -139,6 +164,11 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
             return RedirectToAction("Details", "Order", new { orderId = OrderVM.Order.Id });
         }        
+
+        /// <summary>
+        /// cancel order method
+        /// </summary>
+        /// <returns></returns>
 
         [HttpPost]
         [Authorize(Roles = Status.RoleAdmin)]

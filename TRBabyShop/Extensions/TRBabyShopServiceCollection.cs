@@ -7,6 +7,12 @@ namespace TRBabyShop.Extensions
 {
     public static class TRBabyShopServiceCollection
     {
+
+        /// <summary>
+        /// Collecting all Services
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<ICategoryService, CategoryService>();

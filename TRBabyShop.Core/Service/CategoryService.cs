@@ -25,7 +25,8 @@ namespace TRBabyShop.Core.Service
                 .Select(c => new CategoryViewModel()
                 {
                     Id = c.Id,
-                    Name = c.Name
+                    Name = c.Name,
+                    Image=c.Image
 
                 });
         }
@@ -35,7 +36,7 @@ namespace TRBabyShop.Core.Service
             var newCategory = new Category()
             {
                 Name = model.Name,
-               
+               Image = model.Image,
             };
 
             await dbContext.Categories.AddAsync(newCategory);

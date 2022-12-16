@@ -22,43 +22,25 @@
         <div class="col-lg-3 col-lg-1">
             <div class="row p-2">
                 <div class=" p-1">
-                    <div class="card border-primary " style="width: 20rem; border-radius: 5px; ">
-
-                        <div class="card-body">
-                            <h5 class="card-title mt-3">@cat.Name</h5>
+                    <div class="card" style="width: 18rem;">
+                        <div class="ratio ratio-1x1">
+                            <img class="card-img-top" src="@cat.Image" alt="Card image cap">
                         </div>
-
-                        <form class="input-group-sm" asp-area="Users" asp-controller="Product" asp-action="ProductsByCategory" asp-route-categoryId="@cat.Id">
-                            <input type="submit" value="Products" class="fs-6 btn btn-info mb-2 p-1" />
-                        </form>
-                        @if (User.IsInRole(Status.RoleAdmin))
-                        {
-                            <form class="input-group-sm" asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-categoryId="@cat.Id">
-                                <input type="submit" value=" Delete " class="fs-6 btn btn-danger mb-2 p-1" />
-                            </form>
-                        }
-
+                        <div class="card-body">
+                            <h5 class="card-title">@cat.Name</h5>
+                            <a  class="btn btn-primary mb-4" asp-area="Users" asp-controller="Product" asp-action="ProductsByCategory" asp-route-categoryId="@cat.Id"> Products </a>
+                            @if (User.IsInRole(Status.RoleAdmin))
+                            {
+                                <form class="input-group-sm" asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-categoryId="@cat.Id">
+                                    <input type="submit" value=" Delete " class="fs-6 btn btn-danger mb-2 p-1" />
+                                </form>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+       
     }
 
 </div>
-
-
-@*<div class="text-center row">
-    @foreach (var cat in Model)
-    {
-        <div class="card col-2" style="width: 20rem; ">
-              <div class="card-body">
-
-                <h5 class="card-title mt-1">@cat.Name</h5>
-            </div>
-
-            <form class="input-group-sm" asp-area="Users" asp-controller="Product" asp-action="ProductsByCategory" asp-route-categoryId="@cat.Id">
-                <input type="submit" value="Products" class="fs-6 btn btn-success mb-3 p-2" />
-            </form>
-        </div>
-    }
-</div>*@

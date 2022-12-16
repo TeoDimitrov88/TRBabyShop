@@ -16,6 +16,11 @@ namespace TRBabyShop.Areas.Admin.Controllers
         {
             cateService = _cateService;
         }
+
+        /// <summary>
+        /// Adding category method
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Add()
         {
@@ -46,6 +51,12 @@ namespace TRBabyShop.Areas.Admin.Controllers
                 return View(model);
             }
         }
+
+        /// <summary>
+        /// Deleting category method
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <returns></returns>
 
         [HttpPost]
         public async Task<IActionResult> Delete(int categoryId)

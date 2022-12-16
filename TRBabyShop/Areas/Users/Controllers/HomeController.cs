@@ -22,12 +22,7 @@ namespace TRBabyShop.Areas.Admin.Controllers
           
         }
 
-        public async Task<IActionResult> Index()
-        {
-            var model = await productService.GetProductWithMostReviews();
-
-            return View(model);
-        }
+    
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -24,6 +24,11 @@ namespace TRBabyShop.Areas.Admin.Controllers
             repo = _repo;
         }
        
+        /// <summary>
+        /// Adding product method
+        /// </summary>
+        /// <returns></returns>
+
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -60,6 +65,12 @@ namespace TRBabyShop.Areas.Admin.Controllers
             }
 
         }
+
+        /// <summary>
+        /// Deleting product mehtod
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Delete(int productId)
         {
@@ -68,6 +79,12 @@ namespace TRBabyShop.Areas.Admin.Controllers
             return RedirectToAction("All", "Product", new { area = "Users" });
         }
 
+
+        /// <summary>
+        /// Updating product method
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Update(int productId)
         {

@@ -10,7 +10,7 @@ namespace TRBabyShop.Infrastructure.Data.Common
     {
         public const int MaxUsernameLength = 30;
 
-        public const int MinUsernameLength = 6;
+        public const int MinUsernameLength = 5;
 
         public const int MaxPasswordLength = 30;
         public const int MinPasswordLength = 5;

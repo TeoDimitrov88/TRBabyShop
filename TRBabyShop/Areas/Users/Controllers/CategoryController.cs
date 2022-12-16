@@ -17,6 +17,11 @@ namespace TRBabyShop.Areas.Users.Controllers
         {
             categoryService = _categoryService;
         }
+
+        /// <summary>
+        /// Getting all categories method
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         public async Task<IActionResult> All()
         {

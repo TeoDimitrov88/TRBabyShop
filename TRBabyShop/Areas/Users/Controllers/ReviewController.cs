@@ -22,6 +22,12 @@ namespace TRBabyShop.Areas.Users.Controllers
             repo = _repo;
         }
 
+        /// <summary>
+        /// Getting all reviews for product with this Id
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
+
         [AllowAnonymous]
         public async Task<IActionResult> All(int productId)
         {
@@ -30,6 +36,12 @@ namespace TRBabyShop.Areas.Users.Controllers
             return View(model);
         }
 
+
+        /// <summary>
+        /// Adding reviews for product with this Id
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         
         [HttpGet]
         public IActionResult Add(int productId)

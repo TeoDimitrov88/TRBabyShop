@@ -24,6 +24,11 @@ namespace TRBabyShop.Areas.Users.Controllers
             shoppingCartService = _shoppingCartService;
         }
 
+        /// <summary>
+        /// getting all products method
+        /// </summary>
+        /// <returns></returns>
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> All()
@@ -32,6 +37,12 @@ namespace TRBabyShop.Areas.Users.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Getting products separates by category
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <returns></returns>
+
         [AllowAnonymous]
         public async Task<IActionResult> ProductsByCategory(int categoryId)
         {
@@ -39,6 +50,11 @@ namespace TRBabyShop.Areas.Users.Controllers
 
             return View(model);
         }
+
+        /// <summary>
+        /// Getting Products with most reviews
+        /// </summary>
+        /// <returns></returns>
 
         [AllowAnonymous]
         public async Task<IActionResult> TopReviewProducts()
@@ -49,12 +65,24 @@ namespace TRBabyShop.Areas.Users.Controllers
         }
 
 
+        /// <summary>
+        /// Getting products by their Id
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
+
         [AllowAnonymous]
         public async Task<IActionResult> GetById(int productId)
         {
             var model = await productService.GetProductById(productId);
             return View(model);
         }
+
+        /// <summary>
+        /// Getting details by products in shopping cart
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <returns></returns>
 
         [AllowAnonymous]
         public IActionResult Details(int productId)

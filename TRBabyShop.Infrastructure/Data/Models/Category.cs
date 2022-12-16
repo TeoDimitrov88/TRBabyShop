@@ -16,6 +16,9 @@ namespace TRBabyShop.Infrastructure.Data.Models
         public string Name { get; set; } = null!;
 
         [Required]
+        public string Image { get; set; } = null!;
+
+        [Required]
         public IEnumerable<Product> Products { get; set; } =new List<Product>();
     }
 }

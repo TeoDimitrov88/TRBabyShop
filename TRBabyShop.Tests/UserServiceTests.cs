@@ -22,7 +22,7 @@ namespace TRBabyShop.Tests
             Price = 10,
             Image = "image.jpg",
             CategoryId = 1,
-            Category = new Category() { Id = 1, Name = "Category" }
+            Category = new Category() { Id = 1, Name = "Category" , Image = "image1.jpg" }
         };
         AppUser user = new AppUser()
         {

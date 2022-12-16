@@ -41,7 +41,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
             try
             {
                 await cateService.AddCategoryAsync(model);
-
                 return RedirectToAction("All", "Category", new { area = "Users" });
             }
             catch (Exception)
@@ -62,7 +61,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
         public async Task<IActionResult> Delete(int categoryId)
         {
             await cateService.DeleteCategory(categoryId);
-
             return RedirectToAction("All", "Category", new { area = "Users" });
         }
     }

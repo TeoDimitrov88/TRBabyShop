@@ -12,12 +12,14 @@ namespace TRBabyShop.Tests
         Category category = new Category()
         {
             Id = 5,
-            Name="Something"
+            Name="Something",
+            Image="image.jpg"
         };
         Category category2 = new Category()
         {
             Id=6,
-            Name="New Category" 
+            Name="New Category",
+            Image = "image.jpg"
         };
 
         [Fact]
@@ -31,7 +33,8 @@ namespace TRBabyShop.Tests
 
             CategoryViewModel newCategory = new CategoryViewModel()
             {
-                Name="Bottles"
+                Name="Bottles",
+                Image = "image.jpg"
             };
 
             await categoryService.AddCategoryAsync(newCategory);
@@ -39,6 +42,7 @@ namespace TRBabyShop.Tests
             var result= dbContext.Categories.Where(c=>c.Name==newCategory.Name).FirstOrDefault();
 
             Assert.Equal("Bottles", result.Name);
+            Assert.Equal("image.jpg", result.Image);
         }
 
         [Fact]

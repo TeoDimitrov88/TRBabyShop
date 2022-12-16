@@ -52,7 +52,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
             try
             {
                 await prodService.AddProductAsync(model);
-
                 return RedirectToAction("All", "Product", new { area = "Users" });
             }
             catch (Exception ex)
@@ -75,7 +74,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
         public async Task<IActionResult> Delete(int productId)
         {
             await prodService.DeleteProduct(productId);
-
             return RedirectToAction("All", "Product", new { area = "Users" });
         }
 
@@ -121,7 +119,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
             try
             {
                 await prodService.UpdateProductAsync(model.Id, model);
-
                 return RedirectToAction("All", "Product", new { area = "Users" });
             }
             catch (Exception ex)

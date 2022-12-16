@@ -119,7 +119,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
             dbcontext.Orders.Update(orderFromDb);
             dbcontext.SaveChanges();
-
             return RedirectToAction("Details", "Order", new { orderId = orderFromDb.Id });
         }
 
@@ -140,7 +139,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
             dbcontext.Update(orderFromDb);
             dbcontext.SaveChanges();
-
             return RedirectToAction("Details", "Order", new { orderId = OrderVM.Order.Id });
         }
 
@@ -161,7 +159,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
 
             orderService.Update(orderFromDb);
             dbcontext.SaveChanges();
-
             return RedirectToAction("Details", "Order", new { orderId = OrderVM.Order.Id });
         }        
 
@@ -184,7 +181,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
             orderService.Update(orderFromDb);
 
             dbcontext.SaveChanges();
-
 
             return RedirectToAction("Details", "Order", new { orderId = OrderVM.Order.Id });
         }

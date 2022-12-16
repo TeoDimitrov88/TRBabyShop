@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jPdShQY1bOa2hKQy6i7dK9SqwYVmShvukjKCNcmTBhXjwIC3PRG33DzK5SCAE7HiZg61RNK/2CdscQQ7bHJsrQ==",
+  "dgSpecHash": "JQv2RiJoEwyxy/6XfWm7+sumHCHByDO8/JqALA3HJvgSYscUptv/8sL0p6Wh8HpHnVGVxVDPnG7OUbLZW2xUEA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\TRBabyShop\\TRBabyShop.Infrastructure\\TRBabyShop.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\GitHub\\TRBabyShop\\TRBabyShop.Infrastructure\\TRBabyShop.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

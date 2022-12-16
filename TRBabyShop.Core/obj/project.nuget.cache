@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "esfzOD8/k2aXXBc4MY1ldd+gIZCr1bBlxEqU8p/iP8VlQ7oqcex/XBkPqDjq8gw49pEWVlTX3Z/IfyXAWMKKew==",
+  "dgSpecHash": "vdiQ4Q/ON/lTgtPFHxUHihzgWAqID4dtwlN6T0SQk4m9uBiTOybtsM6LiY7eEMQ9l13NZteenkhz1R3DNNlntw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\TRBabyShop\\TRBabyShop.Core\\TRBabyShop.Core.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\GitHub\\TRBabyShop\\TRBabyShop.Core\\TRBabyShop.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\anglesharp\\0.17.1\\anglesharp.0.17.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\anglesharp.css\\0.16.4\\anglesharp.css.0.16.4.nupkg.sha512",

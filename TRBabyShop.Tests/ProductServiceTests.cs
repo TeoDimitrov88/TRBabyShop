@@ -30,6 +30,7 @@ namespace TRBabyShop.Tests
             Price = 10,
             Image = "image.jpg",
             CategoryId = 2,
+           
         };
 
         [Fact]
@@ -159,7 +160,7 @@ namespace TRBabyShop.Tests
             };
 
 
-            Assert.ThrowsAsync<NullReferenceException>(() => productService.UpdateProductAsync(5684, model));
+           await Assert.ThrowsAsync<ArgumentException>(() => productService.UpdateProductAsync(5684, model));
         }
 
         [Fact]
@@ -268,10 +269,12 @@ namespace TRBabyShop.Tests
             Category newCategory = new Category()
             {
                 Name = "Bottle",
+                Image = "image.jpg"
             };
             Category newCategory2 = new Category()
             {
                 Name = "Clothes",
+                Image = "image.jpg"
             };
 
             dbContext.Categories.Add(newCategory);

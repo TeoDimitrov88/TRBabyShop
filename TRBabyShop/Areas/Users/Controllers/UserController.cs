@@ -66,7 +66,6 @@ namespace TRBabyShop.Areas.Users.Controllers
             if (result.Succeeded)
             {
                 await this.userManager.AddToRoleAsync(newUser, "customer");
-
                 return RedirectToAction("Login", "User");
             }
 
@@ -162,7 +161,9 @@ namespace TRBabyShop.Areas.Users.Controllers
             try
             {
                 var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-                await userservice.AddProductToUserCollectionAsync(productId, userId);
+                await userservice.AddProductToUserCollectionAsync(productId, userId!);
+
+                return RedirectToAction(nameof(MyFavoriteProducts));
             }
             catch (Exception e)
             {
@@ -170,7 +171,6 @@ namespace TRBabyShop.Areas.Users.Controllers
                 return View("Error", error);
             }
 
-            return RedirectToAction(nameof(MyFavoriteProducts));
         }
 
         /// <summary>
@@ -183,8 +183,7 @@ namespace TRBabyShop.Areas.Users.Controllers
             try
             {
                 var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-                await userservice.RemoveProductFromFavoriteAsync(productId, userId);
-                
+                await userservice.RemoveProductFromFavoriteAsync(productId, userId!);
                 return RedirectToAction(nameof(MyFavoriteProducts));
             }
             catch (Exception ex)

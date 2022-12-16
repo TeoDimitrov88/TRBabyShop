@@ -45,7 +45,7 @@
 <div class="p-3">
     <div class="d-flex justify-content-between pt-4">
         <div class="p-2">
-            <h2 class="text-primary">Order List</h2>
+            <h2 class="text-dark">Order List</h2>
         </div>
         <div class="p-2">
 
@@ -76,31 +76,31 @@
 
     <table class="table table-bordered table-active">
         <thead>
-            <tr class="table-info">
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">City</th>
-                <th scope="col">Total Price</th>
-                <th scope="col">Status</th>
-                <th scope="col">Info</th>
+            <tr class="table-primary">
+                <th scope="col" class="text-dark">ID</th>
+                <th scope="col" class="text-dark">Name</th>
+                <th scope="col" class="text-dark">Email</th>
+                <th scope="col" class="text-dark">City</th>
+                <th scope="col" class="text-dark">Total Price</th>
+                <th scope="col" class="text-dark">Status</th>
+                <th scope="col" class="text-dark">Info</th>
             </tr>
 
         </thead>
         @foreach (var order in Model)
         {
             <tbody>
-                <tr>
+                <tr class="table-primary">
 
-                    <td>@order.Id</td>
-                    <td>@order.Name</td>
-                    <td>@order.Email</td>
-                    <td>@order.City</td>
-                    <td>@order.OrderTotal</td>
-                    <td>@order.OrderStatus</td>
+                    <td class="text-dark">@order.Id</td>
+                    <td class="text-dark">@order.Name</td>
+                    <td class="text-dark">@order.Email</td>
+                    <td class="text-dark">@order.City</td>
+                    <td class="text-dark">@order.OrderTotal</td>
+                    <td class="text-dark">@order.OrderStatus</td>
                     <td>
                         <a asp-area="Admin" asp-controller="Order" asp-action="Details" asp-route-orderId="@order.Id">
-                            <button type="button" class="btn btn-info">Details</button>
+                            <button type="button" class="btn btn-warning text-dark">Details</button>
                         </a>
                     </td>
                 </tr>

@@ -8,129 +8,133 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TRBabyShop
 build_property.RootNamespace = TRBabyShop
-build_property.ProjectDir = C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop\
+build_property.ProjectDir = C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop
+build_property.MSBuildProjectDirectory = C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Admin/Views/Category/Add.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Admin/Views/Category/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Admin/Views/Order/All.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Admin/Views/Order/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcQWxsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Admin/Views/Order/Details.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Admin/Views/Order/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Admin/Views/Product/Add.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Admin/Views/Product/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Admin/Views/Product/Update.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Admin/Views/Product/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/Category/All.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/Category/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcQ2F0ZWdvcnlcQWxsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/Home/Index.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/All.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUHJvZHVjdFxBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/Details.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/GetById.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/GetById.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUHJvZHVjdFxHZXRCeUlkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/ProductsByCategory.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/ProductsByCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUHJvZHVjdFxQcm9kdWN0c0J5Q2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/TopReviewProducts.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/Product/TopReviewProducts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUHJvZHVjdFxUb3BSZXZpZXdQcm9kdWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/Review/Add.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/Review/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUmV2aWV3XEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/Review/All.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/Review/All.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcUmV2aWV3XEFsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/ShoppingCart/Index.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/ShoppingCart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcU2hvcHBpbmdDYXJ0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/ShoppingCart/OrderConfirmation.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/ShoppingCart/OrderConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcU2hvcHBpbmdDYXJ0XE9yZGVyQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/ShoppingCart/Summary.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/ShoppingCart/Summary.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcU2hvcHBpbmdDYXJ0XFN1bW1hcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/User/favorite.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/User/favorite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcVXNlclxmYXZvcml0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/User/Login.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/User/Register.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/_ViewImports.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Areas/Users/Views/_ViewStart.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Areas/Users/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlcnNcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Views/Shared/Error.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Views/Shared/_Notifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Views/_ViewImports.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Views/_ViewStart.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/source/repos/TRBabyShop/TRBabyShop/Views/Shared/_Layout.cshtml]
+[C:/Users/Lenovo/Documents/GitHub/TRBabyShop/TRBabyShop/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-i9dsuf9w32

@@ -12,3 +12,17 @@ C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6
 C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.pdb
 C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.genruntimeconfig.cache
 C:\Users\Lenovo\source\repos\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\ref\TRBabyShop.Infrastructure.dll
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\bin\Debug\net6.0\TRBabyShop.Infrastructure.deps.json
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\bin\Debug\net6.0\TRBabyShop.Infrastructure.runtimeconfig.json
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\bin\Debug\net6.0\TRBabyShop.Infrastructure.dll
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\bin\Debug\net6.0\TRBabyShop.Infrastructure.pdb
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.AssemblyInfo.cs
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.dll
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\refint\TRBabyShop.Infrastructure.dll
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.pdb
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\TRBabyShop.Infrastructure.genruntimeconfig.cache
+C:\Users\Lenovo\Documents\GitHub\TRBabyShop\TRBabyShop.Infrastructure\obj\Debug\net6.0\ref\TRBabyShop.Infrastructure.dll

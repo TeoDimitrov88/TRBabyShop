@@ -5419,11 +5419,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\source\\repos\\TRBabyShop\\TRBabyShop.Infrastructure\\TRBabyShop.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\GitHub\\TRBabyShop\\TRBabyShop.Infrastructure\\TRBabyShop.Infrastructure.csproj",
       "projectName": "TRBabyShop.Infrastructure",
-      "projectPath": "C:\\Users\\Lenovo\\source\\repos\\TRBabyShop\\TRBabyShop.Infrastructure\\TRBabyShop.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\TRBabyShop\\TRBabyShop.Infrastructure\\TRBabyShop.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\source\\repos\\TRBabyShop\\TRBabyShop.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Lenovo\\Documents\\GitHub\\TRBabyShop\\TRBabyShop.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,13 +1,13 @@
 ﻿@using TRBabyShop.Core.Models
+@using static TRBabyShop.Infrastructure.Data.Common.Constants
 @model IEnumerable<ProductQueryModel>;
 
 @{
     ViewBag.Title = "My Favorites";
 }
+<hr />
+<h1 class="text-center">@ViewBag.Title</h1>
 
-<hr />
-<h2 class="text-center">@ViewBag.Title</h2>
-<hr />
 
 <a asp-area="Users" asp-controller="Product" asp-action="All">
     <button type="button" class="btn btn-secondary mb-4">Back to list</button>
@@ -21,7 +21,7 @@
                 <div class="row p-2">
                     <div class=" p-1">
                         <div class="card border-primary  mb-4 " style="width: 20rem; border-radius: 5px;">
-                            <a asp-area="Users" asp-controller="Product" asp-action="GetById" asp-route-productId="@prod.Id" method="get">
+                            <a asp-area="Users" asp-controller="Product" asp-action="Details" asp-route-productId="@prod.Id" method="get">
                                 <img class="card-img-top" style="width: 18rem;"
                              src="@prod.Image">
                             </a>
@@ -38,7 +38,9 @@
                             <form class="input-group-sm" asp-area="Users" asp-controller="User" asp-action="RemoveFromCollection" asp-route-productId="@prod.Id">
                                 <input type="submit" value="Remove from Fav" class="fs-6 btn btn-danger mb-3 p-2" />
                             </form>
-
+                            @if (User.IsInRole(Status.RoleAdmin))
+                            {
+                                
                             <form class="input-group-sm" asp-area="Admin" asp-controller="Product" asp-action="Update"
                           asp-route-productId="@prod.Id">
                                 <input type="submit" value="Update Product" class="fs-6 btn btn-success mb-3 p-2" />
@@ -46,6 +48,7 @@
                             <form class="nav-link" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-productId="@prod.Id">
                                 <input type="button" value="Delete Product" class="fs-6 btn btn-danger mb-2 p-1" />
                             </form>
+                            }
                         </div>
                     </div>
                 </div>
@@ -57,6 +60,6 @@
 
 else
 {
-    <h3 class="text-center">You have no favorites product yet!</h3>
+    <h1 class="text-center">You have no favorites product yet!</h1>
 }
 

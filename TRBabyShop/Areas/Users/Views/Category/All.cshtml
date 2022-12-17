@@ -7,7 +7,7 @@
 @{
     ViewBag.Title = "Categories";
 }
-
+<hr />
 
 <h2 class="text-center">@ViewBag.Title</h2>
 
@@ -27,7 +27,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">@cat.Name</h5>
-                            <a  class="btn btn-primary mb-4" asp-area="Users" asp-controller="Product" asp-action="ProductsByCategory" asp-route-categoryId="@cat.Id"> Products </a>
+                            <a  class="btn btn-warning text-dark mb-4" asp-area="Users" asp-controller="Product" asp-action="ProductsByCategory" asp-route-categoryId="@cat.Id"> Products </a>
                             @if (User.IsInRole(Status.RoleAdmin))
                             {
                                 <form class="input-group-sm" asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-categoryId="@cat.Id">

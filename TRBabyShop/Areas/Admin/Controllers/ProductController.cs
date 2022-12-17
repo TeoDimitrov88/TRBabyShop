@@ -108,7 +108,6 @@ namespace TRBabyShop.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int productId, UpdateProductVM model)
         {
             if (!ModelState.IsValid)

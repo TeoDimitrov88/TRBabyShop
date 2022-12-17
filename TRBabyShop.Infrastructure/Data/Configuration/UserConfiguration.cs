@@ -30,7 +30,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                 NormalizedUserName = "TEODOR88",
                 Email = "teo88@abv.bg",
                 NormalizedEmail = "TEO88@ABV.BG",
-                PasswordHash = hasher.HashPassword(null, "Teo12!")
+                PasswordHash = hasher.HashPassword(null!, "Teo12!")
 
             };
 
@@ -43,7 +43,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                 NormalizedUserName = "IVAN89",
                 Email = "ivan89@abv.bg",
                 NormalizedEmail = "IVAN89@ABV.BG",
-                PasswordHash = hasher.HashPassword(null, "Teo12!")
+                PasswordHash = hasher.HashPassword(null!, "Teo12!")
             };
 
             users.Add(user2);
@@ -55,7 +55,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                 NormalizedUserName = "HRISTO80",
                 Email = "hristo80@abv.bg",
                 NormalizedEmail = "HRISTO80@ABV.BG",
-                PasswordHash = hasher.HashPassword(null, "Teo12!")
+                PasswordHash = hasher.HashPassword(null!, "Teo12!")
             };
 
             users.Add(user3);
@@ -67,7 +67,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                 NormalizedUserName = "TINA93",
                 Email = "tina93@abv.bg",
                 NormalizedEmail = "TINA93@ABV.BG",
-                PasswordHash = hasher.HashPassword(null, "Teo12!")
+                PasswordHash = hasher.HashPassword(null!, "Teo12!")
             };
 
             users.Add(user4);
@@ -79,7 +79,7 @@ namespace TRBabyShop.Infrastructure.Data.Configuration
                 NormalizedUserName = "ADMIN",
                 Email = "admin@abv.bg",
                 NormalizedEmail = "ADMIN@ABV.BG",
-                PasswordHash = hasher.HashPassword(null, "Admin12!")
+                PasswordHash = hasher.HashPassword(null!, "Admin12!")
             };
 
             users.Add(user5);

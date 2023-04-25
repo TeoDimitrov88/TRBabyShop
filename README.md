@@ -3,10 +3,12 @@
 <h2> 📝 Description about the project 
 
 <h3> This is a website where you can buy products for your baby.
-⌨️ Every user have to register to website ,if they want to buy product form it.
+There is two roles in website ADMIN and USER.
+⌨️ Every user have to register to website ,if they want to buy product from it.
 ♥️ Users can add favorite product to their collection.
 🛒Users also can add products to their shopping cart.
 When users finished their order ,they can follow the order status .
+If your role is ADMIN you can arrange orders ,add new products ,change products ,add categories ,change categories .
 <h3/>
 <h2/>
 
@@ -20,6 +22,7 @@ When users finished their order ,they can follow the order status .
 <p> 💣 JavaScript<p/>
 <p> <p/>
 <h3/>
+<h1> Registered Users 
 <h1> 📸 Images
 
 <h1/>

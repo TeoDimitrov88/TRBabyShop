@@ -22,7 +22,15 @@ If your role is ADMIN you can arrange orders ,add new products ,change products 
 <p> 💣 JavaScript<p/>
 <p> <p/>
 <h3/>
-<h1> Registered Users 
+<h1> 🧑‍💼 Registered Users 
+  
+  
+ | Role  | Username | Password |
+ | ----- | -------- | -------- |
+ | User  | teodor88 | Teo12!   |
+ | Admin | admin    | Admin12! |
+ | User  | tina93   | Teo12!   |
+
 <h1> 📸 Images
 
 <h1/>
